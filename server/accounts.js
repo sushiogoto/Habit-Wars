@@ -27,5 +27,15 @@ Accounts.onCreateUser(function (options, user) {
 
   user.profile = profile;
 
+  Characters.insert({
+    userId: user._id,
+    name: "Megaman",
+    avatar_url: "http://www.gearfuse.com/wp-content/uploads/2010/06/retro-gaming-3d-3.gif",
+    health: 100,
+    strength: 10,
+    intelligence: 10,
+    dexterity: 10
+  });
+
   return user;
 });
