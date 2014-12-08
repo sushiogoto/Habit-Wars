@@ -6,4 +6,4 @@ Template.gitEvents.events({
   }
 });
 
-console.log("TEST")
+console.log("TEST AGAIN")
