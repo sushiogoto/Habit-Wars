@@ -12,4 +12,7 @@ iron:router
 ian:accounts-ui-bootstrap-3
 accounts-github
 service-configuration
+accounts-facebook
+splendido:accounts-meld
+accounts-password
 

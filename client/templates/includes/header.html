@@ -11,7 +11,10 @@
         <a href="{{pathFor 'home'}}" class="navbar-brand">Habit Wars</a>
       </div>
       <div class="nav navbar-nav navbar-right" id="navigation">
-        {{> user_info}}
+        <ul>
+          <li>{{> user_info}}</li>
+          <li>{{> loginButtons}}</li>
+        </ul>
       </div>
     </div>
   </nav>
