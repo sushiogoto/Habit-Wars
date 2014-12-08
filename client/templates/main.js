@@ -5,6 +5,11 @@ if (Meteor.isClient) {
     },
     'click .link-facebook': function () {
       Meteor.linkWithFacebook();
+    },
+    'click .getgit': function(e) {
+      e.preventDefault();
+      Meteor.call('updateGitRecord', function (error, result) {
+      });
     }
   });
 
