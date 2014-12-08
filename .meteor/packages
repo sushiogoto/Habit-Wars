@@ -6,13 +6,16 @@
 meteor-platform
 autopublish
 insecure
-mizzao:bootstrap-3
 underscore
 iron:router
-ian:accounts-ui-bootstrap-3
 accounts-github
 service-configuration
 accounts-facebook
-splendido:accounts-meld
 accounts-password
+mizzao:bootstrap-3
+html5cat:bootstrap-material-design
+bozhao:link-accounts
+github
+facebook
+ian:accounts-ui-bootstrap-3
 

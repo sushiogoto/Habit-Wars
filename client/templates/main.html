@@ -1,3 +1,33 @@
 <head>
   <title>Habit Wars</title>
 </head>
+
+<head>
+  <title>Link Account example</title>
+</head>
+
+<body>
+  <div>
+    <h2>1.  Log in with a non Github service through login button</h2>
+    {{> loginButtons}}
+  </div>
+
+  <div>
+    {{> linkTemplate}}
+  </div>
+</body>
+
+<template name="linkTemplate">
+  <h2>2.  Link Github account</h2>
+
+  <button class="link-github">Link Github Account</button>
+  <button class="link-facebook">Link Facebook Account</button>
+
+  <h2>3.  List out services that are associated with current user.</h2>
+
+  <ul>
+  {{#each services}}
+    <li>{{this}}</li>
+  {{/each}}
+  </ul>
+</template>
