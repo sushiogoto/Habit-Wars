@@ -5,3 +5,5 @@ Template.gitEvents.events({
     });
   }
 });
+
+console.log("TEST")
