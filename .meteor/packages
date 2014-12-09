@@ -12,11 +12,9 @@ accounts-github
 service-configuration
 accounts-facebook
 accounts-password
-mizzao:bootstrap-3
-html5cat:bootstrap-material-design
 bozhao:link-accounts
 github
 facebook
 ian:accounts-ui-bootstrap-3
 momentjs:moment
-
+material-design

@@ -29,3 +29,19 @@
   90% {opacity: 1;}
   100% {opacity: 0;}
 }
+
+.jumbotron{
+  text-align: center;
+}
+.jumbotron h2{
+  font-size: 60px;
+  font-weight: 100;
+}
+
+.profile-picture {
+  padding: 20px;
+}
+
+.profile-details {
+  padding: 20px;
+}
