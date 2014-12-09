@@ -10,12 +10,17 @@
         </button>
         <a href="{{pathFor 'home'}}" class="navbar-brand">Habit Wars</a>
       </div>
-      <div class="nav navbar-nav navbar-right" id="navigation">
-        <ul>
-          <li>{{> user_info}}</li>
-          <li>{{> loginButtons}}</li>
+
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons}}
         </ul>
       </div>
+<!--       <div class="nav navbar-nav navbar-right" id="navigation">
+        <ul>
+          <li>{{> loginButtons}}</li>
+        </ul>
+      </div> -->
     </div>
   </nav>
 </template>
