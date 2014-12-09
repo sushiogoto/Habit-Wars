@@ -6,6 +6,19 @@ Template.characterIndex.events({
          throwError(error.reason);
        }
     });
+    Meteor.call('levelUp', function(error, result) {});
+  },
+  'submit form': function(e) {
+    e.preventDefault();
+
+    var target = $(e.target).find('[name=target]').val();
+
+    Meteor.call('setGetTarget', target, function(error, result) {
+      // display the error to the user and abort
+      if (error)
+        return throwError(error.reason);
+    });
+
   }
 });
 

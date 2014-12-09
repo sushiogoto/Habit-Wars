@@ -102,10 +102,13 @@ Accounts.onCreateUser(function (options, user) {
     userId: user._id,
     name: "Megaman",
     avatar_url: "http://www.gearfuse.com/wp-content/uploads/2010/06/retro-gaming-3d-3.gif",
-    health: 100,
+    max_health: 100,
+    current_health: 100,
     strength: 10,
     intelligence: 10,
-    dexterity: 10
+    currentXP: 0,
+    nextLevelXP: 100,
+    level: 1
   });
 
   return user;

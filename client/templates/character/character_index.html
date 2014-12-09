@@ -1,6 +1,11 @@
 <template name="characterIndex">
   <div class="character">
     <button class="getgit">Get your commits</button>
+    <form class="main form">
+      <input type="number" name="target" id="target" value="" placeholder="target" class="commit_target" />
+      <button type="submit"></button>
+    </form>
+
     <ul>COMMITS: {{#each commits}}
       <li>{{this}}</li>
       {{/each}}
