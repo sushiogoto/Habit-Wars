@@ -98,6 +98,12 @@ Accounts.onCreateUser(function (options, user) {
   }
   console.log("user created :", user);
 
+  Habits.insert({
+    userId: user._id,
+    timestamp: Date.now() - 1000 * 60 * 60 * 24 * 5, //moment(user.createdAt).format('x'),
+    git_record: {}
+  });
+
   Characters.insert({
     userId: user._id,
     name: "Megaman",
@@ -108,7 +114,11 @@ Accounts.onCreateUser(function (options, user) {
     intelligence: 10,
     currentXP: 0,
     nextLevelXP: 100,
-    level: 1
+    level: 1,
+    exceeded: false,
+    exceeded_date: Date(),
+    last_action_date: Date(),
+    last_git: 0
   });
 
   return user;

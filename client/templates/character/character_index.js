@@ -13,7 +13,7 @@ Template.characterIndex.events({
 
     var target = $(e.target).find('[name=target]').val();
 
-    Meteor.call('setGetTarget', target, function(error, result) {
+    Meteor.call('setGitTarget', target, function(error, result) {
       // display the error to the user and abort
       if (error)
         return throwError(error.reason);
@@ -24,7 +24,8 @@ Template.characterIndex.events({
 
 Template.characterIndex.helpers({
   commits: function() {
-    habits = Habits.findOne({userId: Meteor.user()._id});
+    user = Meteor.user();
+    habits = Habits.findOne({userId: user._id});
     git_array = _.map(habits.git_record, function(commits, key) {
       return key + ": " + commits;
     });
