@@ -1,5 +1,9 @@
 <template name="characterIndex">
   <div class="character">
     <button class="getgit">Get your commits</button>
+    <ul>COMMITS: {{#each commits}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
   </div>
 </template>
