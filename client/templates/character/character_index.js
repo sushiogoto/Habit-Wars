@@ -11,8 +11,8 @@ Template.characterIndex.events({
 
 Template.characterIndex.helpers({
   commits: function() {
-    git = GitRecords.findOne({userId: Meteor.user()._id});
-    git_array = _.map(git.git_record, function(commits, key) {
+    habits = Habits.findOne({userId: Meteor.user()._id});
+    git_array = _.map(habits.git_record, function(commits, key) {
       return key + ": " + commits;
     });
     // date = new Date();
