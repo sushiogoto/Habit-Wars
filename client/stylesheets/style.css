@@ -1,12 +1,17 @@
+/*** Nav bar
+/*****************************/
+
 .navbar {
-  margin-bottom: 10px; }
-  /* line 32, ../sass/style.scss */
-  .navbar .navbar-inner {
-    -webkit-border-radius: 0px 0px 3px 3px;
-    -moz-border-radius: 0px 0px 3px 3px;
-    -ms-border-radius: 0px 0px 3px 3px;
-    -o-border-radius: 0px 0px 3px 3px;
-    border-radius: 0px 0px 3px 3px; }
+  margin-bottom: 10px;
+}
+
+.navbar .navbar-inner {
+  -webkit-border-radius: 0px 0px 3px 3px;
+  -moz-border-radius: 0px 0px 3px 3px;
+  -ms-border-radius: 0px 0px 3px 3px;
+  -o-border-radius: 0px 0px 3px 3px;
+  border-radius: 0px 0px 3px 3px;
+}
 
 .dropdown-menu span {
   display: block;
@@ -14,7 +19,8 @@
   clear: both;
   line-height: 20px;
   color: #bbb;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 @-webkit-keyframes fadeOut {
   0% {opacity: 0;}
@@ -45,3 +51,50 @@
 .profile-details {
   padding: 20px;
 }
+
+/*** Character stats
+/*****************************/
+
+div.character-avatar-container {
+  text-align: center;
+}
+
+img.character-avatar {
+  margin: 20px 0;
+}
+
+div.basic-stats-container {
+  padding: 20px;
+  background-color: #FFFFFF;
+}
+
+h1.character-name {
+  margin: 5px 0 20px;
+}
+
+span.character-level {
+  background: #009ACE;
+  border: 3px solid #5d5d5d;
+  border-radius: 10px;
+  color: #FFFFFF;
+  margin: 0 20px 0 0;
+  padding: 0 12px;
+}
+
+.health-xp-stats {
+  font-size: 16px;
+  margin: 10px 0 5px 0;
+}
+
+div.progress {
+  margin-bottom: 10px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table-align-centre {
+  text-align: center;
+}
+
