@@ -1,0 +1,44 @@
+<template name="profilePage">
+  <div class="container">
+
+    <div class="col-md-4">
+      <div class="profile-picture">
+        <img class="img-responsive" src="{{currentUser.profile.avatar}}"/>
+      </div>
+    </div>
+
+    <div class="col-md-8 profile-details">
+      <div class="links">
+        <h2>Connect to other services:</h2>
+        {{services}}
+        <button class="link-github btn btn-primary btn-raised">Link Github</button>
+        <button class="link-facebook btn btn-primary btn-raised">Link Facebook</button>
+      </div>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="login" class="control-label">Username</label>
+          <div class="col-lg-12">
+
+            {{> Input type="text" name="login" id="name" value="{{currentUser profile.login}}" placeholder="Your Username"}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name" class="control-label">Name</label>
+          <div class="col-lg-12">
+            {{> Input type="text" name="name" id="name" value="{{currentUser.profile.name}}" placeholder="Your Name"}}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-raised submit">Submit</button>
+
+        <hr/>
+      </form>
+    </div>
+
+    <div class="profile jumbotron">
+
+      <h2>{{currentUser.profile.login}}</h2>
+      <h2>{{currentUser.profile.name}}</h2>
+
+    </div>
+  </div>
+</template>
