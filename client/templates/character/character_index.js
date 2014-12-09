@@ -27,7 +27,7 @@ Template.characterIndex.helpers({
     user = Meteor.user();
     habits = Habits.findOne({userId: user._id});
     git_array = _.map(habits.git_record, function(commits, key) {
-      return key + ": " + commits;
+      return key + ": " + commits[0];
     });
     // date = new Date();
     // year = date.getUTCFullYear();
