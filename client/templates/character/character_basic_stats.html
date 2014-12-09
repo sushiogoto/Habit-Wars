@@ -1,0 +1,38 @@
+<template name="characterBasicStats">
+
+    <h1><span class="character-level">{{ character.level }}</span>{{ character.name }}</h1>
+
+    <h2 class="health-xp-stats">Health <span class="pull-right">{{ character.current_health }} / {{ character.max_health }} </span></h2>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{character.current_health}}" aria-valuemin="0" aria-valuemax="{{character.max_health}}" style="width: {{health_percentage}}%">
+        <span class="sr-only">{{health_percentage}}% Complete</span>
+      </div>
+    </div>
+
+    <h2 class="health-xp-stats">XP <span class="pull-right">{{ character.currentXP }} / {{ character.nextLevelXP}}</span></h2>
+    <div class="progress">
+      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{character.currentXP}}" aria-valuemin="0" aria-valuemax="{{character.nextLevelXP}}" style="width: {{XP_percentage}}%">
+        <span class="sr-only">{{XP_percentage}}% Complete</span>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th class="table-align-centre">Stats</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Strength</td>
+          <td class="table-align-centre">{{ character.strength }}</td>
+        </tr>
+        <tr>
+          <td>Intelligence</td>
+          <td class="table-align-centre">{{ character.intelligence }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+</template>

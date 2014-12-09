@@ -114,11 +114,7 @@ Accounts.onCreateUser(function (options, user) {
     intelligence: 10,
     currentXP: 0,
     nextLevelXP: 100,
-    level: 1,
-    exceeded: false,
-    exceeded_date: Date(),
-    last_action_date: Date(),
-    last_git: 0
+    level: 1
   });
 
   return user;

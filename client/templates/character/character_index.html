@@ -1,4 +1,8 @@
 <template name="characterIndex">
+  <div class="row">
+    {{> characterStats}}
+  </div>
+
   <div class="character">
     <button class="getgit">Get your commits</button>
     <form class="main form">
@@ -11,4 +15,5 @@
       {{/each}}
     </ul>
   </div>
+
 </template>

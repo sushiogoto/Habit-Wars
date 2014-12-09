@@ -1,3 +1,69 @@
-/*** Character stats
-/*****************************
+/*** Nav bar
+/*****************************/
 
+.navbar {
+  margin-bottom: 10px;
+}
+
+.navbar .navbar-inner {
+  -webkit-border-radius: 0px 0px 3px 3px;
+  -moz-border-radius: 0px 0px 3px 3px;
+  -ms-border-radius: 0px 0px 3px 3px;
+  -o-border-radius: 0px 0px 3px 3px;
+  border-radius: 0px 0px 3px 3px;
+}
+
+.dropdown-menu span {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  line-height: 20px;
+  color: #bbb;
+  white-space: nowrap;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+/*** Character stats
+/*****************************/
+
+div.character-avatar-container {
+  text-align: center;
+}
+
+img.character-avatar {
+  margin-top: 30px;
+}
+
+div.basic-stats-container {
+  padding: 10px;
+}
+
+span.character-level {
+  background: #009ACE;
+  border: 3px solid #5d5d5d;
+  border-radius: 10px;
+  color: #FFFFFF;
+  margin: 0 20px 0 0;
+  padding: 0 12px;
+}
+
+.health-xp-stats {
+  font-size: 16px;
+}
+
+.table-align-centre {
+  text-align: center;
+}
