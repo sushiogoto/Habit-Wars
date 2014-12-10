@@ -1,10 +1,8 @@
-Template.characterGraph.rendered = function(){
+Template.dashboardCommitGraph.rendered = function(){
 
-  var div2 = d3.select(document.getElementById('div2'));
+  var radialGraph = d3.select(document.getElementById('radialGraph'));
 
-  start();
-
-  function start() {
+  Deps.autorun(function createRadialGraph() {
 
       user = Meteor.user();
       habit = Habits.findOne({userId: user._id});
@@ -20,13 +18,13 @@ Template.characterGraph.rendered = function(){
       git_percentage = Math.floor(git_commit_today / target * 100);
       console.log(git_percentage);
 
-      var rp2 = radialProgress(document.getElementById('div2'))
+      var rp2 = radialProgress(document.getElementById('radialGraph'))
         .label("Experience")
         .diameter(180)
         .value(git_percentage)
         .render();
 
-    }
+    });
 
   function radialProgress(parent) {
       var _data=null,
@@ -170,7 +168,7 @@ Template.characterGraph.rendered = function(){
           return function(t) {
               _currentValue = i(t);
               this.textContent = Math.round(i(t)) + "%";
-          }
+          };
       }
 
       function arcTween(a) {
@@ -261,5 +259,7 @@ Template.characterGraph.rendered = function(){
       return component;
 
   }
+
+  createRadialGraph();
 
 };
