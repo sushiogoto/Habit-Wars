@@ -5,19 +5,6 @@ Template.characterGitChart.rendered = function () {
 
   start();
 
-  function onClick2() {
-    deselect();
-    div2.attr("class","selectedRadial");
-  }
-
-  function labelFunction(val,min,max) {
-
-  }
-
-  function deselect() {
-    div2.attr("class","radial");
-  }
-
   function start() {
 
     user = Meteor.user();
@@ -29,17 +16,14 @@ Template.characterGitChart.rendered = function () {
     month = date.getUTCMonth() + 1;
     day = date.getUTCDate();
     date = year + "-" + month + "-" + day;
-    console.log(date);
 
-    git_commit_today = habit.git_record[date];
-
+    git_commit_today = habit.git_record[date][0];
     git_percentage = Math.floor(git_commit_today / target * 100);
     console.log(git_percentage);
 
     var rp2 = radialProgress(document.getElementById('div2'))
-      .label("Experience")
-      .onClick(onClick2)
-      .diameter(180)
+      .label("Today's Commit Progress")
+      .diameter(200)
       .value(git_percentage)
       .render();
 
