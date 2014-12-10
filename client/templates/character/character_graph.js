@@ -183,7 +183,7 @@ Template.characterGraph.rendered = function(){
                   }
 
                   if (ratio > 2) {
-                      path3.datum(Math.min(360*(ratio-1),360) * Math.PI/180);
+                      path3.datum(Math.min(360*(ratio-2),360) * Math.PI/180);
                       path3.transition().delay(2000).duration(2000)
                           .attrTween("d", arcTween3);
                   }
