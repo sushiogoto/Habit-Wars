@@ -26,11 +26,19 @@
       <tbody>
         <tr>
           <td>Strength</td>
-          <td class="table-align-centre">{{ character.strength }}</td>
+          <td class="table-align-centre">{{ character.strength }}
+            {{#if character.attributePoints}}
+              <button class="add-strength">+</button>
+            {{/if}}
+          </td>
         </tr>
         <tr>
           <td>Intelligence</td>
-          <td class="table-align-centre">{{ character.intelligence }}</td>
+          <td class="table-align-centre">{{ character.intelligence }}
+            {{#if character.attributePoints}}
+              <button class="add-intelligence">+</button>
+            {{/if}}
+          </td>
         </tr>
       </tbody>
     </table>
