@@ -71,7 +71,7 @@ Template.dashboardHistoryGraph.rendered = function () {
   habit = Habits.findOne({userId: user._id});
 
   current = new Date();
-  first = current.getDate() - current.getDay();
+  first = current.getDate() - current.getDay() + 1;
   firstday = new Date(current.setDate(first));
 
   habitHistory = [];

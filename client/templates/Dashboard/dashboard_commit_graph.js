@@ -16,10 +16,9 @@ Template.dashboardCommitGraph.rendered = function(){
 
       git_commit_today = habit.git_record[date][0];
       git_percentage = Math.floor(git_commit_today / target * 100);
-      console.log(git_percentage);
 
       var rp2 = radialProgress(document.getElementById('radialGraph'))
-        .label("Experience")
+        .label("Today's Progress")
         .diameter(180)
         .value(git_percentage)
         .render();
@@ -35,7 +34,7 @@ Template.dashboardCommitGraph.rendered = function(){
           __height = 300,
           _diameter,
           _label="",
-          _fontSize=10;
+          _fontSize=20;
 
 
       var _mouseClick;
@@ -259,7 +258,5 @@ Template.dashboardCommitGraph.rendered = function(){
       return component;
 
   }
-
-  createRadialGraph();
 
 };
