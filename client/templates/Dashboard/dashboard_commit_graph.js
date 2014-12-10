@@ -1,34 +1,11 @@
-Template.characterGraph.rendered = function(){
+Template.dashboardCommitGraph.rendered = function(){
 
-  var div2 = d3.select(document.getElementById('div2'));
-  var div3 = d3.select(document.getElementById('div3'));
-
-  function onClick1() {
-      deselect();
-      div1.attr("class","selectedRadial");
-  }
-
-  function onClick2() {
-      deselect();
-      div2.attr("class","selectedRadial");
-  }
-
-  function onClick3() {
-      deselect();
-      div3.attr("class","selectedRadial");
-  }
-
-  function labelFunction(val,min,max) {
-
-  }
-
-  function deselect() {
-      div2.attr("class","radial");
-  }
+  var radialGraph = d3.select(document.getElementById('radialGraph'));
 
   Deps.autorun(function createRadialGraph() {
       $('.arc2').remove();
       $('.arc3').remove();
+
       user = Meteor.user();
       habit = Habits.findOne({userId: user._id});
       target = habit.targets.git_commit_target;
@@ -41,11 +18,9 @@ Template.characterGraph.rendered = function(){
 
       git_commit_today = habit.git_record[date][0];
       git_percentage = Math.floor(git_commit_today / target * 100);
-      console.log(git_percentage);
 
-      var rp2 = radialProgress(document.getElementById('div2'))
-        .label("Experience")
-        .onClick(onClick2)
+      var rp2 = radialProgress(document.getElementById('radialGraph'))
+        .label("Today's Progress")
         .diameter(180)
         .value(git_percentage)
         .render();
@@ -57,11 +32,11 @@ Template.characterGraph.rendered = function(){
           _duration= 1000,
           _selection,
           _margin = {top:0, right:0, bottom:30, left:0},
-          __width = 300,
+          __width = 190,
           __height = 300,
           _diameter,
           _label="",
-          _fontSize=10;
+          _fontSize=20;
 
 
       var _mouseClick;
@@ -210,7 +185,7 @@ Template.characterGraph.rendered = function(){
           return function(t) {
               _currentValue = i(t);
               this.textContent = Math.round(i(t)) + "%";
-          }
+          };
       }
 
       function arcTween(a) {
@@ -273,7 +248,7 @@ Template.characterGraph.rendered = function(){
       };
 
       component.diameter = function(_) {
-          if (!arguments.length) return _diameter
+          if (!arguments.length) return _diameter;
           _diameter =  _;
           return component;
       };
@@ -312,6 +287,6 @@ Template.characterGraph.rendered = function(){
 
   }
 
-  createRadialGraph();
+
 
 };
