@@ -1,32 +1,8 @@
 Template.characterGraph.rendered = function(){
 
   var div2 = d3.select(document.getElementById('div2'));
-  var div3 = d3.select(document.getElementById('div3'));
 
   start();
-
-  function onClick1() {
-      deselect();
-      div1.attr("class","selectedRadial");
-  }
-
-  function onClick2() {
-      deselect();
-      div2.attr("class","selectedRadial");
-  }
-
-  function onClick3() {
-      deselect();
-      div3.attr("class","selectedRadial");
-  }
-
-  function labelFunction(val,min,max) {
-
-  }
-
-  function deselect() {
-      div2.attr("class","radial");
-  }
 
   function start() {
 
@@ -46,7 +22,6 @@ Template.characterGraph.rendered = function(){
 
       var rp2 = radialProgress(document.getElementById('div2'))
         .label("Experience")
-        .onClick(onClick2)
         .diameter(180)
         .value(git_percentage)
         .render();
