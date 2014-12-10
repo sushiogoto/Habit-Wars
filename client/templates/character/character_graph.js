@@ -3,8 +3,6 @@ Template.characterGraph.rendered = function(){
   var div2 = d3.select(document.getElementById('div2'));
   var div3 = d3.select(document.getElementById('div3'));
 
-  start();
-
   function onClick1() {
       deselect();
       div1.attr("class","selectedRadial");
@@ -28,7 +26,7 @@ Template.characterGraph.rendered = function(){
       div2.attr("class","radial");
   }
 
-  function start() {
+  Deps.autorun(function createRadialGraph() {
 
       user = Meteor.user();
       habit = Habits.findOne({userId: user._id});
@@ -51,7 +49,7 @@ Template.characterGraph.rendered = function(){
         .value(git_percentage)
         .render();
 
-    }
+    });
 
   function radialProgress(parent) {
       var _data=null,
@@ -286,5 +284,7 @@ Template.characterGraph.rendered = function(){
       return component;
 
   }
+
+  createRadialGraph();
 
 };
