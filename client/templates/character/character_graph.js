@@ -1,8 +1,7 @@
 Template.characterGraph.rendered = function(){
-  var div1 = d3.select(document.getElementById('div1'));
+
   var div2 = d3.select(document.getElementById('div2'));
   var div3 = d3.select(document.getElementById('div3'));
-  var div4 = d3.select(document.getElementById('div4'));
 
   start();
 
@@ -26,37 +25,33 @@ Template.characterGraph.rendered = function(){
   }
 
   function deselect() {
-      div1.attr("class","radial");
       div2.attr("class","radial");
-      div3.attr("class","radial");
   }
 
   function start() {
 
-      var rp1 = radialProgress(document.getElementById('div1'))
-              .label("RADIAL 1")
-              .onClick(onClick1)
-              .diameter(150)
-              .value(78)
-              .render();
+      user = Meteor.user();
+      habit = Habits.findOne({userId: user._id});
+      target = habit.targets.git_commit_target;
+
+      date = new Date();
+      year = date.getUTCFullYear();
+      month = date.getUTCMonth() + 1;
+      day = date.getUTCDate();
+      date = year + "-" + month + "-" + day;
+
+      git_commit_today = habit.git_record[date][0];
+      git_percentage = Math.floor(git_commit_today / target * 100);
+      console.log(git_percentage);
 
       var rp2 = radialProgress(document.getElementById('div2'))
-              .label("RADIAL 2")
-              .onClick(onClick2)
-              .diameter(150)
-              .value(132)
-              .render();
+        .label("Experience")
+        .onClick(onClick2)
+        .diameter(180)
+        .value(git_percentage)
+        .render();
 
-      var rp3 = radialProgress(document.getElementById('div3'))
-              .label("RADIAL 3")
-              .onClick(onClick3)
-              .diameter(150)
-              .minValue(100)
-              .maxValue(200)
-              .value(150)
-              .render();
-
-  }
+    }
 
   function radialProgress(parent) {
       var _data=null,
