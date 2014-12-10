@@ -1,9 +1,4 @@
-Template.profilePage.helpers({
-  currentUser: function() {
-    user = Meteor.user();
-    return user;
-  },
-  services: function () {
+Template.profilePage.rendered = function () {
     var user = Meteor.user();
     choices = ["github", "facebook"];
     if (user) {
@@ -18,8 +13,7 @@ Template.profilePage.helpers({
     } else {
       return;
     }
-  }
-});
+  };
 
 Template.profilePage.events({
   'click .link-github': function () {
