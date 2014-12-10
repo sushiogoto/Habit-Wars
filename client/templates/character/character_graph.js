@@ -27,7 +27,8 @@ Template.characterGraph.rendered = function(){
   }
 
   Deps.autorun(function createRadialGraph() {
-
+      $('.arc2').remove();
+      $('.arc3').remove();
       user = Meteor.user();
       habit = Habits.findOne({userId: user._id});
       target = habit.targets.git_commit_target;
@@ -69,12 +70,16 @@ Template.characterGraph.rendered = function(){
           _minValue = 0,
           _maxValue = 100;
 
-      var  _currentArc= 0, _currentArc2= 0, _currentValue=0;
+      var  _currentArc= 0, _currentArc2= 0, _currentArc3= 0, _currentValue=0;
 
       var _arc = d3.svg.arc()
           .startAngle(0 * (Math.PI/180)); //just radians
 
       var _arc2 = d3.svg.arc()
+          .startAngle(0 * (Math.PI/180))
+          .endAngle(0); //just radians
+
+      var _arc3 = d3.svg.arc()
           .startAngle(0 * (Math.PI/180))
           .endAngle(0); //just radians
 
@@ -136,6 +141,12 @@ Template.characterGraph.rendered = function(){
                   .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")
                   .attr("d", _arc2);
 
+              var path3 = svg.select(".arcs").selectAll(".arc3").data(data);
+              path3.enter().append("path")
+                  .attr("class","arc3")
+                  .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")
+                  .attr("d", _arc3);
+
 
               enter.append("g").attr("class", "labels");
               var label = svg.select(".labels").selectAll(".label").data(data);
@@ -169,6 +180,12 @@ Template.characterGraph.rendered = function(){
                       path2.datum(Math.min(360*(ratio-1),360) * Math.PI/180);
                       path2.transition().delay(_duration).duration(_duration)
                           .attrTween("d", arcTween2);
+                  }
+
+                  if (ratio > 2) {
+                      path3.datum(Math.min(360*(ratio-1),360) * Math.PI/180);
+                      path3.transition().delay(2000).duration(2000)
+                          .attrTween("d", arcTween3);
                   }
 
                   label.datum(Math.round(ratio*100));
@@ -213,6 +230,14 @@ Template.characterGraph.rendered = function(){
           };
       }
 
+      function arcTween3(a) {
+          var i = d3.interpolate(_currentArc3, a);
+
+          return function(t) {
+              return _arc3.endAngle(i(t))();
+          };
+      }
+
 
       function measure() {
           _width=_diameter - _margin.right - _margin.left - _margin.top - _margin.bottom;
@@ -222,6 +247,8 @@ Template.characterGraph.rendered = function(){
           _arc.innerRadius(_width/2 * .85);
           _arc2.outerRadius(_width/2 * .85);
           _arc2.innerRadius(_width/2 * .85 - (_width/2 * .15));
+          _arc3.outerRadius(_width/2 * .85 - (_width/2 * .15));
+          _arc3.innerRadius(_width/2 * .85 - (_width/2 * .30));
       }
 
 
