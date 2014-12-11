@@ -115,7 +115,9 @@ Accounts.onCreateUser(function (options, user) {
     intelligence: 10,
     currentXP: 0,
     nextLevelXP: 100,
-    level: 1
+    level: 1,
+    tokens: 5,
+    gold: 0
   });
 
   return user;
