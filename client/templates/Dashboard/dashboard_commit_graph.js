@@ -14,7 +14,7 @@ Template.dashboardCommitGraph.rendered = function(){
       day = date.getUTCDate();
       date = year + "-" + month + "-" + day;
 
-      git_commit_today = habit.git_record[date][0];
+      habit.git_record[date] ? (git_commit_today = habit.git_record[date][0]) : (git_commit_today = 0) ;
       git_percentage = Math.floor(git_commit_today / target * 100);
 
       var rp2 = radialProgress(document.getElementById('radialGraph'))
@@ -76,7 +76,7 @@ Template.dashboardCommitGraph.rendered = function(){
                   .on("click",onMouseClick);
 
 
-              _arc.endAngle(360 * (Math.PI/180))
+              _arc.endAngle(360 * (Math.PI/180));
 
               background.append("rect")
                   .attr("class","background")
@@ -120,7 +120,7 @@ Template.dashboardCommitGraph.rendered = function(){
                   .attr("cursor","pointer")
                   .attr("width",_width)
                   // .attr("x",(3*_fontSize/2))
-                  .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
+                  .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%"; })
                   .style("font-size",_fontSize+"px")
                   .on("click",onMouseClick);
 
@@ -191,11 +191,11 @@ Template.dashboardCommitGraph.rendered = function(){
       function measure() {
           _width=_diameter - _margin.right - _margin.left - _margin.top - _margin.bottom;
           _height=_width;
-          _fontSize=_width*.2;
+          _fontSize=_width*0.2;
           _arc.outerRadius(_width/2);
-          _arc.innerRadius(_width/2 * .85);
-          _arc2.outerRadius(_width/2 * .85);
-          _arc2.innerRadius(_width/2 * .85 - (_width/2 * .15));
+          _arc.innerRadius(_width/2 * 0.85);
+          _arc2.outerRadius(_width/2 * 0.85);
+          _arc2.innerRadius(_width/2 * 0.85 - (_width/2 * 0.15));
       }
 
 
@@ -203,14 +203,14 @@ Template.dashboardCommitGraph.rendered = function(){
           measure();
           component();
           return component;
-      }
+      };
 
       component.value = function (_) {
           if (!arguments.length) return _value;
           _value = [_];
           _selection.datum([_value]);
           return component;
-      }
+      };
 
 
       component.margin = function(_) {
@@ -220,7 +220,7 @@ Template.dashboardCommitGraph.rendered = function(){
       };
 
       component.diameter = function(_) {
-          if (!arguments.length) return _diameter
+          if (!arguments.length) return _diameter;
           _diameter =  _;
           return component;
       };
