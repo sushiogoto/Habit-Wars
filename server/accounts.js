@@ -104,7 +104,7 @@ Accounts.onCreateUser(function (options, user) {
     git_record: {}
   });
 
-  Characters.insert({
+  var characterAttributes = {
     userId: user._id,
     name: "Megaman",
     avatar_url: "http://www.gearfuse.com/wp-content/uploads/2010/06/retro-gaming-3d-3.gif",
@@ -118,7 +118,11 @@ Accounts.onCreateUser(function (options, user) {
     level: 1,
     tokens: 5,
     gold: 0
-  });
+  };
+
+  var characterId = Characters.insert(characterAttributes);
+
+  Inventories.insert({characterId: characterId});
 
   return user;
 

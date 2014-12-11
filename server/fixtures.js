@@ -5,7 +5,9 @@ if (Items.find().count() === 0 ){
     type: "head",
     health: 10,
     strength: 2,
-    intelligence: 4
+    intelligence: 4,
+    quantity: 1,
+    price: 30
   });
 
   Items.insert({
@@ -13,7 +15,9 @@ if (Items.find().count() === 0 ){
     type: "chest",
     health: 5,
     strength: 0,
-    intelligence: 2
+    intelligence: 2,
+    quantity: 1,
+    price: 40
   });
 
   Items.insert({
@@ -21,7 +25,9 @@ if (Items.find().count() === 0 ){
     type: "head",
     health: 10,
     strength: 2,
-    intelligence: 4
+    intelligence: 4,
+    quantity: 1,
+    price: 50
   });
 
   Items.insert({
@@ -29,7 +35,9 @@ if (Items.find().count() === 0 ){
     type: "feet",
     health: 12,
     strength: 2,
-    intelligence: 0
+    intelligence: 0,
+    quantity: 1,
+    price: 100
   });
 
   Items.insert({
@@ -37,7 +45,9 @@ if (Items.find().count() === 0 ){
     type: "weapon",
     health: 5,
     strength: 8,
-    intelligence: 0
+    intelligence: 0,
+    quantity: 1,
+    price: 30
   });
 
   Items.insert({
@@ -45,7 +55,9 @@ if (Items.find().count() === 0 ){
     type: "head",
     health: 14,
     strength: 12,
-    intelligence: 2
+    intelligence: 2,
+    quantity: 1,
+    price: 150
   });
 
 }
