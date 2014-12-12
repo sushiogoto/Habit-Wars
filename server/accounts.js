@@ -113,6 +113,7 @@ Accounts.onCreateUser(function (options, user) {
     current_health: 100,
     strength: 10,
     intelligence: 10,
+
     currentXP: 0,
     nextLevelXP: 100,
     level: 1,
@@ -130,13 +131,13 @@ Accounts.onCreateUser(function (options, user) {
   EquippedInventories.insert({
     characterId: characterId,
     items: {
-      head:     {},
-      chest:    {},
-      hands:    {},
-      legs:     {},
-      feet:     {},
-      mainHand: {},
-      offHand:  {}
+      head:     null,
+      chest:    null,
+      hands:    null,
+      legs:     null,
+      feet:     null,
+      mainHand: null,
+      offHand:  null
     }
   });
 
