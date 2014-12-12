@@ -122,7 +122,23 @@ Accounts.onCreateUser(function (options, user) {
 
   var characterId = Characters.insert(characterAttributes);
 
-  Inventories.insert({characterId: characterId});
+  Inventories.insert({
+    characterId: characterId,
+    items: []
+  });
+
+  EquippedInventories.insert({
+    characterId: characterId,
+    items: {
+      head:     {},
+      chest:    {},
+      hands:    {},
+      legs:     {},
+      feet:     {},
+      mainHand: {},
+      offHand:  {}
+    }
+  });
 
   return user;
 

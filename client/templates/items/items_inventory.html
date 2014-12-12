@@ -1,0 +1,12 @@
+<template name="itemsInventory">
+  {{#each inventory}}
+    <ul>
+      <li>
+        {{this.quantity}} x {{this.name}}
+        <button class="equipItem">Equip</button>
+        <button class="sellItem">Sell</button>
+      </li>
+    </ul>
+
+  {{/each}}
+</template>
