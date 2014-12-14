@@ -128,19 +128,6 @@ Accounts.onCreateUser(function (options, user) {
     items: []
   });
 
-  // EquippedInventories.insert({
-  //   characterId: characterId,
-  //   items: {
-  //     head:     null,
-  //     chest:    null,
-  //     hands:    null,
-  //     legs:     null,
-  //     feet:     null,
-  //     mainHand: null,
-  //     offHand:  null
-  //   }
-  // });
-
   return user;
 
 
