@@ -15,4 +15,8 @@ Template.itemsInventory.events({
     Meteor.call('equipUnequipItem', this._id, function (error, result) {console.log(result);});
   },
 
+  'click .sellItem': function () {
+    Meteor.call('sellItem', this._id, function (error, result) { console.log(result); });
+  }
+
 });
