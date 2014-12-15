@@ -29,14 +29,6 @@ Template.characterIndex.helpers({
     git_array = _.map(habits.git_record, function(commits, key) {
       return key + ": " + commits[0];
     });
-    // date = new Date();
-    // year = date.getUTCFullYear();
-    // month = date.getUTCMonth() + 1;
-    // day = date.getUTCDate();
-    // timeNow = year + "-" + month + "-" + day;
-    // for(var i = 0; i < git.git_record.length; i++) {
-
-    // }
     return git_array;
   }
 });

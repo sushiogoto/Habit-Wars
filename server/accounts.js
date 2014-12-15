@@ -113,6 +113,7 @@ Accounts.onCreateUser(function (options, user) {
     current_health: 100,
     strength: 10,
     intelligence: 10,
+
     currentXP: 0,
     nextLevelXP: 100,
     level: 1,
@@ -122,7 +123,10 @@ Accounts.onCreateUser(function (options, user) {
 
   var characterId = Characters.insert(characterAttributes);
 
-  Inventories.insert({characterId: characterId});
+  Inventories.insert({
+    characterId: characterId,
+    items: []
+  });
 
   return user;
 

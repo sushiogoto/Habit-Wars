@@ -42,7 +42,7 @@ if (Items.find().count() === 0 ){
 
   Items.insert({
     name: "Wooden Sword",
-    type: "weapon",
+    type: "mainHand",
     health: 5,
     strength: 8,
     intelligence: 0,
@@ -52,12 +52,12 @@ if (Items.find().count() === 0 ){
 
   Items.insert({
     name: "Long Sword",
-    type: "head",
+    type: "mainHand",
     health: 14,
     strength: 12,
     intelligence: 2,
     quantity: 1,
-    price: 150
+    price: 10
   });
 
 }
