@@ -7,6 +7,6 @@ Template.questActive.helpers({
 Template.questActive.events({
   'click .attack': function() {
 
-    Meteor.call('questAttack', function (error, result) {});
+    Meteor.call('questAttack', 'solo', function (error, result) {});
   }
 });
