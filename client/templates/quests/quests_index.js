@@ -7,7 +7,7 @@ Template.questsIndex.events({
 
 Template.questsIndex.rendered = function() {
   var user = Meteor.user();
-  var quest = Quests.findOne({userId: user._id, active: true});
+  var quest = Quests.findOne({userId: user._id, status: "active"});
 
   // add a day
   if(quest) {

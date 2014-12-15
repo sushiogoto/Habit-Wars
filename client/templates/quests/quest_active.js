@@ -1,6 +1,6 @@
 Template.questActive.helpers({
   currentQuest: function() {
-    return Quests.findOne({userId: Meteor.user()._id, active: true});
+    return Quests.findOne({userId: Meteor.user()._id, status: "active"});
   }
 });
 
