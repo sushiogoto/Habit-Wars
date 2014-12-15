@@ -1,6 +1,6 @@
 Template.itemsShop.helpers({
   shopItems: function () {
-    return Items.find();
+    return Items.find({random: false});
   }
 });
 

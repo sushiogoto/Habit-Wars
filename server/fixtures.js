@@ -7,7 +7,8 @@ if (Items.find().count() === 0 ){
     strength: 2,
     intelligence: 4,
     quantity: 1,
-    price: 30
+    price: 30,
+    random: false
   });
 
   Items.insert({
@@ -17,7 +18,8 @@ if (Items.find().count() === 0 ){
     strength: 0,
     intelligence: 2,
     quantity: 1,
-    price: 40
+    price: 40,
+    random: false
   });
 
   Items.insert({
@@ -27,7 +29,8 @@ if (Items.find().count() === 0 ){
     strength: 2,
     intelligence: 4,
     quantity: 1,
-    price: 50
+    price: 50,
+    random: false
   });
 
   Items.insert({
@@ -37,7 +40,8 @@ if (Items.find().count() === 0 ){
     strength: 2,
     intelligence: 0,
     quantity: 1,
-    price: 100
+    price: 100,
+    random: false
   });
 
   Items.insert({
@@ -47,7 +51,8 @@ if (Items.find().count() === 0 ){
     strength: 8,
     intelligence: 0,
     quantity: 1,
-    price: 30
+    price: 30,
+    random: false
   });
 
   Items.insert({
@@ -57,7 +62,8 @@ if (Items.find().count() === 0 ){
     strength: 12,
     intelligence: 2,
     quantity: 1,
-    price: 10
+    price: 10,
+    random: false
   });
 
 }
