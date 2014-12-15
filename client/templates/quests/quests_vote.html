@@ -1,0 +1,11 @@
+<template name="questsVotes">
+  {{#each questsToVote}}
+    {{> questVoteItem}}
+  {{/each}}
+</template>
+
+<template name="questVoteItem">
+  {{this.difficulty}}
+  <button class="accept">Accept</button>
+  <button class="decline">Decline</button>
+</template>
