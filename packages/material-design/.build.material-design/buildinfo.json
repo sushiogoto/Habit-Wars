@@ -1,0 +1,110 @@
+{
+  "builtBy": "meteor/14",
+  "buildDependencies": {
+    "os.json": {
+      "files": {
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/package.js": "4cff44603087d5952da0c58447afe6cd2fd97152"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/package.js": "4cff44603087d5952da0c58447afe6cd2fd97152",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/bootstrap.min.css": "58a360d7ef24d8d05737db1712dd5c086597e862",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/variables.lessimport": "788603c14fd854bcf5e48c871b28e4c534e336e3",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/mixins.lessimport": "ced202c6247b462b45940cfe2606d97f233dc838",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/prefixer.lessimport": "11b19b7aa697936d3bc6980faa4dbefad980876f",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/animations.lessimport": "1e035bf02b0ba99582cae1bc723c876d32adc5e6",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/alerts.lessimport": "d443713e99058d03334ec2a685b69275f6ac3189",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/buttons.lessimport": "e4acc2e77be26e5f9829a409f1cdc2f1070b70d7",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/checkboxes.lessimport": "d5a12bf2f497ff164e1346c203c0338ba7147553",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/icons.lessimport": "6cf67336bfb99a607068c5e7c0461ec40f8ca730",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/inputs.lessimport": "23f716bf7fed5fc09fac47db6f46c118beff82bc",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/lists.lessimport": "c0ab24ad5ccd413643fe5c51c3e7adc15db4cc87",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/navbar.lessimport": "7445f9a22164f27f575d50a8add1cc6e724e315d",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/plugin-nouislider.lessimport": "d6ffa22d52a4461f570b782ad9765e404f914dd9",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/plugin-snackbarjs.lessimport": "a8501b8c34d522a76276a90b690629252c5899af",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/popups.lessimport": "1b68493a6d2e9a99795edbf60b0514b70df21688",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/progress.lessimport": "2a6f382b92331785ed012a369abfac5baf4c7cea",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/radios.lessimport": "3c56b451f5948ab8eaf3f21453803f5b5142719f",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/dialogs.lessimport": "09396a3ae52a4356928feb430fc70c5baa35bd5e",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/dropdown.lessimport": "022cde37d10e78be809b69e02d20ac592b98147f",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/tabs.lessimport": "0da51835ec4b0e03247e8dee76caaf27655842e5",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/welljumbo.lessimport": "df747375480886ba7e741869602b87f845f1b764",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/cards.lessimport": "4bfb666599305ccbd1bd19204c9aa73dd4284149",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/waves.lessimport": "b3d5f01991169328dbaacc881488129af833dd48",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/main.less": "dd2707e99aaf2ff5352e953a1eae3f1a2f265101",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/js/bootstrap.min.js": "26908395e7a9a4eab607d80aa50a81d65f3017cb",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/js/waves.js": "e241e6ef84c8e08c5039e6d1184b3559d81b5932",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/main.js": "67f8e717d21505ccc119309716402bb56c9723ce",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/checkbox.html": "48f62ced12f48c5e4bec6b87a5f6c1805a9ba0d0",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/radio.html": "bb5a7dca163378d9270866bfcb986ec6fdb80396",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/input.html": "a591a02db98c2e6255170f4e4f6f5b8d9b730ec6",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/input.js": "f6af62ab5342c650366f57153b446d15c95dd13e",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/textarea.html": "2e60b571824051deb5e074a3fde278e34116b34e",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/textarea.js": "d80185459ed1e0d7c1118c264c8a05a18ce41360",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/select.html": "462acb4245ffb0ce06c0b30cf9c73099e2976cea",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/fileinput.html": "9de91638023c2c6421a726613ce76b58dda11d92",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/fileinput.js": "a9e630cfe9b441598bad0ea6bf6b4a84f2358fdd"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/package.js": "4cff44603087d5952da0c58447afe6cd2fd97152",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/bootstrap.min.css": "58a360d7ef24d8d05737db1712dd5c086597e862",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/variables.lessimport": "788603c14fd854bcf5e48c871b28e4c534e336e3",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/mixins.lessimport": "ced202c6247b462b45940cfe2606d97f233dc838",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/prefixer.lessimport": "11b19b7aa697936d3bc6980faa4dbefad980876f",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/animations.lessimport": "1e035bf02b0ba99582cae1bc723c876d32adc5e6",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/alerts.lessimport": "d443713e99058d03334ec2a685b69275f6ac3189",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/buttons.lessimport": "e4acc2e77be26e5f9829a409f1cdc2f1070b70d7",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/checkboxes.lessimport": "d5a12bf2f497ff164e1346c203c0338ba7147553",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/icons.lessimport": "6cf67336bfb99a607068c5e7c0461ec40f8ca730",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/inputs.lessimport": "23f716bf7fed5fc09fac47db6f46c118beff82bc",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/lists.lessimport": "c0ab24ad5ccd413643fe5c51c3e7adc15db4cc87",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/navbar.lessimport": "7445f9a22164f27f575d50a8add1cc6e724e315d",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/plugin-nouislider.lessimport": "d6ffa22d52a4461f570b782ad9765e404f914dd9",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/plugin-snackbarjs.lessimport": "a8501b8c34d522a76276a90b690629252c5899af",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/popups.lessimport": "1b68493a6d2e9a99795edbf60b0514b70df21688",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/progress.lessimport": "2a6f382b92331785ed012a369abfac5baf4c7cea",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/radios.lessimport": "3c56b451f5948ab8eaf3f21453803f5b5142719f",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/dialogs.lessimport": "09396a3ae52a4356928feb430fc70c5baa35bd5e",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/dropdown.lessimport": "022cde37d10e78be809b69e02d20ac592b98147f",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/tabs.lessimport": "0da51835ec4b0e03247e8dee76caaf27655842e5",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/welljumbo.lessimport": "df747375480886ba7e741869602b87f845f1b764",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/cards.lessimport": "4bfb666599305ccbd1bd19204c9aa73dd4284149",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/styles/waves.lessimport": "b3d5f01991169328dbaacc881488129af833dd48",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/main.less": "dd2707e99aaf2ff5352e953a1eae3f1a2f265101",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/js/bootstrap.min.js": "26908395e7a9a4eab607d80aa50a81d65f3017cb",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/lib/js/waves.js": "e241e6ef84c8e08c5039e6d1184b3559d81b5932",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/main.js": "67f8e717d21505ccc119309716402bb56c9723ce",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/checkbox.html": "48f62ced12f48c5e4bec6b87a5f6c1805a9ba0d0",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/radio.html": "bb5a7dca163378d9270866bfcb986ec6fdb80396",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/input.html": "a591a02db98c2e6255170f4e4f6f5b8d9b730ec6",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/input.js": "f6af62ab5342c650366f57153b446d15c95dd13e",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/textarea.html": "2e60b571824051deb5e074a3fde278e34116b34e",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/textarea.js": "d80185459ed1e0d7c1118c264c8a05a18ce41360",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/select.html": "462acb4245ffb0ce06c0b30cf9c73099e2976cea",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/fileinput.html": "9de91638023c2c6421a726613ce76b58dda11d92",
+        "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/templates/fileinput.js": "a9e630cfe9b441598bad0ea6bf6b4a84f2358fdd"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design/package.js": "4cff44603087d5952da0c58447afe6cd2fd97152"
+    },
+    "directories": []
+  },
+  "source": "/Users/yoshiogoto/Coding/WDI/Phase3/HabitWars/packages/material-design",
+  "buildTimeDirectDependencies": {
+    "templating": "1.0.9",
+    "less": "1.0.11",
+    "jquery": "1.0.1",
+    "meteor": "1.1.3"
+  },
+  "buildTimePluginDependencies": {},
+  "cordovaDependencies": null
+}

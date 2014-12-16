@@ -1,0 +1,42 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "jquery"
+    },
+    {
+      "package": "less"
+    },
+    {
+      "package": "templating"
+    }
+  ],
+  "resources": [
+    {
+      "type": "css",
+      "file": "web.cordova/packages/material-design/lib/styles/bootstrap.min.css",
+      "length": 109518,
+      "offset": 0,
+      "servePath": "/packages/material-design/lib/styles/bootstrap.min.css"
+    },
+    {
+      "type": "css",
+      "file": "web.cordova/packages/material-design/main.less.css",
+      "length": 80369,
+      "offset": 0,
+      "servePath": "/packages/material-design/main.less.css"
+    },
+    {
+      "type": "prelink",
+      "file": "web.cordova/packages/material-design.js",
+      "length": 107804,
+      "offset": 0,
+      "servePath": "/packages/material-design.js",
+      "sourceMap": "web.cordova/packages/material-design.js.map"
+    }
+  ]
+}

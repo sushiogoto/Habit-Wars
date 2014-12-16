@@ -1,0 +1,9 @@
+<template name="groupChat">
+  {{#each messages}}
+    <strong>{{name}}:</strong> {{message}}<br>
+  {{/each}}
+</template>
+
+<template name="chatInput">
+  <p>Message: <input type="text" id="message"></p>
+</template>
