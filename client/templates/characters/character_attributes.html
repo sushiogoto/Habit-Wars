@@ -1,0 +1,30 @@
+<template name="characterAttributes">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th class="table-align-centre">Stats</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Strength</td>
+          <td class="table-align-centre">{{ character.strength }}
+            {{#if character.attributePoints}}
+              <button class="add-strength">+</button>
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <td>Intelligence</td>
+          <td class="table-align-centre">{{ character.intelligence }}
+            {{#if character.attributePoints}}
+              <button class="add-intelligence">+</button>
+            {{/if}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</template>
