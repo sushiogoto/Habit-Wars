@@ -1,14 +1,38 @@
 <template name="itemsInventory">
-  <ul>
-  {{#each inventory}}
-    {{#if this.shouldDisplay}}
-      <li>
-        {{this.quantity}} x {{this.name}}
-        <button class="equipItem">{{#if this.equipped}}Unequip{{else}}Equip{{/if}}</button>
-        <button class="sellItem">Sell</button>
-      </li>
-    {{/if}}
-  {{/each}}
-  </ul>
 
+  <div class="col-md-6">
+    <div class="inventory-table">
+      {{#each inventoryTableData}}
+        <div class="inventory-table-row">
+          {{#each this}}
+            <div class="inventory-table-cell">
+              {{> itemCell}}
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+<!--   <div class="container-fluid">
+    {{#each inventory}}
+      {{#if this.shouldDisplay}}
+          {{this.quantity}} x {{this.name}}
+          <button class="equipItem">{{#if this.equipped}}Unequip{{else}}Equip{{/if}}</button>
+          <button class="sellItem">Sell</button>
+           <div class="img-responsive item">
+            <div class="{{this.material}}_{{this.type}}"></div>
+          </div>
+      {{/if}}
+    {{/each}}
+  </div>
+ -->
+
+
+</template>
+
+<template name="itemCell">
+  {{#if item}}
+    <div class="{{item.material}}_{{item.type}} img-responsive item" data-item-id="{{itemId}}"></div>
+  {{/if}}
 </template>

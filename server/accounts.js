@@ -123,9 +123,15 @@ Accounts.onCreateUser(function (options, user) {
 
   var characterId = Characters.insert(characterAttributes);
 
+
+  var itemsGrid = [0, 0, 0, 0, 0].map(function(inner) {
+    return [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined];
+  });
+
   Inventories.insert({
     characterId: characterId,
-    items: []
+    items: [],
+    itemsGrid: itemsGrid
   });
 
   return user;
