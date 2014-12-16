@@ -1,3 +1,7 @@
+Template.characterIndex.rendered = function() {
+   $('button.btn').tooltip(); //initialize all tooltips in this template
+};
+
 Template.characterIndex.events({
   'click .getgit': function(e) {
     e.preventDefault();

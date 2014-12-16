@@ -170,13 +170,24 @@ i.add-intelligence {
 /*** Equipped / inventroy / shop
 /*****************************/
 
+div.title-box {
+  background-color: #F35B54;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+}
+
+div.title-box h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
 .character-equipped-container,
 .character-inventory-container,
 .shop-container {
-  height: 220px;
-  background-color: #FFBE63;
+  height: 260px;
   overflow: auto;
-  /*padding: 5px;*/
+  border: 1px solid #F35B54;
 }
 
 .character-equipped-container h1,

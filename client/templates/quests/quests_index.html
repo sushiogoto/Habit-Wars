@@ -1,4 +1,17 @@
 <template name="questsIndex">
-  <button class="easy-quest">Easy</button>
-  {{> questActive}}
+
+  <div class="col-md-offset-2 col-md-10">
+    <h1 class="quests-page-title">Quests</h1>
+    <div class="solo-quest-container">
+
+      <button class="easy-quest">Easy</button>
+      <button class="medium-quest">Medium</button>
+      <button class="hard-quest">Hard</button>
+
+      {{currentSoloMonster.health}}
+
+    </div>
+    {{> questActive}}
+  </div>
+
 </template>

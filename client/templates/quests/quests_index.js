@@ -1,3 +1,11 @@
+Template.questsIndex.helpers({
+  currentSoloMonster: function() {
+    var quest = Quests.findOne({userId: Meteor.user()._id, status: "active"});
+    return Monsters.findOne({_id: quest.monsterId});
+  }
+});
+
+
 Template.questsIndex.events({
   'click .easy-quest': function(e) {
     e.preventDefault();

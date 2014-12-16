@@ -1,14 +1,18 @@
 <template name="itemsInventory">
-  <ul>
-  {{#each inventory}}
-    {{#if this.shouldDisplay}}
-      <li>
-        {{this.quantity}} x {{this.name}}
-        <button class="equipItem">{{#if this.equipped}}Unequip{{else}}Equip{{/if}}</button>
-        <button class="sellItem">Sell</button>
-      </li>
-    {{/if}}
-  {{/each}}
-  </ul>
+
+  <table class="table">
+    <tbody>
+      {{#each inventory}}
+        {{#if this.shouldDisplay}}
+          <tr>
+            <td>{{this.quantity}}</td>
+            <td>{{this.name}}</td>
+            <td><button class="equipItem btn btn-success">{{#if this.equipped}}Unequip{{else}}Equip{{/if}}</button></td>
+            <td><button class="sellItem btn btn-warning">Sell</button></td>
+          </tr>
+        {{/if}}
+      {{/each}}
+    </tbody>
+  </table>
 
 </template>
