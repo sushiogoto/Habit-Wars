@@ -10,6 +10,7 @@
 
 .navbar {
   margin-bottom: 0px;
+  background-color: #494949;
 }
 
 .navbar .navbar-inner {
@@ -20,10 +21,19 @@
   border-radius: 0px 0px 3px 3px;
 }
 
+i.fa-shield {
+  color: #FFFFFF;
+}
+
+a.navbar-brand {
+  padding: 5px 15px;
+
+}
+
 .brand {
   font-family: 'FFF';
-  font-size: 2em;
-  color: silver;
+  font-size: 1.7em;
+  color: #FFFFFF;
 }
 
 .dropdown-menu span {
@@ -77,22 +87,20 @@ body { padding-top: 50px; }
 @media (min-width: 992px) {
 
   aside.sidebar-left {
-    background-color: #F9F9F9;
-    left: 0;
-    position: fixed;
     top: 50px;
     bottom: 0;
-    z-index: -1000;
+    left: 0;
+    position: fixed;
     background-color: #ECF0F0;
     display: block;
     overflow: auto;
-    padding: 10px;
     text-align: center;
   }
 }
 
-div.character-avatar-container {
+div.avatar-info {
   text-align: center;
+  padding: 10px;
 }
 
 img.character-avatar {
@@ -100,18 +108,13 @@ img.character-avatar {
   margin: 20px 0;
 }
 
-/*div.basic-stats-container {
-  padding: 20px;
-  background-color: #FFFFFF;
-}*/
-
 h1.character-name {
   font-size: 24px;
   margin: 0;
 }
 
 h2.character-level {
-  font-size: 20px;
+  font-size: 16px;
   margin: 0;
 }
 
@@ -121,21 +124,67 @@ h2.character-level {
   margin: 10px 0 5px 0;
 }
 
-/*** Character stats
+/*** Character Health and XP
 /*****************************/
 
+.avatar-health-and-xp-container {
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+
+div.health-container,
+div.xp-container {
+  text-align: left;
+}
 
 div.progress {
   margin-bottom: 10px;
 }
 
+/*** Character Attributes
+/*****************************/
+
+.character-attributes-container {
+  background-color: #FFFFFF;
+  margin-top: 10px;
+}
+
 .table {
   margin-bottom: 0;
+  text-align: left;
 }
 
 .table-align-centre {
   text-align: center;
 }
+
+.table td {
+
+}
+
+i.add-strength,
+i.add-intelligence {
+  cursor: pointer;
+}
+
+/*** Equipped / inventroy / shop
+/*****************************/
+
+.character-equipped-container,
+.character-inventory-container,
+.shop-container {
+  height: 220px;
+  background-color: #FFBE63;
+  overflow: auto;
+  /*padding: 5px;*/
+}
+
+.character-equipped-container h1,
+.character-inventory-container h1,
+.shop-container h1 {
+  font-size: 18px;
+  text-align: center;
+};
 
 
 /*** Dashboard

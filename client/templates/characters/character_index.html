@@ -1,45 +1,40 @@
 <template name="characterIndex">
+  <!-- dashboard section -->
+  <div class="col-md-offset-2 col-md-10">
 
-  <div class="container-fluid ">
-    <div class="row">
-      <!-- Left side bar -->
-      <aside class="sidebar-left col-md-2">
-        {{> characterAvatar}}
-        {{> characterHealthAndXp}}
-        {{> characterAttributes}}
-      </aside>
+    <div class="container-fluid">
 
-      <!-- dashboard section -->
-      <div class="col-md-offset-2 col-md-10">
-        {{> characterStats}}
-        <div class="character">
-          <button class="getgit">Get your commits</button>
-          <form class="main form">
-            <input type="number" name="target" id="target" value="" placeholder="target" class="commit_target" />
-            <button type="submit"></button>
-          </form>
-
-        {{> questsIndex}}
-          <ul>COMMITS: {{#each commits}}
-            <li>{{this}}</li>
-            {{/each}}
-          </ul>
+      <div class="col-md-4">
+        <div class=" character-equipped-container">
+          <h1 class="currently-equipped">Equipped Items</h1>
+          {{> itemsEquipped}}
         </div>
+      </div>
 
-        {{> itemsShop}}
-        {{> itemsInventory}}
-        {{> itemsEquipped}}
+      <div class="col-md-4">
+        <div class="character-inventory-container">
+          <h1 class="inventory">Inventory</h1>
+          {{> itemsInventory}}
+        </div>
+      </div>
 
-        {{> groupsIndex}}
-        {{> questsVotes}}
-
-        {{> groupQuests}}
+      <div class="col-md-4">
+        <div class="shop-container">
+          <h1 class="shop">Shop</h1>
+          {{> itemsShop}}
+        </div>
       </div>
 
     </div>
+
+
+    {{> characterStats}}
+      {{> questsIndex}}
+
+
+      {{> groupsIndex}}
+      {{> questsVotes}}
+
+      {{> groupQuests}}
   </div>
-
-
-
-
 </template>

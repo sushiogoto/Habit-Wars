@@ -1,6 +1,7 @@
 <template name="characterAttributes">
 
-    <table class="table">
+  <div class="character-attributes-container">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Attribute</th>
@@ -12,7 +13,7 @@
           <td>Strength</td>
           <td class="table-align-centre">{{ character.strength }}
             {{#if character.attributePoints}}
-              <button class="add-strength">+</button>
+              <i class="fa fa-plus-square-o add-strength"></i>
             {{/if}}
           </td>
         </tr>
@@ -20,11 +21,12 @@
           <td>Intelligence</td>
           <td class="table-align-centre">{{ character.intelligence }}
             {{#if character.attributePoints}}
-              <button class="add-intelligence">+</button>
+              <i class="fa fa-plus-square-o add-intelligence"></i>
             {{/if}}
           </td>
         </tr>
       </tbody>
     </table>
 
+  </div>
 </template>
