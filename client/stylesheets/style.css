@@ -119,7 +119,8 @@ h2.character-level {
 }
 
 
-.health-xp-stats {
+.health-xp-stats,
+.solo-enemy-health {
   font-size: 16px;
   margin: 10px 0 5px 0;
 }
@@ -207,4 +208,61 @@ div.title-box h1 {
 
 g {
   margin: 0 auto;
+}
+
+
+/*** Solo Quest
+/*****************************/
+
+div.inner-tile {
+  background-color: #F2F5F6;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #E2E2E2;
+}
+
+h2.quest-type-header {
+  margin: 15px 0 5px 0;
+}
+
+
+div.solo-quest-timer-container {
+  padding: 8px 0;
+}
+
+div.solo-rewards-container {
+  padding: 0 0 8px 0;
+
+}
+
+div.solo-enemy-avatar {
+  text-align: center;
+}
+
+img.solo-enemy-image {
+  height: 200px;
+}
+
+
+h2.reward-header {
+  margin: 5px 0;
+}
+
+
+h3.reward-title {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+h4.reward-amount {
+  font-size: 16px;
+  margin: 5px 0 10px;
+}
+
+/*** Group Quest
+/*****************************/
+
+img.group-member-thumbnail {
+  height: 60px;
 }

@@ -1,7 +1,13 @@
 Template.questsIndex.helpers({
   currentSoloMonster: function() {
     var quest = Quests.findOne({userId: Meteor.user()._id, status: "active"});
-    return Monsters.findOne({_id: quest.monsterId});
+    return quest ? Monsters.findOne({_id: quest.monsterId}) : null;
+  },
+
+  currentSoloMonsterHealthPercentage: function(){
+    var quest = Quests.findOne({userId: Meteor.user()._id, status: "active"});
+    var monster = Monsters.findOne({_id: quest.monsterId});
+    return monster ? Math.floor(monster.health / monster.fullHealth * 100) : null;
   }
 });
 
