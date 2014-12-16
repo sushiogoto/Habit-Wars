@@ -9,7 +9,7 @@
 /*****************************/
 
 .navbar {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .navbar .navbar-inner {
@@ -65,14 +65,38 @@
   padding: 20px;
 }
 
-/*** Character stats
+/*** Side Bar
 /*****************************/
+
+html, body, .container-fluid, .row {
+  height: 100%;
+}
+
+body { padding-top: 50px; }
+
+@media (min-width: 992px) {
+
+  aside.sidebar-left {
+    background-color: #F9F9F9;
+    left: 0;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    z-index: -1000;
+    background-color: #ECF0F0;
+    display: block;
+    overflow: auto;
+    padding: 10px;
+    text-align: center;
+  }
+}
 
 div.character-avatar-container {
   text-align: center;
 }
 
 img.character-avatar {
+  width: 200px;
   margin: 20px 0;
 }
 
@@ -82,22 +106,24 @@ div.basic-stats-container {
 }
 
 h1.character-name {
-  margin: 5px 0 20px;
+  font-size: 24px;
+  margin: 0;
 }
 
-span.character-level {
-  background: #009ACE;
-  border: 3px solid #5d5d5d;
-  border-radius: 10px;
-  color: #FFFFFF;
-  margin: 0 20px 0 0;
-  padding: 0 12px;
+h2.character-level {
+  font-size: 20px;
+  margin: 0;
 }
+
 
 .health-xp-stats {
   font-size: 16px;
   margin: 10px 0 5px 0;
 }
+
+/*** Character stats
+/*****************************/
+
 
 div.progress {
   margin-bottom: 10px;

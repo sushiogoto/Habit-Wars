@@ -1,0 +1,44 @@
+<template name="characterIndex">
+
+  <div class="container-fluid ">
+    <div class="row">
+      <!-- Left side bar -->
+      <aside class="sidebar-left col-md-2">
+        {{> characterAvatar}}
+        {{> characterHealthAndXp}}
+      </aside>
+
+      <!-- dashboard section -->
+      <div class="col-md-offset-2 col-md-10">
+        {{> characterStats}}
+        <div class="character">
+          <button class="getgit">Get your commits</button>
+          <form class="main form">
+            <input type="number" name="target" id="target" value="" placeholder="target" class="commit_target" />
+            <button type="submit"></button>
+          </form>
+
+        {{> questsIndex}}
+          <ul>COMMITS: {{#each commits}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+
+        {{> itemsShop}}
+        {{> itemsInventory}}
+        {{> itemsEquipped}}
+
+        {{> groupsIndex}}
+        {{> questsVotes}}
+
+        {{> groupQuests}}
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+</template>
