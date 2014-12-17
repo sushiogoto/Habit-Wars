@@ -57,9 +57,11 @@
               <span>{{ this.name }}</span>
               <span>{{ this.current_health }} / {{ this.max_health }} </span>
             </div>
+            {{> groupChat}}
+            {{> chatInput}}
           {{/each}}
-          {{> groupsIndex}}
         {{else}}
+          {{> groupsIndex}}
         {{/if}}
       </div>
 
