@@ -79,7 +79,7 @@ Template.dashboardCommitGraph.rendered = function(){
 
               var background = enter.append("g").attr("class","component")
                   .attr("cursor","pointer")
-                  .on("click",onMouseClick);
+                  .on("`",onMouseClick);
 
 
               _arc.endAngle(360 * (Math.PI/180));

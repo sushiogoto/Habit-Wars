@@ -3,7 +3,7 @@
 
       <div class="health-container">
         <h2 class="health-xp-stats">
-          Health <span class="pull-right">{{ character.current_health }} / {{ character.max_health }} </span>
+          Health <span class="pull-right">{{ character.current_health }} / {{ character.totalHealth }} </span>
         </h2>
         <div class="progress">
           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{character.current_health}}" aria-valuemin="0" aria-valuemax="{{character.max_health}}" style="width: {{health_percentage}}%">
