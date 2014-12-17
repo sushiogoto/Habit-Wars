@@ -20,11 +20,15 @@ Template.itemsInventory.helpers({
 
     inventory.itemsGrid.forEach(function(row, x) {
       row.forEach(function(column, y) {
+        var itemsGridUpdate = inventory.itemsGrid;
         if(column === null && itemsNotInGrid.length > 0) {
-          var itemsGridUpdate = inventory.itemsGrid;
           column = itemsNotInGrid.pop();
           itemsGridUpdate[x][y] = column;
           var item = Items.findOne({_id: column});
+          Inventories.update(inventory._id, {$set: {itemsGrid: itemsGridUpdate}});
+        }
+        else if(!_.contains(inventoryItemsIds, column)) {
+          itemsGridUpdate[x][y] = null;
           Inventories.update(inventory._id, {$set: {itemsGrid: itemsGridUpdate}});
         }
       });
