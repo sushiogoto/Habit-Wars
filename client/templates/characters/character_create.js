@@ -139,8 +139,8 @@ Template.transitioner.rendered = function() {
   this.autorun(function() {
     var currentPage = Session.get('currentPage');
 
-    var $currentPanel = $('.panel:not(.current-panel)');
-    var $prevPanel = $('.panel.current-panel');
+    var $currentPanel = $('.tranpanel:not(.current-panel)');
+    var $prevPanel = $('.tranpanel.current-panel');
 
     // out animation
     $prevPanel.one('animationend webkitAnimationEnd oanimationend MSAnimationEnd', function() {

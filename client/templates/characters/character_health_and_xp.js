@@ -1,8 +1,13 @@
 Template.characterHealthAndXp.helpers({
   character: function () {
-    user = Meteor.user();
-    return Characters.findOne({userId: user._id});
+    character = util.currentCharacter();
+    character.equippedHealth = util.getTotalStatsOfEquippedItems().health;
+    character.current_health += character.equippedHealth;
+    character.totalHealth = character.max_health + character.equippedHealth;
+    character.healthPercentage = Math.floor( (character.current_health + character.equippedHealth) / character.totalHealth * 100);
+    return character;
   },
+
   health_percentage: function() {
     user = Meteor.user();
     character = Characters.findOne({userId: user._id});
@@ -10,6 +15,7 @@ Template.characterHealthAndXp.helpers({
     max_health = character.max_health;
     return Math.floor( current_health / max_health * 100);
   },
+
   XP_percentage: function() {
     user = Meteor.user();
     character = Characters.findOne({userId: user._id});

@@ -1,7 +1,9 @@
 Template.characterAttributes.helpers({
   character: function () {
-    user = Meteor.user();
-    return Characters.findOne({userId: user._id});
+    character = util.currentCharacter();
+    character.equippedStrength = util.getTotalStatsOfEquippedItems().strength;
+    character.equippedIntelligence = util.getTotalStatsOfEquippedItems().intelligence;
+    return character;
   }
 });
 
