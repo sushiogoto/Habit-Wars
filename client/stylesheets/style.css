@@ -10,6 +10,7 @@
 
 .navbar {
   margin-bottom: 0px;
+  background-color: #494949;
 }
 
 .navbar .navbar-inner {
@@ -20,10 +21,19 @@
   border-radius: 0px 0px 3px 3px;
 }
 
+i.fa-shield {
+  color: #FFFFFF;
+}
+
+a.navbar-brand {
+  padding: 5px 15px;
+
+}
+
 .brand {
   font-family: 'FFF';
-  font-size: 2em;
-  color: silver;
+  font-size: 1.7em;
+  color: #FFFFFF;
 }
 
 .dropdown-menu span {
@@ -77,22 +87,20 @@ body { padding-top: 50px; }
 @media (min-width: 992px) {
 
   aside.sidebar-left {
-    background-color: #F9F9F9;
-    left: 0;
-    position: fixed;
     top: 50px;
     bottom: 0;
-    z-index: -1000;
+    left: 0;
+    position: fixed;
     background-color: #ECF0F0;
     display: block;
     overflow: auto;
-    padding: 10px;
     text-align: center;
   }
 }
 
-div.character-avatar-container {
+div.avatar-info {
   text-align: center;
+  padding: 10px;
 }
 
 img.character-avatar {
@@ -100,42 +108,95 @@ img.character-avatar {
   margin: 20px 0;
 }
 
-/*div.basic-stats-container {
-  padding: 20px;
-  background-color: #FFFFFF;
-}*/
-
 h1.character-name {
   font-size: 24px;
   margin: 0;
 }
 
 h2.character-level {
-  font-size: 20px;
+  font-size: 16px;
   margin: 0;
 }
 
 
-.health-xp-stats {
+.health-xp-stats,
+.solo-enemy-health {
   font-size: 16px;
   margin: 10px 0 5px 0;
 }
 
-/*** Character stats
+/*** Character Health and XP
 /*****************************/
 
+.avatar-health-and-xp-container {
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+
+div.health-container,
+div.xp-container {
+  text-align: left;
+}
 
 div.progress {
   margin-bottom: 10px;
 }
 
+/*** Character Attributes
+/*****************************/
+
+.character-attributes-container {
+  background-color: #FFFFFF;
+  margin-top: 10px;
+}
+
 .table {
   margin-bottom: 0;
+  text-align: left;
 }
 
 .table-align-centre {
   text-align: center;
 }
+
+.table td {
+
+}
+
+i.add-strength,
+i.add-intelligence {
+  cursor: pointer;
+}
+
+/*** Equipped / inventroy / shop
+/*****************************/
+
+div.title-box {
+  background-color: #F35B54;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+}
+
+div.title-box h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.character-equipped-container,
+.character-inventory-container,
+.shop-container {
+  height: 260px;
+  overflow: auto;
+  border: 1px solid #F35B54;
+}
+
+.character-equipped-container h1,
+.character-inventory-container h1,
+.shop-container h1 {
+  font-size: 18px;
+  text-align: center;
+};
 
 
 /*** Dashboard
@@ -147,4 +208,65 @@ div.progress {
 
 g {
   margin: 0 auto;
+}
+
+
+/*** Solo Quest
+/*****************************/
+
+div.inner-tile {
+  background-color: #F2F5F6;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #E2E2E2;
+}
+
+h2.quest-type-header {
+  margin: 15px 0 5px 0;
+}
+
+
+div.solo-quest-timer-container {
+  padding: 8px 0;
+}
+
+div.solo-rewards-container {
+  padding: 0 0 8px 0;
+
+}
+
+div.solo-enemy-avatar {
+  text-align: center;
+}
+
+img.solo-enemy-image,
+img.group-enemy-image {
+  height: 200px;
+}
+
+
+h2.reward-header {
+  margin: 5px 0;
+}
+
+
+h3.reward-title {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+h4.reward-amount {
+  font-size: 16px;
+  margin: 5px 0 10px;
+}
+
+/*** Group Quest
+/*****************************/
+
+img.group-member-thumbnail {
+  height: 65px;
+  border: 3px solid #009ACE;
+  border-radius: 40px;
+  padding: 8px 0;
 }

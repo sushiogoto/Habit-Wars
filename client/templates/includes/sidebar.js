@@ -1,8 +1,4 @@
-Template.characterIndex.rendered = function() {
-   $('button.btn').tooltip(); //initialize all tooltips in this template
-};
-
-Template.characterIndex.events({
+Template.sidebar.events({
   'click .getgit': function(e) {
     e.preventDefault();
     Meteor.call('updateGitRecord', function(error, result) {
@@ -26,7 +22,7 @@ Template.characterIndex.events({
   }
 });
 
-Template.characterIndex.helpers({
+Template.sidebar.helpers({
   commits: function() {
     user = Meteor.user();
     habits = Habits.findOne({userId: user._id});

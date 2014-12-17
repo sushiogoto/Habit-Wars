@@ -1,13 +1,36 @@
 <template name="itemsEquipped">
 
-  <ul>
-    <li>Head:     {{equipments.head.name}}</li>
-    <li>Chest:    {{equipments.chest.name}}</li>
-    <li>Hands:    {{equipments.hands.name}}</li>
-    <li>Legs:     {{equipments.legs.name}}</li>
-    <li>Feet:     {{equipments.feet.name}}</li>
-    <li>MainHand: {{equipments.mainHand.name}}</li>
-    <li>OffHand:  {{equipments.offHand.name}}</li>
-  </ul>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Head</td>
+        <td>{{equipments.head.name}}</td>
+      </tr>
+      <tr>
+        <td>Chest</td>
+        <td>{{equipments.chest.name}}</td>
+      </tr>
+      <tr>
+        <td>Hands</td>
+        <td>{{equipments.hands.name}}</td>
+      </tr>
+      <tr>
+        <td>Legs</td>
+        <td>{{equipments.legs.name}}</td>
+      </tr>
+      <tr>
+        <td>Feet</td>
+        <td>{{equipments.feet.name}}</td>
+      </tr>
+      <tr>
+        <td>Main Hand</td>
+        <td>{{equipments.mainHand.name}}</td>
+      </tr>
+      <tr>
+        <td>Off Hand</td>
+        <td>{{equipments.offHand.name}}</td>
+      </tr>
+    </tbody>
+  </table>
 
 </template>

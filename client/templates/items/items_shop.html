@@ -1,7 +1,22 @@
 <template name="itemsShop">
-  {{#each shopItems}}
-    <div>
-      <button class="buyItem">Buy {{this.name}}</button>
-    </div>
-  {{/each}}
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each shopItems}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.price}}</td>
+            <td><button class="buyItem btn btn-primary">Buy</button></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </template>
