@@ -1,8 +1,6 @@
 Template.groupQuests.helpers({
   activeGroupQuest: function() {
-    var character = Characters.findOne({userId: Meteor.userId()});
-    var group = Groups.findOne({members: character._id});
-    return Quests.findOne({groupId: group._id, status: "active"});
+    return util.questForCurrentCharacter('group');
   }
 });
 

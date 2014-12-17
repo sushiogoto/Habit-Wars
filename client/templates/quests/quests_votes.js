@@ -1,7 +1,10 @@
 Template.questsVotes.helpers({
   questsToVote: function() {
-    var character = Characters.findOne({userId: Meteor.userId()});
+    var character = util.currentCharacter();
     var group = Groups.findOne({members: character._id});
+    if (!group) {
+      return [];
+    }
     var quests = Quests.find({groupId: group._id, status: "pending"}).fetch();
     var result = [];
     quests.forEach(function(quest){

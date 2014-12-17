@@ -21,7 +21,7 @@ Template.characterCreate.events({
       strength: 10,
       intelligence: 10,
 
-      currentXP: 0,
+      XP: 0,
       nextLevelXP: 100,
       level: 1,
       tokens: 5,
