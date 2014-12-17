@@ -19,7 +19,7 @@
         </div>
 
         <div class="solo-enemy-avatar">
-          <img src="http://media.giphy.com/media/hAv3AZwiHIFUY/giphy.gif" class="solo-enemy-image" alt="">
+          <img src="http://cdn.wikimg.net/strategywiki/images/1/1c/SMB2_boss_Wart.gif" class="solo-enemy-image" alt="">
         </div>
         <h2 class="solo-enemy-health">
           Enemy Health <span class="pull-right">{{ currentSoloMonster.health }} / {{ currentSoloMonster.fullHealth }} </span>
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <button class="attack btn btn-block btn-success">Attack</button>
+        <button class="soloQuestAttack btn btn-block btn-success">Attack</button>
       {{ else }}
         <h2>You are not on any solo quests</h2>
         <button class="easy-quest">Easy</button>
@@ -50,7 +50,11 @@
         Group Members
         {{#if currentGroupMembers}}
           {{#each currentGroupMembers}}
-            <div><img src="{{this.avatar_url}}" class="group-member-thumbnail" alt=""><span>{{this.name}}</span></div>
+            <div class="Group-enemy-health">
+              <span><img src="{{this.avatar_url}}" class="group-member-thumbnail" alt=""></span>
+              <span>{{ this.name }}</span>
+              <span>{{ this.current_health }} / {{ this.max_health }} </span>
+            </div>
           {{/each}}
         {{else}}
           {{> groupsIndex}}
@@ -58,29 +62,29 @@
       </div>
 
       <div class="col-md-6">
-        {{#if currentGroupMonster}}
+        {{#if currentGroupQuest}}
           <div class="Group-quest-timer-container">
             <h3 class="reward-title"><strong>Time remaining</strong></h3>
             <h4 class="reward-amount">{{groupQuestTimeRemaining}}</h4>
           </div>
           <div class="Group-rewards-container">
             <h3 class="reward-title">Rewards</h3>
-            <h4 class="reward-amount">+ {{currentGroupQuest.XP}} XP</h4>
-            <h4 class="reward-amount">+ {{currentGroupQuest.gold}} Gold</h4>
+            <h4 class="reward-amount">+ {{currentGroupXPReward}} XP</h4>
+            <h4 class="reward-amount">+ {{currentGroupGoldReward}} Gold</h4>
             <h4 class="reward-amount">Random Gear x 1</h4>
           </div>
           <div class="Group-enemy-avatar">
-            <!-- <img src="http://media.giphy.com/media/hAv3AZwiHIFUY/giphy.gif" class="Group-enemy-image" alt=""> -->
+            <img src="http://media.giphy.com/media/hAv3AZwiHIFUY/giphy.gif" class="group-enemy-image" alt="">
           </div>
           <h2 class="Group-enemy-health">
-            Enemy Health <span class="pull-right">{{ currentGroupMonster.health }} / {{ currentGroupMonster.fullHealth }} </span>
+            Enemy Health <span class="pull-right">{{ currentGroupMonster.health }} / {{ currentGroupMonsterFullHealth }} </span>
           </h2>
           <div class="progress">
-            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{currentGroupMonster.health}}" aria-valuemin="0" aria-valuemax="{{currentGroupMonster.fullHealth}}" style="width: {{currentGroupMonsterHealthPercentage}}%">
+            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{currentGroupMonster.health}}" aria-valuemin="0" aria-valuemax="{{currentGroupMonsterFullHealth}}" style="width: {{currentGroupMonsterHealthPercentage}}%">
               <span class="sr-only">{{currentGroupMonsterHealthPercentage}}%</span>
             </div>
           </div>
-          <button class="attack btn btn-block btn-success">Attack</button>
+          <button class="groupQuestAttack btn btn-block btn-success">Attack</button>
         {{else}}
           <h2>You are not on any group quests</h2>
           {{> questsVotes}}

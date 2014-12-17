@@ -240,7 +240,8 @@ div.solo-enemy-avatar {
   text-align: center;
 }
 
-img.solo-enemy-image {
+img.solo-enemy-image,
+img.group-enemy-image {
   height: 200px;
 }
 
@@ -264,5 +265,8 @@ h4.reward-amount {
 /*****************************/
 
 img.group-member-thumbnail {
-  height: 60px;
+  height: 65px;
+  border: 3px solid #009ACE;
+  border-radius: 40px;
+  padding: 8px 0;
 }
