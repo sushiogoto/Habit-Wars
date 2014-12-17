@@ -1,4 +1,10 @@
-/* FONT! */
+#main {
+  background-color: #415066;
+  background-image: url(http://www.transparenttextures.com/patterns/graphy.png);
+  background-repeat: repeat;
+  overflow: scroll;
+}
+
 @font-face {
   font-family: 'FFF';
   src:
@@ -192,6 +198,7 @@ div.title-box h1 {
   height: 260px;
   overflow: auto;
   border: 1px solid #F35B54;
+  background-color: #FFF;
 }
 
 .character-inventory-container {
