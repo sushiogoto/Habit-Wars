@@ -5,7 +5,10 @@
 </template>
 
 <template name="questVoteItem">
-  {{this.difficulty}}
-  <button class="accept">Accept</button>
-  <button class="decline">Decline</button>
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    You have been invited to the quest: <strong>"{{this.difficulty}} monster"!</strong><br/>
+    {{questVoters}} has accepted.<br/>
+    <button type="button" class="accept btn btn-success" data-dismiss="alert">Accept</button>
+    <button type="button" class="decline btn btn-warning" data-dismiss="alert">Decline</button>
+  </div>
 </template>

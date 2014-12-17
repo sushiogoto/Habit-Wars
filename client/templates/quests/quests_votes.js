@@ -9,6 +9,7 @@ Template.questsVotes.helpers({
     var result = [];
     quests.forEach(function(quest){
       if (quest.accepted.indexOf(character._id) < 0 && quest.declined.indexOf(character._id) < 0) {
+        // quest.createdBy = Users.findOne({_id: quest.accepted[0]}).profile.name;
         result.push(quest);
       }
     });
@@ -22,5 +23,14 @@ Template.questVoteItem.events({
   },
   'click .decline': function() {
     Meteor.call('groupQuestVote', 'decline', this._id, function (error, result) {});
+  }
+});
+
+Template.questVoteItem.helpers({
+  questVoters: function() {
+    var voters = _.map(this.accepted, function(charId) {
+      return Characters.findOne({_id: charId}).name;
+    });
+    return voters.join(', ');
   }
 });
