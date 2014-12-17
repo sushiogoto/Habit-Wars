@@ -48,7 +48,7 @@ Template.itemsInventory.events({
   'mousedown .item': function() {
     console.log(this);
     Session.set('moving_itemobject', this._id);
-  }
+  },
 });
 
 Template.itemsInventory.rendered = function () {
@@ -82,8 +82,11 @@ Template.itemsInventory.rendered = function () {
 
         console.log('left  : ' + cursorPosLeft);
         console.log('offset: ' + invTableOffsetLeft);
-        var toRow = convertPosToDivArrayPos(cursorPosTop - invTableOffsetTop);
+        var toRow = convertPosToDivArrayPos(cursorPosTop - invTableOffsetTop) - 2;
         var toCol = convertPosToDivArrayPos(cursorPosLeft - invTableOffsetLeft);
+        if(toCol >= 0 && toRow >= -2 && toCol < 11) {
+          Meteor.call('equipUnequipItem', $(event.target).data('item-id'), function (error, result) {console.log(result);});
+        }
         if(toRow < 0 || toCol < 0 || toRow > 4 || toCol > 10) {
           toRow = 0;
           toCol = 0;
@@ -132,14 +135,22 @@ Template.itemCell.helpers({
   },
 
   item: function() {
-    return Items.findOne({_id: this.toString()});
+    var inventory = Inventories.findOne({characterId: util.currentCharacter()._id});
+    var item = _.findWhere(inventory.items, {_id: this.toString()});
+    if(item) {
+      item.shouldDisplay = item.quantity > 0 || !item.equipped;
+    }
+    return item;
   },
   itemStats: function() {
-    var item = Items.findOne({_id: this.toString()});
+    var inventory = Inventories.findOne({characterId: util.currentCharacter()._id});
+    var item = _.findWhere(inventory.items, {_id: this.toString()});
     var itemStats = "Name: " + item.name + "\nType:" + item.type + "\nMaterial:" + item.material +
     "\nHlth:" + item.health + "\nStr:" + item.strength + "\nInt:" + item.intelligence + "\nQuantity:" + item.quantity +
     "\nPrice:" + item.price;
     return itemStats;
+
+    // item.shouldDisplay = item.quantity > 0 || item.equipped;
   }
 });
 

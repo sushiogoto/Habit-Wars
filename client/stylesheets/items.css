@@ -133,8 +133,15 @@ td > .Sunsoul_mainHand {
   display: table-caption;
   width: 100%;
   border: 1px solid #999;
-  height: 50px;
+  height: 100px;
+  vertical-align: middle;
+  text-align: center;
 }
+
+.inventory-equip-row:hover {
+  background: rgba(0,0,0,0.3);
+}
+
 .inventory-table-row {
   display: table-row;
   width: 100%;

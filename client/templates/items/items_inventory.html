@@ -1,8 +1,7 @@
 <template name="itemsInventory">
 
     <div class="inventory-table">
-      <div class="inventory-equip-row">
-      </div>
+      <div class="inventory-equip-row"><h3>Drag things here to equip!</h3></div>
       {{#each inventoryTableData}}
         <div class="inventory-table-row">
           {{#each this}}
@@ -13,8 +12,8 @@
         </div>
       {{/each}}
     </div>
-
-<!--   <div class="container-fluid">
+<!--
+  <div class="container-fluid">
     {{#each inventory}}
       {{#if this.shouldDisplay}}
           {{this.quantity}} x {{this.name}}
@@ -25,14 +24,14 @@
           </div>
       {{/if}}
     {{/each}}
-  </div>
- -->
+  </div> -->
+
 
 
 </template>
 
 <template name="itemCell">
-  {{#if item}}
+  {{#if item.shouldDisplay}}
     <div class="{{item.material}}_{{item.type}} img-responsive item" data-item-id="{{itemId}}" data-toggle="popover" data-content="{{itemStats}}"></div>
   {{/if}}
 </template>
