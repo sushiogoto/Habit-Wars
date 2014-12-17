@@ -16,12 +16,12 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+          {{> itemsInventory}}
+      <div class="col-md-6">
         <div class="title-box">
           <h1>Inventory</h1>
         </div>
         <div class="character-inventory-container">
-          {{> itemsInventory}}
         </div>
       </div>
 
@@ -37,12 +37,6 @@
     </div>
 
     {{> characterStats}}
-    {{> questsIndex}}
 
-
-    {{> groupsIndex}}
-    {{> questsVotes}}
-
-    {{> groupQuests}}
   </div>
 </template>

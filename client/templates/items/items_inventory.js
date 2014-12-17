@@ -53,13 +53,14 @@ Template.itemsInventory.rendered = function () {
 
 
   Tracker.autorun(function () {
-    console.log('draggable');
     itemsGridDep.depend();
+    console.log('draggable');
     $('.item').draggable({
       snap: ".inventory-table-cell",
       snapMode: "inner",
-      snapTolerance: 15,
+      snapTolerance: 30,
       stop: function(event, ui) {
+        console.log('stop handler');
         inventory = Inventories.findOne({characterId: character._id});
         // var offset = $('.inventory-table').offset();
         // var left = ui.position.left;
@@ -72,7 +73,7 @@ Template.itemsInventory.rendered = function () {
         // flatItemsGridArray = _.flatten(inventory.itemsGrid);
 
         var convertPosToDivArrayPos = function(position) {
-          return Math.floor(position/30);
+          return Math.floor(position/50);
         };
 
         console.log('left  : ' + cursorPosLeft);
