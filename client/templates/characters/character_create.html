@@ -1,0 +1,43 @@
+<template name="characterCreate">
+  <div class="col-md-6 col-md-offset-1">
+    <div class="wrapper">
+      <div class="menu">
+        <a href="#" class="one">Warrior</a>
+        <a href="#" class="two">Ranger</a>
+        <a href="#" class="three">Mage</a>
+
+        <div class="circle">
+          <div class="another-circle"></div>
+          <div class="other-circle"></div>
+          <ul>
+            <li>Profile</li>
+            <li>Character</li>
+            <li>Graph</li>
+          </ul>
+        </div>
+        <div class="inner-circle">{{> characterInfo}}</div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <form role="form">
+      <div class="form-group">
+        <label for="characterName">Character Name</label>
+        <input type="text" class="form-control" name="characterName" id="characterName" placeholder="Enter character name">
+      </div>
+      <div class="form-group">
+        <label for="commitTarget">Daily Git Commit Target</label>
+        <input type="number" min="1" class="form-control" name="commitTarget" id="commitTarget" placeholder="Enter your daily git commit target">
+      </div>
+
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</template>
+
+<template name="characterInfo">
+  <div class="character_info {{characterInfo}}">{{characterInfo}}</div>
+  <button class="btn btn-success select">Select</button>
+  <!-- some select button -->
+</template>

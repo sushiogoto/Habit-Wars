@@ -7,8 +7,6 @@
 /*WRAPPER*/
 .wrapper {
   position: relative;
-  margin: 20px auto;
-  width: 3670px;
 }
 
 /*MAIN CIRCLE*/
@@ -104,8 +102,8 @@
   font: 70px/135px Georgia, Times, serif;
   color: #efefef;
   position: absolute;
-  top: 65px;
-  left: 65px;
+  top: 125px;
+  left: 95px;
   z-index: 1;
   width: 320px;
   height: 320px;
@@ -178,4 +176,20 @@
 @-webkit-keyframes spin-reverse {
   0%  {-webkit-transform: rotate(360deg);}
   100% {-webkit-transform: rotate(0deg);}
+}
+
+.character_info {
+  background-size: cover;
+  display: relative;
+  margin: 0 auto;
+  padding-top: 40px;
+  width: 175px;
+  height: 175px;
+}
+
+.megaman {
+  background-image: url("http://www.gearfuse.com/wp-content/uploads/2010/06/retro-gaming-3d-3.gif");
+}
+.aero {
+  background-image: url("http://ranger.gamebanana.com/img/ico/sprays/zero_run_ekah_render.gif");
 }

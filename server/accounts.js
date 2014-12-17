@@ -98,42 +98,6 @@ Accounts.onCreateUser(function (options, user) {
   }
   console.log("user created :", user);
 
-  Habits.insert({
-    userId: user._id,
-    timestamp: Date.now() - 1000 * 60 * 60 * 24 * 5, //moment(user.createdAt).format('x'),
-    git_record: {}
-  });
-
-  var characterAttributes = {
-    userId: user._id,
-    name: "Megaman",
-    avatar_url: "http://www.gearfuse.com/wp-content/uploads/2010/06/retro-gaming-3d-3.gif",
-    attributePoints: 0,
-    max_health: 100,
-    current_health: 100,
-    strength: 10,
-    intelligence: 10,
-
-    currentXP: 0,
-    nextLevelXP: 100,
-    level: 1,
-    tokens: 5,
-    gold: 0
-  };
-
-  var characterId = Characters.insert(characterAttributes);
-
-
-  var itemsGrid = [0, 0, 0, 0, 0].map(function(inner) {
-    return [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined];
-  });
-
-  Inventories.insert({
-    characterId: characterId,
-    items: [],
-    itemsGrid: itemsGrid
-  });
-
   return user;
 
 
