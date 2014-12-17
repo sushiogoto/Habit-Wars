@@ -11,5 +11,13 @@ Template.groupQuests.events({
 
   'click .easy-group-quest-init': function() {
     Meteor.call('groupQuestInit', 'easy', function (error, result) {});
-  }
+  },
+
+  'click .medium-group-quest-init': function() {
+    Meteor.call('groupQuestInit', 'medium', function (error, result) {});
+  },
+
+  'click .hard-group-quest-init': function() {
+    Meteor.call('groupQuestInit', 'hard', function (error, result) {});
+  },
 });

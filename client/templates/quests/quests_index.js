@@ -16,7 +16,17 @@ Template.questsIndex.events({
   'click .easy-quest': function(e) {
     e.preventDefault();
     Meteor.call('questInit', 'easy', function (error, result) {console.log(result);});
-  }
+  },
+
+  'click .medium-quest': function(e) {
+    e.preventDefault();
+    Meteor.call('questInit', 'medium', function (error, result) {console.log(result);});
+  },
+
+  'click .hard-quest': function(e) {
+    e.preventDefault();
+    Meteor.call('questInit', 'hard', function (error, result) {console.log(result);});
+  },
 });
 
 Template.questsIndex.rendered = function() {
