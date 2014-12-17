@@ -1,47 +1,42 @@
 Template.questActive.rendered = function () {
 
   var characterId = Characters.findOne({userId: Meteor.userId()})._id;
-  var soloQuest = Quests.findOne({userId: Meteor.user()._id, status: "active"});
-  var groupQuest = Quests.findOne({groupId: Groups.findOne({members: characterId})._id, status: "active"});
+  var soloQuest, groupQuest;
 
-  soloQuestCountDown = function(){
-    var time_left = moment(soloQuest.startDate).add(soloQuest.questDuration, 'd') - moment();
-    var hours = Math.floor(time_left / (1000 * 60 * 60));
-    var minutes = Math.floor((time_left - (hours * (1000 * 60 * 60))) / (1000 * 60));
-    var seconds = Math.floor((time_left - (hours * (1000 * 60 * 60)) - (minutes * 1000 * 60)) / 1000);
-    Session.set('soloQuestRemainingTimePretty', hours + " hrs " + minutes + " min " + seconds + " sec");
-    Meteor.setTimeout(soloQuestCountDown, 500);
+  Tracker.autorun(function() {
+    soloQuest = util.questForCurrentCharacter('solo');
+    groupQuest = util.questForCurrentCharacter('group');
+  });
+
+  updateTimers = function(){
+    soloQuest = soloQuest || util.questForCurrentCharacter('solo');
+    groupQuest = groupQuest || util.questForCurrentCharacter('group');
+    if (soloQuest) {
+      Session.set('soloQuestRemainingTimePretty', util.questTimeRemaining(soloQuest));
+    }
+    if (groupQuest) {
+      Session.set('groupQuestRemainingTimePretty', util.questTimeRemaining(groupQuest));
+    }
+    Meteor.setTimeout(updateTimers, 500);
   };
 
-
-  groupQuestCountDown = function(){
-    var time_left = moment(groupQuest.startDate).add(groupQuest.questDuration, 'd') - moment();
-    var hours = Math.floor(time_left / (1000 * 60 * 60));
-    var minutes = Math.floor((time_left - (hours * (1000 * 60 * 60))) / (1000 * 60));
-    var seconds = Math.floor((time_left - (hours * (1000 * 60 * 60)) - (minutes * 1000 * 60)) / 1000);
-    Session.set('groupQuestRemainingTimePretty', hours + " hrs " + minutes + " min " + seconds + " sec");
-    Meteor.setTimeout(groupQuestCountDown, 500);
-  };
-
-  soloQuestCountDown();
-  groupQuestCountDown();
+  updateTimers();
 
 };
 
 Template.questActive.helpers({
 
   currentSoloQuest: function() {
-    return Quests.findOne({userId: Meteor.user()._id, status: "active"});
+    return util.questForCurrentCharacter('solo');
   },
 
   currentSoloMonster: function() {
-    var quest = Quests.findOne({userId: Meteor.user()._id, status: "active"});
+    var quest = util.questForCurrentCharacter('solo');
     return quest ? Monsters.findOne({_id: quest.monsterId}) : null;
   },
 
   currentSoloMonsterHealthPercentage: function(){
-    var quest = Quests.findOne({userId: Meteor.user()._id, status: "active"});
-    var monster = Monsters.findOne({_id: quest.monsterId});
+    var monster = util.monsterForCurrentCharacter('solo');
     return monster ? Math.floor(monster.health / monster.fullHealth * 100) : null;
   },
 
@@ -50,67 +45,41 @@ Template.questActive.helpers({
   },
 
   currentGroupQuest: function() {
-    var character = Characters.findOne({userId: Meteor.userId()});
-    var group = Groups.findOne({members: character._id});
-    return Quests.findOne({groupId: group._id, status: "active"});
+    return util.questForCurrentCharacter('group');
+  },
+
+  userIsInGroup: function() {
+    return !!Groups.findOne({members: util.currentCharacter()._id});
   },
 
   currentGroupMembers: function(){
-    var characterId = Characters.findOne({userId: Meteor.userId()})._id;
-    var group = Groups.findOne({members: characterId});
-    var result = [];
-    group.members.forEach(function(memberId){
-      result.push(Characters.findOne({_id: memberId}));
-    });
-    return result;
+    var group = Groups.findOne({members: util.currentCharacter()._id});
+    return Characters.find({_id: {$in: group.members}});
   },
 
   currentGroupMonster: function(){
-    var character = Characters.findOne({userId: Meteor.userId()});
-    var group = Groups.findOne({members: character._id});
-    var quest = Quests.findOne({groupId: group._id, status: "active"});
-    return Monsters.findOne({_id: quest.monsterId});
+    return util.monsterForCurrentCharacter('group');
+  },
+
+  currentGroupMonsterHealth: function() {
+    return util.sumPropertyOfSubmonsters(util.monsterForCurrentCharacter('group'), 'health');
   },
 
   currentGroupMonsterFullHealth: function() {
-    var character = Characters.findOne({userId: Meteor.userId()});
-    var group = Groups.findOne({members: character._id});
-    var quest = Quests.findOne({groupId: group._id, status: "active"});
-    var monster = Monsters.findOne({_id: quest.monsterId});
-    var subMonstersHealth = _.pluck(monster.subMonsters, "fullHealth");
-    var totalHealth = subMonstersHealth.reduce(function(a,b){
-      return a + b;
-    });
-    return totalHealth;
+    return util.sumPropertyOfSubmonsters(util.monsterForCurrentCharacter('group'), 'fullHealth');
   },
 
   currentGroupXPReward: function() {
-    var character = Characters.findOne({userId: Meteor.userId()});
-    var group = Groups.findOne({members: character._id});
-    var quest = Quests.findOne({groupId: group._id, status: "active"});
-    var monster = Monsters.findOne({_id: quest.monsterId});
-    return monster.subMonsters[character._id].XP;
+    return util.shareOfGroupReward(util.monsterForCurrentCharacter('group'), 'XP');
   },
 
   currentGroupGoldReward: function() {
-    var character = Characters.findOne({userId: Meteor.userId()});
-    var group = Groups.findOne({members: character._id});
-    var quest = Quests.findOne({groupId: group._id, status: "active"});
-    var monster = Monsters.findOne({_id: quest.monsterId});
-    var subMonstersGold = _.pluck(monster.subMonsters, "gold");
-    return monster.subMonsters[character._id].gold;
+    return util.shareOfGroupReward(util.monsterForCurrentCharacter('group'), 'gold');
   },
 
   currentGroupMonsterHealthPercentage: function() {
-    var character = Characters.findOne({userId: Meteor.userId()});
-    var group = Groups.findOne({members: character._id});
-    var quest = Quests.findOne({groupId: group._id, status: "active"});
-    var monster = Monsters.findOne({_id: quest.monsterId});
-    var subMonstersHealth = _.pluck(monster.subMonsters, "fullHealth");
-    var totalHealth = subMonstersHealth.reduce(function(a,b){
-      return a + b;
-    });
-    return Math.floor(monster.health / totalHealth * 100);
+    var monster = util.monsterForCurrentCharacter('group');
+    return Math.floor(util.sumPropertyOfSubmonsters(monster, 'health') / util.sumPropertyOfSubmonsters(monster, 'fullHealth') * 100);
   },
 
   groupQuestTimeRemaining: function() {

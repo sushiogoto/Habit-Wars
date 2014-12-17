@@ -14,10 +14,10 @@
 
       <div class="xp-container">
         <h2 class="health-xp-stats">
-          XP <span class="pull-right">{{ character.currentXP }} / {{ character.nextLevelXP}}</span>
+          XP <span class="pull-right">{{ character.XP }} / {{ character.nextLevelXP}}</span>
         </h2>
         <div class="progress">
-          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{character.currentXP}}" aria-valuemin="0" aria-valuemax="{{character.nextLevelXP}}" style="width: {{XP_percentage}}%">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{character.XP}}" aria-valuemin="0" aria-valuemax="{{character.nextLevelXP}}" style="width: {{XP_percentage}}%">
             <span class="sr-only">{{XP_percentage}}% Complete</span>
           </div>
         </div>

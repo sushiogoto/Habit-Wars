@@ -13,8 +13,8 @@ Template.characterHealthAndXp.helpers({
   XP_percentage: function() {
     user = Meteor.user();
     character = Characters.findOne({userId: user._id});
-    currentXP = character.currentXP;
+    XP = character.XP;
     nextLevelXP = character.nextLevelXP;
-    return Math.floor( currentXP / nextLevelXP * 100);
+    return Math.floor( XP / nextLevelXP * 100);
   }
 });
