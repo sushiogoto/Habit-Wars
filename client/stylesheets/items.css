@@ -10,8 +10,81 @@
   background-image: url(images/iron_sword.png);
 }
 
+.Iron_mainHand {
+  background-image: url(images/iron_sword.png);
+}
+
+.Iron_mainHand {
+  background-image: url(images/iron_sword.png);
+}
+
+.Iron_mainHand {
+  background-image: url(images/iron_sword.png);
+}
+
+.Iron_mainHand {
+  background-image: url(images/iron_sword.png);
+}
+
+.Iron_mainHand {
+  background-image: url(images/iron_sword.png);
+}
+
+.Iron_mainHand {
+  background-image: url(images/iron_sword.png);
+}
+
 .Ice_mainHand {
   background-image: url(images/ice_sword.png);
+}
+
+.Ice_mainHand {
+  background-image: url(images/ice_sword.png);
+}
+
+.Ice_mainHand {
+  background-image: url(images/ice_sword.png);
+}
+
+.Ice_mainHand {
+  background-image: url(images/ice_sword.png);
+}
+
+.Ice_mainHand {
+  background-image: url(images/ice_sword.png);
+}
+
+.Ice_mainHand {
+  background-image: url(images/ice_sword.png);
+}
+
+.Ice_mainHand {
+  background-image: url(images/ice_sword.png);
+}
+
+
+.Fire_mainHand {
+  background-image: url(images/fire_sword.png);
+}
+
+.Fire_mainHand {
+  background-image: url(images/fire_sword.png);
+}
+
+.Fire_mainHand {
+  background-image: url(images/fire_sword.png);
+}
+
+.Fire_mainHand {
+  background-image: url(images/fire_sword.png);
+}
+
+.Fire_mainHand {
+  background-image: url(images/fire_sword.png);
+}
+
+.Fire_mainHand {
+  background-image: url(images/fire_sword.png);
 }
 
 .Fire_mainHand {
@@ -22,23 +95,36 @@
   background-image: url(images/poison_sword.png);
 }
 
-.Adamantium_mainHand {
-  background-image: url(images/adamantium_sword.png);
+.Poison_mainHand {
+  background-image: url(images/poison_sword.png);
 }
 
-.Sunsoul_mainHand {
-  background-image: url(images/golden_sword.png);
+.Poison_mainHand {
+  background-image: url(images/poison_sword.png);
 }
+
+.Poison_mainHand {
+  background-image: url(images/poison_sword.png);
+}
+
+.Poison_mainHand {
+  background-image: url(images/poison_sword.png);
+}
+
+.Poison_mainHand {
+  background-image: url(images/poison_sword.png);
+}
+
+.Poison_mainHand {
+  background-image: url(images/poison_sword.png);
+}
+
 td > .Sunsoul_mainHand {
   margin: 0 auto;
 }
 /*.container-in-which-things-should-be-centered .Sunsoul_mainHand {
   margin: 0 auto;
 }*/
-
-.Stone_mainHand {
-  background-image: url(images/stone_sword.png);
-}
 
 .inventory-table {
    display: inline-table;
