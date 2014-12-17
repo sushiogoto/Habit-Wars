@@ -33,6 +33,6 @@
 
 <template name="itemCell">
   {{#if item}}
-    <div class="{{item.material}}_{{item.type}} img-responsive item" data-item-id="{{itemId}}"></div>
+    <div class="{{item.material}}_{{item.type}} img-responsive item" data-item-id="{{itemId}}" data-toggle="popover" data-content="{{itemStats}}"></div>
   {{/if}}
 </template>

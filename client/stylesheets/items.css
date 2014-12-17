@@ -1,53 +1,33 @@
-.Iron_mainHand {
-  background-image: url(images/iron_sword.png);
+.item {
   background-size: cover;
   display: block;
   margin: 0 auto;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+}
+
+.Iron_mainHand {
+  background-image: url(images/iron_sword.png);
 }
 
 .Ice_mainHand {
   background-image: url(images/ice_sword.png);
-  background-size: cover;
-  display: block;
-  margin: 0 auto;
-  width: 50px;
-  height: 50px;
 }
 
 .Fire_mainHand {
   background-image: url(images/fire_sword.png);
-  background-size: cover;
-  display: block;
-  margin: 0 auto;
-  width: 50px;
-  height: 50px;
 }
 
 .Poison_mainHand {
   background-image: url(images/poison_sword.png);
-  background-size: cover;
-  display: block;
-  margin: 0 auto;
-  width: 50px;
-  height: 50px;
 }
 
 .Adamantium_mainHand {
   background-image: url(images/adamantium_sword.png);
-  background-size: cover;
-  display: block;
-  margin: 0 auto;
-  width: 50px;
-  height: 50px;
 }
 
 .Sunsoul_mainHand {
   background-image: url(images/golden_sword.png);
-  background-size: cover;
-  width: 50px;
-  height: 50px;
 }
 td > .Sunsoul_mainHand {
   margin: 0 auto;
@@ -58,11 +38,6 @@ td > .Sunsoul_mainHand {
 
 .Stone_mainHand {
   background-image: url(images/stone_sword.png);
-  background-size: cover;
-  display: block;
-  margin: 0 auto;
-  width: 50px;
-  height: 50px;
 }
 
 .inventory-table {
@@ -77,7 +52,7 @@ td > .Sunsoul_mainHand {
    text-align: center;
    vertical-align: middle;
    border: 1px solid #999;
-   width: 50px;
-   height: 50px;
+   width: 30px;
+   height: 30px;
    padding: none;
 }
