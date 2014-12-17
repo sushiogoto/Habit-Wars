@@ -43,6 +43,12 @@ td > .Sunsoul_mainHand {
 .inventory-table {
    display: inline-table;
 }
+.inventory-equip-row {
+  display: table-caption;
+  width: 100%;
+  border: 1px solid #999;
+  height: 50px;
+}
 .inventory-table-row {
   display: table-row;
   width: 100%;
