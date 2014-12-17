@@ -97,18 +97,16 @@
 }
 
 .inner-circle {
-  content: "HW";
   text-align: center;
-  font: 70px/135px Georgia, Times, serif;
+  padding: 30px;
   color: #efefef;
   position: absolute;
-  top: 125px;
-  left: 95px;
+  top: 160px;
+  left: 86px;
   z-index: 1;
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: #fff;
 }
 
 /*HOVER STATES*/
@@ -154,35 +152,39 @@
 
 
 .menu a {
-  margin-right: -4px;
   padding: 10px 30px;
-  width: 50px;
+  margin: 10px 20px 0 20px;
   color: #333;
   text-decoration: none;
-  font: 15px/25px Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
-.menu a:hover {
-  background: #eee;
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
 }
-
 /* constant spin */
 
 @-webkit-keyframes spin {
   0%  {-webkit-transform: rotate(0deg);}
   100% {-webkit-transform: rotate(360deg);}
+  /*{-webkit-animation-iteration-count:  (1);}*/
 }
 
 @-webkit-keyframes spin-reverse {
   0%  {-webkit-transform: rotate(360deg);}
   100% {-webkit-transform: rotate(0deg);}
+  /*{-webkit-animation-iteration-count:  (1);}*/
 }
 
 .character_info {
-  background-size: cover;
-  display: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
   margin: 0 auto;
-  padding-top: 40px;
   width: 175px;
   height: 175px;
 }
@@ -192,4 +194,18 @@
 }
 .aero {
   background-image: url("http://ranger.gamebanana.com/img/ico/sprays/zero_run_ekah_render.gif");
+}
+.mage {
+  background-image: url(images/prince_mage.gif);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.character_form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

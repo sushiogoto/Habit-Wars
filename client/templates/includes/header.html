@@ -15,14 +15,21 @@
       </div>
 
       <div class="collapse navbar-collapse" id="navigation">
-        <ul class="nav navbar-nav">
-          {{#if currentUser}}
+        {{#if currentUser}}
+          <ul class="nav navbar-nav">
+            <li><a href="{{pathFor 'characterIndex'}}">Character</a></li>
+            <li><a href="{{pathFor 'questsIndex'}}">Quests</a></li>
             <li class="dropdown">
               {{> notifications}}
             </li>
-          {{/if}}
-        </ul>
+          </ul>
+        {{/if}}
         <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
+            <li><a href="#">Tokens: {{character.tokens}}</a></li>
+            <li><a href="#">Gold: {{character.gold}}</a></li>
+            <li><a href="{{pathFor 'profilePage'}}">Settings</a></li>
+          {{/if}}
           {{> loginButtons}}
         </ul>
       </div>
