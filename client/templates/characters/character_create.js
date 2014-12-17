@@ -27,7 +27,7 @@ function stopSpinning(){
     keepSpinning = false;
 }
 
-Template.characterCreate.events({
+Template.characterCreatePage1.events({
   'mouseover .one': function(event) {
     $('.circle').css({'transform': ''});
     $('.tiny-circle > li').css({'transform': ''});
@@ -57,7 +57,10 @@ Template.characterCreate.events({
   'mouseleave .three': function(event) {
     $('.circle').css({'transform': 'rotate(-240deg)'});
     $('.tiny-circle > li').css({'transform': 'rotate(240deg)'});
-  },
+  }
+});
+
+Template.characterCreatePage2.events({
   'submit form': function(event) {
     event.preventDefault();
     var avatarUrl = Session.get('currentCharacterAvatar');
