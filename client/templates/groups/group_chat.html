@@ -1,9 +1,38 @@
 <template name="groupChat">
-  {{#each messages}}
-    <strong>{{name}}:</strong> {{message}}<br>
-  {{/each}}
-</template>
 
-<template name="chatInput">
-  <p>Message: <input type="text" id="message"></p>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-comment"></span> Group Quest Chat
+    </div>
+    <div class="panel-body">
+      <ul class="chat">
+      {{#each messages}}
+        <li class="left clearfix">
+          <!-- <span class="chat-img pull-left">
+            <img src="http://placehold.it/50/55C1E7/fff&amp;text=U" alt="User Avatar" class="img-circle">
+          </span> -->
+          <div class="chat-body clearfix">
+            <div class="header">
+              <strong class="primary-font">{{name}}</strong>
+              <small class="pull-right text-muted">
+              <span class="glyphicon glyphicon-time"></span>{{this.prettyTime}}</small>
+            </div>
+            <p>
+              {{message}}
+            </p>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="panel-footer">
+      <div class="input-group">
+        <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here...">
+        <span class="input-group-btn">
+          <button class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
 </template>

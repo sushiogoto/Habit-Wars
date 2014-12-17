@@ -35,52 +35,51 @@
         <button class="soloQuestAttack btn btn-block btn-success">Attack</button>
       {{ else }}
         <h2>You are not on any solo quests</h2>
-        <button class="easy-quest">Easy</button>
-        <button class="medium-quest">Medium</button>
-        <button class="hard-quest">Hard</button>
+        <button class="btn btn-primary easy-quest">Easy</button>
+        <button class="btn btn-primary medium-quest">Medium</button>
+        <button class="btn btn-primary hard-quest">Hard</button>
       {{/if}}
     </div>
   </div>
 
   <!-- Group Quest -->
-  <div class="col-md-8 group-enemy-container">
-    <div class="inner-tile">
-
+  <div class="col-md-8 group-quest">
+    <div class="inner-tile row">
       <h2 class="quest-type-header">Group Quest</h2>
-
+      {{#if userIsInGroup}}
       <div class="col-md-6">
-        Group Members
-        {{#if userIsInGroup}}
-          {{#each currentGroupMembers}}
-            <div class="Group-enemy-health">
-              <span><img src="{{this.avatar_url}}" class="group-member-thumbnail" alt=""></span>
-              <span>{{ this.name }}</span>
-              <span>{{ this.current_health }} / {{ this.max_health }} </span>
-            </div>
-            {{> groupChat}}
-            {{> chatInput}}
-          {{/each}}
-        {{else}}
-          {{> groupsIndex}}
-        {{/if}}
+        <div class="group-enemy-health">
+          <!-- <span><img src="{{this.avatar_url}}" class="group-member-thumbnail" alt=""></span> -->
+          <table class="table">
+            <tbody>
+              {{#each currentGroupMembers}}
+                <tr>
+                  <td>{{ this.name }}</td>
+                  <td >{{ this.current_health }} / {{ this.max_health }} </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        {{> groupChat}}
       </div>
 
       <div class="col-md-6">
         {{#if currentGroupQuest}}
-          <div class="Group-quest-timer-container">
+          <div class="group-quest-timer-container">
             <h3 class="reward-title"><strong>Time remaining</strong></h3>
             <h4 class="reward-amount">{{groupQuestTimeRemaining}}</h4>
           </div>
-          <div class="Group-rewards-container">
+          <div class="group-rewards-container">
             <h3 class="reward-title">Rewards</h3>
             <h4 class="reward-amount">+ {{currentGroupXPReward}} XP</h4>
             <h4 class="reward-amount">+ {{currentGroupGoldReward}} Gold</h4>
             <h4 class="reward-amount">Random Gear x 1</h4>
           </div>
-          <div class="Group-enemy-avatar">
+          <div class="group-enemy-avatar">
             <img src="http://media.giphy.com/media/hAv3AZwiHIFUY/giphy.gif" class="group-enemy-image" alt="">
           </div>
-          <h2 class="Group-enemy-health">
+          <h2 class="group-enemy-health">
             Enemy Health <span class="pull-right">{{ currentGroupMonsterHealth }} / {{ currentGroupMonsterFullHealth }} </span>
           </h2>
           <div class="progress">
@@ -95,6 +94,9 @@
           {{> groupQuests}}
         {{/if}}
       </div>
+      {{else}}
+        {{> groupsIndex}}
+      {{/if}}
     </div>
   </div>
 

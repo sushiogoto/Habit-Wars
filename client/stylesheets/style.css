@@ -27,7 +27,10 @@ i.fa-shield {
 
 a.navbar-brand {
   padding: 5px 15px;
+}
 
+.navbar-default .navbar-nav > li > a {
+  color: #FFF;
 }
 
 .brand {
@@ -120,7 +123,8 @@ h2.character-level {
 
 
 .health-xp-stats,
-.solo-enemy-health {
+.solo-enemy-health,
+.group-enemy-health {
   font-size: 16px;
   margin: 10px 0 5px 0;
 }
@@ -221,12 +225,20 @@ g {
 /*** Solo Quest
 /*****************************/
 
+div.group-quest,
+div.solo-quest {
+  background: url("http://ytdb.ru/avatars/parchment-back/parchment.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 20px 0 40px;
+}
+
 div.inner-tile {
-  background-color: #F2F5F6;
+  /*background-color: #F2F5F6;*/
+  /*border: 1px solid #E2E2E2;*/
   text-align: center;
   margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #E2E2E2;
+  padding: 40px;
 }
 
 h2.quest-type-header {
@@ -234,17 +246,15 @@ h2.quest-type-header {
 }
 
 
+div.group-quest-timer-container,
 div.solo-quest-timer-container {
   padding: 8px 0;
 }
 
+div.group-rewards-container,
 div.solo-rewards-container {
   padding: 0 0 8px 0;
 
-}
-
-div.solo-enemy-avatar {
-  text-align: center;
 }
 
 img.solo-enemy-image,
@@ -271,9 +281,71 @@ h4.reward-amount {
 /*** Group Quest
 /*****************************/
 
+div.group-quest {
+  padding-right: 20px;
+}
+
 img.group-member-thumbnail {
   height: 65px;
   border: 3px solid #009ACE;
   border-radius: 40px;
   padding: 8px 0;
+}
+
+/*** Chat
+/*****************************/
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+div.header {
+    text-align: left;
+
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height: 200px;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
 }

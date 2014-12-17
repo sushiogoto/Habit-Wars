@@ -17,11 +17,11 @@
       <div class="collapse navbar-collapse" id="navigation">
         {{#if currentUser}}
           <ul class="nav navbar-nav">
+            <li><a href="{{pathFor 'characterIndex'}}">Character</a></li>
+            <li><a href="{{pathFor 'questsIndex'}}">Quests</a></li>
             <li class="dropdown">
               {{> notifications}}
             </li>
-            <li><a href="{{pathFor 'characterIndex'}}">Character</a></li>
-            <li><a href="{{pathFor 'questsIndex'}}">Quests</a></li>
           </ul>
         {{/if}}
         <ul class="nav navbar-nav navbar-right">
