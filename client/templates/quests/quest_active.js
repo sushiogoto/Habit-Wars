@@ -24,15 +24,29 @@ Template.questActive.rendered = function () {
 
 };
 
+
+
 Template.questActive.helpers({
 
   currentSoloQuest: function() {
-    return util.questForCurrentCharacter('solo');
+    var soloQuest = util.questForCurrentCharacter('solo');
+    return soloQuest;
   },
 
   currentSoloMonster: function() {
+    // throwAlert("poop"); THROW ALERT FOR DAMAGE AND XP AND STUFF YO
     var quest = util.questForCurrentCharacter('solo');
-    return quest ? Monsters.findOne({_id: quest.monsterId}) : null;
+    if(quest) {
+      Session.set('soloQuestData', quest);
+      Session.set('soloQuestRewardShown', false);
+      return Monsters.findOne({_id: quest.monsterId});
+    } else if (Session.get('soloQuestRewardShown') === false) {
+      $('#myModal').modal({show: true});
+      Session.set('soloQuestRewardShown', true);
+      return null;
+    } else {
+      return null;
+    }
   },
 
   currentSoloMonsterHealthPercentage: function(){
