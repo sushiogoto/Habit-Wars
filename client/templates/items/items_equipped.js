@@ -19,9 +19,11 @@ Template.itemsEquipped.helpers({
 
     var findType = function(itemType){
       var item = _.where(equippedItems, {type: itemType})[0];
-      item.tooltip = "Name: " + item.name + "\nType:" + item.type + "\nMaterial:" + item.material +
-      "\nHlth:" + item.health + "\nStr:" + item.strength + "\nInt:" + item.intelligence + "\nQuantity:" + item.quantity +
-      "\nPrice:" + item.price;
+      if(item) {
+        item.tooltip = "Name: " + item.name + "\nType:" + item.type + "\nMaterial:" + item.material +
+        "\nHlth:" + item.health + "\nStr:" + item.strength + "\nInt:" + item.intelligence + "\nQuantity:" + item.quantity +
+        "\nPrice:" + item.price;
+      }
       return item;
     };
 
@@ -42,7 +44,7 @@ Template.itemsEquipped.helpers({
 Template.itemsEquipped.events({
   'click .unEquipItem': function (event) {
     itemId = $(event.target).data('item-id');
-    // Meteor.call('equipUnequipItem', itemId, function (error, result) {});
+    Meteor.call('equipUnequipItem', itemId, function (error, result) {});
   }
 });
 
