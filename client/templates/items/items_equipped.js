@@ -3,7 +3,6 @@ Template.itemsEquipped.helpers({
   itemStats: function() {
     var inventory = Inventories.findOne({characterId: util.currentCharacter()._id});
     var item = _.findWhere(inventory.items, {_id: this.toString()});
-    debugger;
     var itemStats = "Name: " + item.name + "\nType:" + item.type + "\nMaterial:" + item.material +
     "\nHlth:" + item.health + "\nStr:" + item.strength + "\nInt:" + item.intelligence + "\nQuantity:" + item.quantity +
     "\nPrice:" + item.price;
@@ -43,7 +42,7 @@ Template.itemsEquipped.helpers({
 Template.itemsEquipped.events({
   'click .unEquipItem': function (event) {
     itemId = $(event.target).data('item-id');
-    Meteor.call('equipUnequipItem', itemId, this._id, function (error, result) {});
+    // Meteor.call('equipUnequipItem', itemId, function (error, result) {});
   }
 });
 
