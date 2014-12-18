@@ -1,4 +1,17 @@
 Template.itemsEquipped.helpers({
+
+  itemStats: function() {
+    var inventory = Inventories.findOne({characterId: util.currentCharacter()._id});
+    var item = _.findWhere(inventory.items, {_id: this.toString()});
+    debugger;
+    var itemStats = "Name: " + item.name + "\nType:" + item.type + "\nMaterial:" + item.material +
+    "\nHlth:" + item.health + "\nStr:" + item.strength + "\nInt:" + item.intelligence + "\nQuantity:" + item.quantity +
+    "\nPrice:" + item.price;
+    return itemStats;
+
+    // item.shouldDisplay = item.quantity > 0 || item.equipped;
+  },
+
   equipments: function () {
     var user = Meteor.user();
     var character = Characters.findOne({userId: user._id});
@@ -6,7 +19,11 @@ Template.itemsEquipped.helpers({
     var equippedItems = _.where(items, {equipped: true});
 
     var findType = function(itemType){
-      return _.where(equippedItems, {type: itemType})[0];
+      var item = _.where(equippedItems, {type: itemType})[0];
+      item.tooltip = "Name: " + item.name + "\nType:" + item.type + "\nMaterial:" + item.material +
+      "\nHlth:" + item.health + "\nStr:" + item.strength + "\nInt:" + item.intelligence + "\nQuantity:" + item.quantity +
+      "\nPrice:" + item.price;
+      return item;
     };
 
     var equipments = {
@@ -29,3 +46,10 @@ Template.itemsEquipped.events({
     Meteor.call('equipUnequipItem', itemId, this._id, function (error, result) {});
   }
 });
+
+Template.itemsEquipped.rendered = function() {
+  $('[data-toggle="popover"]').popover({
+      trigger: 'hover',
+          'placement': 'top'
+  });
+};
