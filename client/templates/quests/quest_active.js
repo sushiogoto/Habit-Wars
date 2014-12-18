@@ -122,5 +122,13 @@ Template.questActive.events({
 
   'click .groupQuestAttack': function() {
     Meteor.call('questAttack', 'group', function (error, result) {});
+    var image = result + 'x <img src="images/coin.png" height="20" width="20">';
+    $('.gold').data("content", result);
+    $('.gold').popover({'placement': 'bottom', content: image, html: true});
+    $('.gold').popover('show');
+
+    setTimeout(function(){
+      $('.gold').popover('hide');
+    }, 4000);
   }
 });
