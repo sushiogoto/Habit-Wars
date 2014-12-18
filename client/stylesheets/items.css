@@ -6,118 +6,121 @@
   height: 50px;
 }
 
-.Iron_mainHand {
-  background-image: url(images/iron_sword.png);
+.Iron_head {
+  background-image: url(images/Iron_head.png);
+}
+
+.Iron_chest {
+  background-image: url(images/Iron_chest.png);
+}
+
+.Iron_hands {
+  background-image: url(images/Iron_hands.png);
+}
+
+.Iron_legs {
+  background-image: url(images/Iron_legs.png);
+}
+
+.Iron_feet {
+  background-image: url(images/Iron_feet.png);
 }
 
 .Iron_mainHand {
-  background-image: url(images/iron_sword.png);
+  background-image: url(images/Iron_mainhand.png);
 }
 
-.Iron_mainHand {
-  background-image: url(images/iron_sword.png);
+.Iron_offHand {
+  background-image: url(images/Iron_offhand.png);
 }
 
-.Iron_mainHand {
-  background-image: url(images/iron_sword.png);
+
+.Ice_head {
+  background-image: url(images/Ice_head.png);
 }
 
-.Iron_mainHand {
-  background-image: url(images/iron_sword.png);
+.Ice_chest {
+  background-image: url(images/Ice_chest.png);
 }
 
-.Iron_mainHand {
-  background-image: url(images/iron_sword.png);
+.Ice_hands {
+  background-image: url(images/Ice_hands.png);
 }
 
-.Iron_mainHand {
-  background-image: url(images/iron_sword.png);
+.Ice_legs {
+  background-image: url(images/Ice_legs.png);
 }
 
-.Ice_mainHand {
-  background-image: url(images/ice_sword.png);
-}
-
-.Ice_mainHand {
-  background-image: url(images/ice_sword.png);
+.Ice_feet {
+  background-image: url(images/Ice_feet.png);
 }
 
 .Ice_mainHand {
-  background-image: url(images/ice_sword.png);
+  background-image: url(images/Ice_mainhand.png);
 }
 
-.Ice_mainHand {
-  background-image: url(images/ice_sword.png);
-}
-
-.Ice_mainHand {
-  background-image: url(images/ice_sword.png);
-}
-
-.Ice_mainHand {
-  background-image: url(images/ice_sword.png);
-}
-
-.Ice_mainHand {
-  background-image: url(images/ice_sword.png);
+.Ice_offHand {
+  background-image: url(images/Ice_offhand.png);
 }
 
 
-.Fire_mainHand {
-  background-image: url(images/fire_sword.png);
+.Poison_head {
+  background-image: url(images/Poison_head.png);
 }
 
-.Fire_mainHand {
-  background-image: url(images/fire_sword.png);
+.Poison_chest {
+  background-image: url(images/Poison_chest.png);
 }
 
-.Fire_mainHand {
-  background-image: url(images/fire_sword.png);
+.Poison_hands {
+  background-image: url(images/Poison_hands.png);
 }
 
-.Fire_mainHand {
-  background-image: url(images/fire_sword.png);
+.Poison_legs {
+  background-image: url(images/Poison_legs.png);
 }
 
-.Fire_mainHand {
-  background-image: url(images/fire_sword.png);
-}
-
-.Fire_mainHand {
-  background-image: url(images/fire_sword.png);
-}
-
-.Fire_mainHand {
-  background-image: url(images/fire_sword.png);
+.Poison_feet {
+  background-image: url(images/Poison_feet.png);
 }
 
 .Poison_mainHand {
-  background-image: url(images/poison_sword.png);
+  background-image: url(images/Poison_mainhand.png);
 }
 
-.Poison_mainHand {
-  background-image: url(images/poison_sword.png);
+.Poison_offHand {
+  background-image: url(images/Poison_offhand.png);
 }
 
-.Poison_mainHand {
-  background-image: url(images/poison_sword.png);
+
+.Fire_head {
+  background-image: url(images/Fire_head.png);
 }
 
-.Poison_mainHand {
-  background-image: url(images/poison_sword.png);
+.Fire_chest {
+  background-image: url(images/Fire_chest.png);
 }
 
-.Poison_mainHand {
-  background-image: url(images/poison_sword.png);
+.Fire_hands {
+  background-image: url(images/Fire_hands.png);
 }
 
-.Poison_mainHand {
-  background-image: url(images/poison_sword.png);
+.Fire_legs {
+  background-image: url(images/Fire_legs.png);
 }
 
-.Poison_mainHand {
-  background-image: url(images/poison_sword.png);
+.Fire_feet {
+  background-image: url(images/Fire_feet.png);
 }
+
+.Fire_mainHand {
+  background-image: url(images/Fire_mainhand.png);
+}
+
+.Fire_offHand {
+  background-image: url(images/Fire_offhand.png);
+}
+
 
 td > .Sunsoul_mainHand {
   margin: 0 auto;
