@@ -9,7 +9,11 @@
   background-image: url(http://www.transparenttextures.com/patterns/graphy.png);
   background-repeat: repeat;
   overflow: scroll;
-  font-family: 'heavy';
+  font-family: 'heavy', serif
+}
+
+span.specialChar {
+  font-family: serif;
 }
 
 

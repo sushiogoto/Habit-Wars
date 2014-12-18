@@ -24,7 +24,7 @@
           <img src="http://cdn.wikimg.net/strategywiki/images/1/1c/SMB2_boss_Wart.gif" class="solo-enemy-image" alt="">
         </div>
         <h2 class="solo-enemy-health">
-          Enemy Health <span class="pull-right">{{ currentSoloMonster.health }} / {{ currentSoloMonster.fullHealth }} </span>
+          Enemy Health <span class="pull-right">{{ currentSoloMonster.health }} <span class="specialChar">/</span> {{ currentSoloMonster.fullHealth }} </span>
         </h2>
         <div class="progress">
           <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{currentSoloMonster.health}}" aria-valuemin="0" aria-valuemax="{{currentSoloMonster.fullHealth}}" style="width: {{currentSoloMonsterHealthPercentage}}%">
@@ -74,7 +74,7 @@
               {{#each currentGroupMembers}}
                 <tr>
                   <td>{{ this.name }}</td>
-                  <td >{{ this.current_health }} / {{ this.max_health }} </td>
+                  <td >{{ this.current_health }} <span class="specialChar">/</span> {{ this.max_health }} </td>
                 </tr>
               {{/each}}
             </tbody>
