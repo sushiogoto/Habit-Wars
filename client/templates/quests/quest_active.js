@@ -27,6 +27,9 @@ Template.questActive.rendered = function () {
 
 
 Template.questActive.helpers({
+  // addGold: function() {
+
+  // },
 
   currentSoloQuest: function() {
     var soloQuest = util.questForCurrentCharacter('solo');
@@ -103,7 +106,18 @@ Template.questActive.helpers({
 
 Template.questActive.events({
   'click .soloQuestAttack': function() {
-    Meteor.call('questAttack', 'solo', function (error, result) {});
+    Meteor.call('questAttack', 'solo', function (error, result) {
+      var image = result + 'x <img src="images/coin.png" height="20" width="20">';
+      $('.gold').data("content", result);
+      $('.gold').popover({'placement': 'bottom', content: image, html: true});
+      $('.gold').popover('show');
+
+      setTimeout(function(){
+        $('.gold').popover('hide');
+      }, 4000);
+      // $('.gold').popover('hide');
+
+    });
   },
 
   'click .groupQuestAttack': function() {

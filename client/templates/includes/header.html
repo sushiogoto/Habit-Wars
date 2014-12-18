@@ -27,7 +27,7 @@
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
             <li><a href="#">Tokens: {{character.tokens}}</a></li>
-            <li><a href="#">Gold: {{character.gold}}</a></li>
+            <li><a href="#" class="gold" data-toggle="popover">Gold: {{character.gold}}</a></li>
             <li><a href="{{pathFor 'profilePage'}}">Settings</a></li>
           {{/if}}
           {{> loginButtons}}
