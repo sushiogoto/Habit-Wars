@@ -205,14 +205,33 @@ div.title-box h1 {
   overflow: auto;
   border: 1px solid #F35B54;
   background-color: #FFF;
+  margin-bottom: 15px;
 }
+
+.inventory-table .inventory-table-row:last-child .inventory-table-cell {
+  border-bottom: none;
+}
+
 
 .character-inventory-container {
   /*padding: 30px;*/
-  height: 260px;
-  position:relative;
-  margin: 0 auto;
+  height: 360px;
+  background-color: #FFFFFF;
   border: 1px solid #F35B54;
+  position:relative;
+  text-align: center;
+}
+
+.inventory-equip-row {
+  border-top: none;
+}
+
+div.inventory-table {
+  margin: 0 auto;
+}
+
+div.inventory-equip-row > h3 {
+  margin-top: 36px;
 }
 
 .character-equipped-container h1,
@@ -237,6 +256,10 @@ g {
 
 /*** Solo Quest
 /*****************************/
+
+h2.quest-type-header {
+  margin: 5px 0 15px 0;
+}
 
 div.group-quest,
 div.solo-quest {
@@ -306,6 +329,16 @@ img.group-member-thumbnail {
   border-radius: 40px;
   padding: 8px 0;
 }
+
+div.team-mate-container-div {
+  margin-bottom: 5px;
+}
+
+td.team-mate-container {
+  background-color: #FFFFFF;
+  padding: 5px;
+}
+
 
 /*** Chat
 /*****************************/

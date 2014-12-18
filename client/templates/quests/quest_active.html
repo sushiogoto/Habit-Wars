@@ -75,8 +75,12 @@
             <tbody>
               {{#each currentGroupMembers}}
                 <tr>
-                  <td>{{ this.name }}</td>
-                  <td >{{ this.current_health }} <span class="specialChar">/</span> {{ this.max_health }} </td>
+                  <td class="team-mate-container">
+                    <div>
+                      <span>{{ this.name }}</span>
+                      <span class="pull-right">Health: {{ this.current_health }} <span class="specialChar">/</span> {{ this.max_health }} </span>
+                    </div>
+                  </td>
                 </tr>
               {{/each}}
             </tbody>
