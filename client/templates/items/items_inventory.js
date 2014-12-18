@@ -84,7 +84,7 @@ Template.itemsInventory.rendered = function () {
         console.log('offset: ' + invTableOffsetLeft);
         var toRow = convertPosToDivArrayPos(cursorPosTop - invTableOffsetTop) - 2;
         var toCol = convertPosToDivArrayPos(cursorPosLeft - invTableOffsetLeft);
-        if(toCol >= 0 && toRow >= -2 && toCol < 11) {
+        if(toCol >= 0 && toRow >= -2 && toCol < 11 && toRow < 0) {
           Meteor.call('equipUnequipItem', $(event.target).data('item-id'), function (error, result) {console.log(result);});
         }
         if(toRow < 0 || toCol < 0 || toRow > 4 || toCol > 10) {

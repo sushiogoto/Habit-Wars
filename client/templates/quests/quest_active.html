@@ -5,9 +5,9 @@
   <!-- Solo Quest -->
   <div class="col-md-4 solo-quest">
     <div class="inner-tile">
-      {{#if currentSoloMonster}}
+      <h2 class="quest-type-header">Solo Quest</h2>
 
-        <h2 class="quest-type-header">Solo Quest</h2>
+      {{#if currentSoloMonster}}
         <div class="solo-quest-timer-container">
           <h3 class="reward-title"><strong>Time remaining</strong></h3>
           <h4 class="reward-amount">{{soloQuestTimeRemaining}}</h4>
@@ -48,10 +48,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          <h4 class="modal-title" id="myModalLabel">Congratulations!</h4>
         </div>
         <div class="modal-body">
-          ...
+          <h1>The monster has been slain!</h1>
+          <p></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -61,6 +62,7 @@
     </div>
   </div>
   <!-- end reward modal -->
+
   <!-- Group Quest -->
   <div class="col-md-7 group-quest">
     <div class="inner-tile row">
