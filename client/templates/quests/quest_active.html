@@ -108,7 +108,7 @@
             <img src="http://media.giphy.com/media/hAv3AZwiHIFUY/giphy.gif" class="group-enemy-image" alt="">
           </div>
           <h2 class="group-enemy-health">
-            Enemy Health <span class="pull-right">{{ currentGroupMonsterHealth }} / {{ currentGroupMonsterFullHealth }} </span>
+            Enemy Health <span class="pull-right">{{ currentGroupMonsterHealth }} <span class="specialChar">/</span> {{ currentGroupMonsterFullHealth }} </span>
           </h2>
           <div class="progress">
             <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{currentGroupMonster.health}}" aria-valuemin="0" aria-valuemax="{{currentGroupMonsterFullHealth}}" style="width: {{currentGroupMonsterHealthPercentage}}%">

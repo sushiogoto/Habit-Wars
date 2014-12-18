@@ -9,6 +9,12 @@
         </tr>
       </thead>
       <tbody>
+        {{#if character.attributePoints}}
+          <tr class="attribute-points-available">
+            <td>Points Available: </td>
+            <td>{{ character.attributePoints }}</td>
+          </tr>
+        {{/if}}
         <tr>
           <td>Strength</td>
           <td class="table-align-centre">{{ character.strength }} <span class="specialChar">+</span> {{ character.equippedStrength }}
@@ -25,6 +31,7 @@
             {{/if}}
           </td>
         </tr>
+
       </tbody>
     </table>
 

@@ -300,7 +300,8 @@ g {
 /*****************************/
 
 h2.quest-type-header {
-  margin: 5px 0 15px 0;
+  font-size: 48px;
+  margin: 0 0 15px 0;
 }
 
 div.group-quest,
@@ -320,11 +321,6 @@ div.inner-tile {
   margin-top: 20px;
   padding: 40px;
 }
-
-h2.quest-type-header {
-  margin: 15px 0 5px 0;
-}
-
 
 div.group-quest-timer-container,
 div.solo-quest-timer-container {

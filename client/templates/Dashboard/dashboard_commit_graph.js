@@ -20,8 +20,7 @@ Template.dashboardCommitGraph.rendered = function(){
       git_percentage = Math.floor(git_commit_today / target * 100);
 
       var rp2 = radialProgress(document.getElementById('radialGraph'))
-        .label("Today's Progress")
-        .diameter(180)
+        .diameter(240)
         .value(git_percentage)
         .render();
 
