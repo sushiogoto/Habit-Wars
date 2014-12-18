@@ -22,3 +22,10 @@ Template.itemsEquipped.helpers({
     return equipments;
   }
 });
+
+Template.itemsEquipped.events({
+  'click .unEquipItem': function (event) {
+    itemId = $(event.target).data('item-id');
+    Meteor.call('equipUnequipItem', itemId, this._id, function (error, result) {});
+  }
+});

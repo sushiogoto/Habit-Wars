@@ -5,30 +5,37 @@
       <tr>
         <td>Head</td>
         <td>{{equipments.head.name}}</td>
+        <td>{{#if equipments.head.name}}<button class="unEquipItem" data-item-id="{{equipments.head._id}}">Unequip</button>{{/if}}</td>
       </tr>
       <tr>
         <td>Chest</td>
         <td>{{equipments.chest.name}}</td>
+        <td>{{#if equipments.chest.name}}<button class="unEquipItem" data-item-id="{{equipments.chest._id}}">Unequip</button>{{/if}}</td>
       </tr>
       <tr>
         <td>Hands</td>
         <td>{{equipments.hands.name}}</td>
+        <td>{{#if equipments.hands.name}}<button class="unEquipItem" data-item-id="{{equipments.hands._id}}">Unequip</button>{{/if}}</td>
       </tr>
       <tr>
         <td>Legs</td>
         <td>{{equipments.legs.name}}</td>
+        <td>{{#if equipments.legs.name}}<button class="unEquipItem" data-item-id="{{equipments.legs._id}}">Unequip</button>{{/if}}</td>
       </tr>
       <tr>
         <td>Feet</td>
         <td>{{equipments.feet.name}}</td>
+        <td>{{#if equipments.feet.name}}<button class="unEquipItem" data-item-id="{{equipments.feet._id}}">Unequip</button>{{/if}}</td>
       </tr>
       <tr>
         <td>Main Hand</td>
         <td>{{equipments.mainHand.name}}</td>
+        <td>{{#if equipments.mainHand.name}}<button class="unEquipItem" data-item-id="{{equipments.mainHand._id}}">Unequip</button>{{/if}}</td>
       </tr>
       <tr>
         <td>Off Hand</td>
         <td>{{equipments.offHand.name}}</td>
+        <td>{{#if equipments.offHand.name}}<button class="unEquipItem">Unequip</button>{{/if}}</td>
       </tr>
     </tbody>
   </table>
