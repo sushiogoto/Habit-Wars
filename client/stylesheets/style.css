@@ -258,6 +258,29 @@ div.inventory-equip-row > h3 {
   text-align: center;
 }
 
+.dashboard-container div h2 {
+  background-color: #455A64;
+  color: #FFFFFF;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+div#radialGraph,
+div#dashboard {
+  background-color: #FFFFFF;
+  text-align: center;
+  border: 1px solid #455A64;
+}
+
+svg.radial-svg {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 40px;
+  padding-left: 60px;
+}
+
 g {
   margin: 0 auto;
 }
