@@ -27,10 +27,9 @@ Template.questActive.rendered = function () {
 
 
 Template.questActive.helpers({
-  // addGold: function() {
-
-  // },
-
+  modalReward: function() {
+    return Session.get('soloQuestMonsterData');
+  },
   currentSoloQuest: function() {
     var soloQuest = util.questForCurrentCharacter('solo');
     return soloQuest;
@@ -40,9 +39,10 @@ Template.questActive.helpers({
     // throwAlert("poop"); THROW ALERT FOR DAMAGE AND XP AND STUFF YO
     var quest = util.questForCurrentCharacter('solo');
     if(quest) {
-      Session.set('soloQuestData', quest);
+      var monster = Monsters.findOne({_id: quest.monsterId});
+      Session.set('soloQuestMonsterData', monster);
       Session.set('soloQuestRewardShown', false);
-      return Monsters.findOne({_id: quest.monsterId});
+      return monster;
     } else if (Session.get('soloQuestRewardShown') === false) {
       $('#myModal').modal({show: true});
       Session.set('soloQuestRewardShown', true);
