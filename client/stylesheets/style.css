@@ -12,9 +12,19 @@
   font-family: 'heavy', serif
 }
 
-div#landingPageMain {
+div.landing-jumbotron {
+  height: 900px;
   background-image: url(http://4.bp.blogspot.com/-C-w64wXaISg/UGt06XHfmUI/AAAAAAAACrs/yA9JoSt3xKg/s1600/wallpaper-megaman.jpg);
-  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+div.landing-jumbotron h1 {
+  color: #FFFFFF;
+  font-size: 150px;
+}
+
+button.landing-page-play {
+  font-size: 48px;
 }
 
 span.specialChar {
