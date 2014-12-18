@@ -1,3 +1,7 @@
+Template.questActive.created = function() {
+  Session.set('attackAlert', {});
+};
+
 Template.questActive.rendered = function () {
 
   var characterId = Characters.findOne({userId: Meteor.userId()})._id;
@@ -27,6 +31,12 @@ Template.questActive.rendered = function () {
 
 
 Template.questActive.helpers({
+  alertMessage: function(field) {
+    return Session.get('attackAlert')[field];
+  },
+  attackClass: function (field) {
+    return !!Session.get('attackAlert')[field] ? 'has-alert' : '';
+  },
   modalReward: function() {
     return Session.get('soloQuestMonsterData');
   },
@@ -107,14 +117,17 @@ Template.questActive.helpers({
 Template.questActive.events({
   'click .soloQuestAttack': function() {
     Meteor.call('questAttack', 'solo', function (error, result) {
-      var image = result + 'x <img src="images/coin.png" height="20" width="20">';
-      $('.gold').data("content", result);
+      var image = result.gold + ' x <img src="images/coin.png" height="20" width="20">';
+      $('.gold').data("content", result.gold);
       $('.gold').popover({'placement': 'bottom', content: image, html: true});
       $('.gold').popover('show');
+      throwAlert(result.damage);
 
       setTimeout(function(){
         $('.gold').popover('hide');
       }, 4000);
+
+
       // $('.gold').popover('hide');
 
     });
@@ -122,8 +135,8 @@ Template.questActive.events({
 
   'click .groupQuestAttack': function() {
     Meteor.call('questAttack', 'group', function (error, result) {});
-    var image = result + 'x <img src="images/coin.png" height="20" width="20">';
-    $('.gold').data("content", result);
+    var image = result.gold + ' x <img src="images/coin.png" height="20" width="20">';
+    $('.gold').data({"content": result.gold});
     $('.gold').popover({'placement': 'bottom', content: image, html: true});
     $('.gold').popover('show');
 

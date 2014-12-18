@@ -12,6 +12,21 @@
   font-family: 'heavy', serif
 }
 
+div.landing-jumbotron {
+  height: 900px;
+  background-image: url(http://4.bp.blogspot.com/-C-w64wXaISg/UGt06XHfmUI/AAAAAAAACrs/yA9JoSt3xKg/s1600/wallpaper-megaman.jpg);
+  overflow: hidden;
+}
+
+div.landing-jumbotron h1 {
+  color: #FFFFFF;
+  font-size: 150px;
+}
+
+button.landing-page-play {
+  font-size: 48px;
+}
+
 span.specialChar {
   font-family: serif;
 }
@@ -184,6 +199,10 @@ i.add-intelligence {
   cursor: pointer;
 }
 
+.attribute-points-available > td {
+  color: green;
+}
+
 /*** Equipped / inventroy / shop
 /*****************************/
 
@@ -201,7 +220,7 @@ div.title-box h1 {
 
 .character-equipped-container,
 .shop-container {
-  height: 260px;
+  height: 500px;
   overflow: auto;
   border: 1px solid #F35B54;
   background-color: #FFF;
@@ -247,6 +266,29 @@ div.inventory-equip-row > h3 {
 
 .dashboard-container {
   text-align: center;
+}
+
+.dashboard-container div h2 {
+  background-color: #455A64;
+  color: #FFFFFF;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+div#radialGraph,
+div#dashboard {
+  background-color: #FFFFFF;
+  text-align: center;
+  border: 1px solid #455A64;
+}
+
+svg.radial-svg {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 40px;
+  padding-left: 60px;
 }
 
 g {
@@ -391,6 +433,31 @@ div.header {
   right: 0px;
   bottom: 0px;
   pointer-events: none;
+}
+
+.alert {
+          animation: fadeOut 2700ms ease-in 0s 1 forwards;
+  -webkit-animation: fadeOut 2700ms ease-in 0s 1 forwards;
+     -moz-animation: fadeOut 2700ms ease-in 0s 1 forwards;
+  width: 250px;
+  float: right;
+  clear: both;
+  margin-bottom: 5px;
+  pointer-events: auto;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
 ::-webkit-scrollbar-track
