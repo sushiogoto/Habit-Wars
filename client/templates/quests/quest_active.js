@@ -81,7 +81,12 @@ Template.questActive.helpers({
 
   currentGroupMembers: function(){
     var group = Groups.findOne({members: util.currentCharacter()._id});
-    return Characters.find({_id: {$in: group.members}});
+    var chars = Characters.find({_id: {$in: group.members}}).fetch();
+    chars.forEach(function(char) {
+      char.current_health = util.getTotalStatsOfEquippedItems(char._id).health + char.current_health;
+      char.computedHealth = util.getTotalStatsOfEquippedItems(char._id).health + char.max_health;
+    });
+    return chars;
   },
 
   currentGroupMonster: function(){

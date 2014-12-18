@@ -1,8 +1,8 @@
 Template.characterAttributes.helpers({
   character: function () {
     character = util.currentCharacter();
-    character.equippedStrength = util.getTotalStatsOfEquippedItems().strength;
-    character.equippedIntelligence = util.getTotalStatsOfEquippedItems().intelligence;
+    character.equippedStrength = util.getTotalStatsOfEquippedItems(character._id).strength;
+    character.equippedIntelligence = util.getTotalStatsOfEquippedItems(character._id).intelligence;
     return character;
   }
 });

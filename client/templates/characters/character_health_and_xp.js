@@ -1,7 +1,7 @@
 Template.characterHealthAndXp.helpers({
   character: function () {
     character = util.currentCharacter();
-    character.equippedHealth = util.getTotalStatsOfEquippedItems().health;
+    character.equippedHealth = util.getTotalStatsOfEquippedItems(character._id).health;
     character.current_health += character.equippedHealth;
     character.totalHealth = character.max_health + character.equippedHealth;
     character.healthPercentage = Math.floor( (character.current_health + character.equippedHealth) / character.totalHealth * 100);
