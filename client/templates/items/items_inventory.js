@@ -58,7 +58,6 @@ Template.itemsInventory.rendered = function () {
 
   Tracker.autorun(function () {
     itemsGridDep.depend();
-    console.log('draggable');
     $('.item').draggable({
       snap: ".inventory-table-cell",
       snapMode: "inner",

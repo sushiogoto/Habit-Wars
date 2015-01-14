@@ -12,31 +12,15 @@ Template.characterAttributes.events({
     user = Meteor.user();
     character = Characters.findOne({userId: user._id});
     if (character.attributePoints > 0){
-      new_strength = character.strength + 1;
-      new_attribute_points = character.attributePoints - 1;
-      updateObj = {
-        strength: new_strength,
-        attributePoints: new_attribute_points
-      };
-
-      Characters.update(character._id, {$set: updateObj});
+      Meteor.call('updateCharacterAttribute', "strength", function (error, result) {});
     }
-
   },
 
   'click .add-intelligence': function () {
     user = Meteor.user();
     character = Characters.findOne({userId: user._id});
     if (character.attributePoints > 0){
-      new_intelligence = character.intelligence + 1;
-      new_attribute_points = character.attributePoints - 1;
-
-      updateObj = {
-        intelligence: new_intelligence,
-        attributePoints: new_attribute_points
-      };
-
-      Characters.update(character._id, {$set: updateObj});
+      Meteor.call('updateCharacterAttribute', "intelligence", function (error, result) {});
     }
   }
 });
