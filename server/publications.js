@@ -37,3 +37,10 @@ Meteor.publish('messages', function() {
 Meteor.publish('notifications', function() {
   return Notifications.find();
 });
+
+Meteor.publish('userData', function() {
+  if(!this.userId) return null;
+  return Meteor.users.find(this.userId, {fields: {
+    services: 1,
+  }});
+});
