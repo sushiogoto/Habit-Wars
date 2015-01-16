@@ -1,11 +1,33 @@
-Template.rpgGamePane.rendered = function () {
-  //Global variables that will be accessed in the functions below.
+Meteor.startup(function () {
+  $(document).on('keydown', function (e) {
+    e.preventDefault();
+    var monsterRadius = 16;
+    var me = $('#character');
+    var monstersWithinRange = _.find(Enemies.find().fetch(), function(enemy) {
+      return enemy.enemyX > me.position().left - monsterRadius  && enemy.enemyX < me.position().left + monsterRadius && enemy.enemyY > me.position().top - monsterRadius && enemy.enemyY < me.position().top + monsterRadius;
+    });
+
+    if(monstersWithinRange) {
+      Enemies.remove(monstersWithinRange);
+      Meteor.call('randomEnemy', function (error, result) {});
+    }
+
+  });
+});
+
+Template.rpgGamePane.rendered = function() {//Global variables that will be accessed in the functions below.
 
   var TimerWalk;      // timer handle for walking
   var charStep = 2;   // current step, 1=1st foot, 2=stand, 3=2nd foot, 4=stand
   var currentKey = false; // records the current key pressed
   var lockUp = false;   // when lock up, character won't be able to move
   var me;         // character object
+  var boundary = $('#rpg-boundary');
+  var monsterBoundary = $('.flowers');
+  // enemy locations client-side only saved
+  Enemies = new Mongo.Collection(null);
+
+
 
   // Settings:
   var walkSpeed = 70;   //ms, animation speed
@@ -20,58 +42,65 @@ Template.rpgGamePane.rendered = function () {
 
   ];
 
-  me = $('#character');
-  //add character state class
-  me.addClass('front-stand');
+  monsterAreas = ['#f1', '#f2', '#f3', '#f4'];
 
-  //KeyDown Function
-  //if there is key down, execute charWalk
-  $(document).keydown(function(e) {
+  $(document).ready(function() {
 
-    if (!lockUp && (currentKey === false)) {
+    me = $('#character');
+    //add character state class
+    me.addClass('front-stand');
 
-      currentKey = e.keyCode;
+    //KeyDown Function
+    //if there is key down, execute charWalk
+    $(document).keydown(function(e) {
 
-      //execute character movement function walk('direction')
-      switch(e.keyCode) {
-        case 37:
-          walk('left');
-          e.preventDefault();
-          break;
-        case 38:
-          walk('up');
-          e.preventDefault();
-          break;
-        case 39:
-          walk('right');
-          e.preventDefault();
-          break;
-        case 40:
-          walk('down');
-          e.preventDefault();
-          break;
+
+      if (!lockUp && (currentKey === false)) {
+
+        currentKey = e.keyCode;
+
+        //execute character movement function walk('direction')
+        switch(e.keyCode) {
+          case 37:
+            walk('left');
+            e.preventDefault();
+            break;
+          case 38:
+            walk('up');
+            e.preventDefault();
+            break;
+          case 39:
+            walk('right');
+            e.preventDefault();
+            break;
+          case 40:
+            walk('down');
+            e.preventDefault();
+            break;
+        }
       }
-    }
 
-  });
+    });
 
-  //KeyUp Function
-  $(document).keyup(function(e) {
+    //KeyUp Function
+    $(document).keyup(function(e) {
 
-    //don't stop the walk if the player is pushing other buttons
-    //only stop the walk if the key that started the walk is released
-    if (e.keyCode == currentKey) {
+      //don't stop the walk if the player is pushing other buttons
+      //only stop the walk if the key that started the walk is released
+      if (e.keyCode == currentKey) {
 
-      //set the currentKey to false, this will enable a new key to be pressed
-      currentKey = false;
+        //set the currentKey to false, this will enable a new key to be pressed
+        currentKey = false;
 
-      //clear the walk timer
-      clearInterval(TimerWalk);
+        //clear the walk timer
+        clearInterval(TimerWalk);
 
-      //finish the character's movement
-      me.stop(true, true);
+        //finish the character's movement
+        me.stop(true, true);
 
-    }
+      }
+
+    });
 
   });
 
@@ -121,37 +150,43 @@ Template.rpgGamePane.rendered = function () {
     //move the char
     switch(dir) {
 
-      case'front':
-        newX = me.position().left;
-        newY = me.position().top + walkLength ;
-        break;
+        case'front':
+          newX = me.position().left;
+          newY = me.position().top + walkLength ;
+          break;
 
-      case'back':
-        newX = me.position().left;
-        newY = me.position().top - walkLength ;
-        break;
+        case'back':
+          newX = me.position().left;
+          newY = me.position().top - walkLength ;
+          break;
 
-      case'left':
-        newX = me.position().left - walkLength;
-        newY = me.position().top;
-        break;
+        case'left':
+          newX = me.position().left - walkLength;
+          newY = me.position().top;
+          break;
 
-      case'right':
-        newX = me.position().left + walkLength;
-        newY = me.position().top;
-        break;
-    }
+        case'right':
+          newX = me.position().left + walkLength;
+          newY = me.position().top;
+          break;
+      }
 
     // Animate moving character (it will also update your character position)
     if(canIwalk(newX, newY)){
       me.animate({left:newX, top: newY}, walkSpeed/2);
+
     }
 
-    // $(window).resize(function(){
-    //   me.css('top', $('#rpg-boundary').height()/2);
-    //   me.css('left', $('#rpg-boundary').width()/2);
-    // });
+  }
 
+  function enemyLocationGeneration(numEnemies, areaX, areaY) {
+    for(i = 0; i <= numEnemies; i++) {
+      // var enemy = {};
+      enemyX =  areaX + Math.floor(Math.random() * (monsterBoundary.width() - me.width()/2));
+      enemyY = areaY + Math.floor(Math.random() * (monsterBoundary.height() - me.height()/2));
+      // enemy[i] = {enemyX: enemyX, enemyY: enemyY};
+      Enemies.insert({enemyX: enemyX, enemyY: enemyY});
+    }
   }
 
   //Character Walk Function
@@ -159,17 +194,17 @@ Template.rpgGamePane.rendered = function () {
 
     // Within walking area - Screen (Walking boundaries)
     if((posX < 0 + me.width()/2) ||
-      (posX > $('#rpg-boundary').width() - me.width()/2) ||
+      (posX > boundary.width() - me.width()/2) ||
       (posY < 0 + me.height()/2) ||
-      (posY > $('#rpg-boundary').height() - me.height()/2)){
+      (posY > boundary.height() - me.height()/2)){
 
       return false;
     }
 
     // regular obstacles (square size)
-    for (index in obstacles) {
+    for (var index in obstacles) {
 
-      object = $(obstacles[index]["id"]);
+      object = $(obstacles[index].id);
 
       obj_left = object.position().left + parseInt(object.css("margin-left"));
       obj_top = object.position().top + parseInt(object.css("margin-top"));
@@ -186,5 +221,7 @@ Template.rpgGamePane.rendered = function () {
     return true;
   }
 
+  monsterAreas.forEach(function(area) {
+    enemyLocationGeneration(20, $(area).position().left, $(area).position().top);
+  });
 };
-

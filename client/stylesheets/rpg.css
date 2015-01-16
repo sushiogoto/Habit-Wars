@@ -88,32 +88,34 @@
 .flowers {
   position: absolute;
   background: url('images/flowers.png')repeat 0 0;
-  top: 0%;
-  left: 0%;
   width: 16px;
   height: 14px;
 }
 
 .flowers#f1 {
-  margin: 40px 0 0 400px;
+  top: 40px;
+  left: 400px;
   width: 128px;
   height: 112px;
 }
 
 .flowers#f2 {
-  margin: 40px 0 0 550px;
+  top: 40px;
+  left: 550px;
   width: 128px;
   height: 112px;
 }
 
 .flowers#f3 {
-  margin: 175px 0 0 400px;
+  top: 175px;
+  left: 400px;
   width: 128px;
   height: 112px;
 }
 
 .flowers#f4 {
-  margin: 175px 0 0 550px;
+  top: 0px;
+  left: 100px;
   width: 128px;
   height: 112px;
 }
