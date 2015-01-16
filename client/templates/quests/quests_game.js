@@ -1,10 +1,32 @@
-Template.gamePage.rendered = function() {//Global variables that will be accessed in the functions below.
+Meteor.startup(function () {
+  $(document).on('keydown', function (e) {
+    e.preventDefault();
+    var monsterRadius = 16;
+    var me = $('#character');
+    var monstersWithinRange = _.filter(Enemies.find().fetch(), function(enemy) {
+      if(enemy.enemyX > me.position().left - monsterRadius  && enemy.enemyX < me.position().left + monsterRadius && enemy.enemyY > me.position().top - monsterRadius && enemy.enemyY < me.position().top + monsterRadius) {
+        console.log(enemy);
+        Enemies.remove(enemy);
+        return enemy;
+      }
+
+    });
+
+  });
+});
+
+Template.questGame.rendered = function() {//Global variables that will be accessed in the functions below.
 
   var TimerWalk;      // timer handle for walking
   var charStep = 2;   // current step, 1=1st foot, 2=stand, 3=2nd foot, 4=stand
   var currentKey = false; // records the current key pressed
   var lockUp = false;   // when lock up, character won't be able to move
   var me;         // character object
+  var boundary = $('#game-boundary');
+  // enemy locations client-side only saved
+  Enemies = new Mongo.Collection(null);
+
+
 
   // Settings:
   var walkSpeed = 70;   //ms, animation speed
@@ -116,32 +138,43 @@ Template.gamePage.rendered = function() {//Global variables that will be accesse
     //move the char
     switch(dir) {
 
-      case'front':
-        newX = me.position().left;
-        newY = me.position().top + walkLength ;
-        break;
+        case'front':
+          newX = me.position().left;
+          newY = me.position().top + walkLength ;
+          break;
 
-      case'back':
-        newX = me.position().left;
-        newY = me.position().top - walkLength ;
-        break;
+        case'back':
+          newX = me.position().left;
+          newY = me.position().top - walkLength ;
+          break;
 
-      case'left':
-        newX = me.position().left - walkLength;
-        newY = me.position().top;
-        break;
+        case'left':
+          newX = me.position().left - walkLength;
+          newY = me.position().top;
+          break;
 
-      case'right':
-        newX = me.position().left + walkLength;
-        newY = me.position().top;
-        break;
-    }
+        case'right':
+          newX = me.position().left + walkLength;
+          newY = me.position().top;
+          break;
+      }
 
     // Animate moving character (it will also update your character position)
     if(canIwalk(newX, newY)){
       me.animate({left:newX, top: newY}, walkSpeed/2);
+
     }
 
+  }
+
+  function enemyLocationGeneration(numEnemies) {
+    for(i = 0; i <= numEnemies; i++) {
+      // var enemy = {};
+      enemyX = Math.floor(Math.random() * (boundary.width() - me.width()/2));
+      enemyY = Math.floor(Math.random() * (boundary.height() - me.height()/2));
+      // enemy[i] = {enemyX: enemyX, enemyY: enemyY};
+      Enemies.insert({enemyX: enemyX, enemyY: enemyY});
+    }
   }
 
   //Character Walk Function
@@ -149,9 +182,9 @@ Template.gamePage.rendered = function() {//Global variables that will be accesse
 
     // Within walking area - Screen (Walking boundaries)
     if((posX < 0 + me.width()/2) ||
-      (posX > $(window).width() - me.width()/2) ||
+      (posX > boundary.width() - me.width()/2) ||
       (posY < 0 + me.height()/2) ||
-      (posY > $(window).height() - me.height()/2)){
+      (posY > boundary.height() - me.height()/2)){
 
       return false;
     }
@@ -175,4 +208,5 @@ Template.gamePage.rendered = function() {//Global variables that will be accesse
     // Okay to walk
     return true;
   }
+  enemyLocationGeneration(10);
 };
