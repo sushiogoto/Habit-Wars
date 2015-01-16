@@ -1,0 +1,119 @@
+#character {
+  top: 50%;
+  left: 50%;
+
+  width: 32px;
+  height: 32px;
+
+  position: absolute;
+  margin: -16px 0 0 -16px;
+
+  background: url('/images/male_oscar.png') no-repeat;
+  background-position: -32px 0px;
+  z-index: 50;
+}
+
+#character.front-right { background-position: 0px 0px; }
+#character.front-stand { background-position: -32px 0px; }
+#character.front-left { background-position: -64px 0px; }
+
+#character.left-right { background-position: 0px -32px; }
+#character.left-stand { background-position: -32px -32px; }
+#character.left-left { background-position: -64px -32px; }
+
+#character.right-right { background-position: -64px -64px; }
+#character.right-stand { background-position: -32px -64px; }
+#character.right-left { background-position: -0px -64px; }
+
+#character.back-right { background-position: 0px -96px; }
+#character.back-stand { background-position: -32px -96px; }
+#character.back-left { background-position: -64px -96px; }
+
+#rpg-boundary {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  background: url('/images/bg.png') repeat;
+  margin-bottom: 200px;
+  padding: 0;
+}
+
+.trees {
+  position: absolute;
+  background: url('images/tree1.png') repeat 0 0;
+  top: 0%;
+  left: 0%;
+  width: 32px;
+  height: 48px;
+}
+
+.trees#t1 { margin: 35px 0 0 100px;}
+.trees#t2 { margin: 100px 0 0 300px;}
+.trees#t3 { margin: 300px 0 0 200px;}
+.trees#t4 {
+  margin: 350px 0 0 0px;
+  width: 640px;
+}
+
+.house {
+  position: absolute;
+  z-index: 55;
+  top: 0px;
+  left: 0px;
+}
+
+#house1 {
+  background: url('images/house1.png') no-repeat;
+  width: 200px;
+  height: 140px;
+  margin: 120px 0 0 40px;
+}
+
+.doorHole {
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 47;
+  position: absolute;
+  top: 0px;
+  left: 00px;
+}
+
+#doorHole1 {
+  background: url('images/house1_door.png');
+  width: 40px;
+  height: 70px;
+  margin: 185px 0 0 80px;
+}
+
+
+.flowers {
+  position: absolute;
+  background: url('images/flowers.png')repeat 0 0;
+  top: 0%;
+  left: 0%;
+  width: 16px;
+  height: 14px;
+}
+
+.flowers#f1 {
+  margin: 40px 0 0 400px;
+  width: 128px;
+  height: 112px;
+}
+
+.flowers#f2 {
+  margin: 40px 0 0 550px;
+  width: 128px;
+  height: 112px;
+}
+
+.flowers#f3 {
+  margin: 175px 0 0 400px;
+  width: 128px;
+  height: 112px;
+}
+
+.flowers#f4 {
+  margin: 175px 0 0 550px;
+  width: 128px;
+  height: 112px;
+}
