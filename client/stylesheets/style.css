@@ -310,15 +310,17 @@ div.solo-quest {
   /*background-repeat: no-repeat;*/
   /*background-size: 100% 100%;*/
   /*padding: 20px 0 40px;*/
-  background-color: #B6B6B6;
-  margin: 20px;
+  z-index: 99999;
+  position: relative;
+
 }
 
 div.inner-tile {
   /*background-color: #F2F5F6;*/
   /*border: 1px solid #E2E2E2;*/
+  background-color: #B6B6B6;
+  height: 400px;
   text-align: center;
-  margin-top: 20px;
   padding: 40px;
 }
 

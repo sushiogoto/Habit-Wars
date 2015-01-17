@@ -1,9 +1,66 @@
+Template.rpgGamePane.events({
+  'click .soloQuestAttack': function() {
+    Meteor.call('questAttack', 'solo', function (error, result) {
+      var image = result.gold + ' x <img src="images/coin.png" height="20" width="20">';
+      $('.gold').data("content", result.gold);
+      $('.gold').popover({'placement': 'bottom', content: image, html: true});
+      $('.gold').popover('show');
+      throwAlert(result.damage);
 
+      setTimeout(function(){
+        $('.gold').popover('hide');
+      }, 4000);
+
+
+      // $('.gold').popover('hide');
+
+    });
+  }
+});
 
 Template.rpgGamePane.helpers({
   otherCharacters: function() {
     var allCharacters = _.pluck(Characters.find().fetch(), "_id");
     return _.without(allCharacters, util.currentCharacter()._id);
+  },
+  alertMessage: function(field) {
+    return Session.get('attackAlert')[field];
+  },
+  attackClass: function (field) {
+    return !!Session.get('attackAlert')[field] ? 'has-alert' : '';
+  },
+  modalReward: function() {
+    return Session.get('soloQuestMonsterData');
+  },
+  currentSoloQuest: function() {
+    var soloQuest = util.questForCurrentCharacter('solo');
+    return soloQuest;
+  },
+
+  currentSoloMonster: function() {
+    // throwAlert("poop"); THROW ALERT FOR DAMAGE AND XP AND STUFF YO
+    var quest = util.questForCurrentCharacter('solo');
+    if(quest) {
+      var monster = Monsters.findOne({_id: quest.monsterId});
+      Session.set('soloQuestMonsterData', monster);
+      Session.set('soloQuestRewardShown', false);
+      return monster;
+    } else if (Session.get('soloQuestRewardShown') === false) {
+      $('#myModal').modal({show: true});
+      Session.set('soloQuestRewardShown', true);
+      return null;
+    } else {
+      return null;
+    }
+  },
+
+  currentSoloMonsterHealthPercentage: function(){
+    var monster = util.monsterForCurrentCharacter('solo');
+    return monster ? Math.floor(monster.health / monster.fullHealth * 100) : null;
+  },
+
+  soloQuestTimeRemaining: function() {
+    return Session.get('soloQuestRemainingTimePretty');
   }
 });
 

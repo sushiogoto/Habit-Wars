@@ -1,27 +1,65 @@
 <template name="rpgGamePane">
-  <div id="rpg-boundary" class="col-md-6 col-md-offset-3">
+  <div id="rpg-boundary" class="col-md-8 col-md-offset-3">
+
+    {{#if currentSoloMonster}}
+      <div class="solo-quest">
+        <div class="col-md-6 inner-tile">
+          <h2 class="quest-type-header">Solo Quest</h2>
+
+            <div class="solo-quest-timer-container">
+              <h3 class="reward-title"><strong>Time remaining</strong></h3>
+              <h4 class="reward-amount">{{soloQuestTimeRemaining}}</h4>
+            </div>
+
+            <div class="solo-rewards-container">
+              <h3 class="reward-title">Rewards</h3>
+              <h4 class="reward-amount">+ {{currentSoloMonster.XP}} XP</h4>
+              <h4 class="reward-amount">+ {{currentSoloMonster.gold}} Gold</h4>
+              <h4 class="reward-amount">Random Gear x 1</h4>
+            </div>
+        </div>
+
+        <div class="col-md-6 inner-tile">
+            <div class="solo-enemy-avatar">
+              <img src="http://cdn.wikimg.net/strategywiki/images/1/1c/SMB2_boss_Wart.gif" class="solo-enemy-image" alt="">
+            </div>
+            <h2 class="solo-enemy-health">
+              Enemy Health <span class="pull-right">{{ currentSoloMonster.health }} <span class="specialChar">/</span> {{ currentSoloMonster.fullHealth }} </span>
+            </h2>
+            <div class="progress">
+              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{currentSoloMonster.health}}" aria-valuemin="0" aria-valuemax="{{currentSoloMonster.fullHealth}}" style="width: {{currentSoloMonsterHealthPercentage}}%">
+                <span class="sr-only">{{currentSoloMonsterHealthPercentage}}%</span>
+              </div>
+            </div>
+
+            <button class="soloQuestAttack btn btn-block btn-success">Attack</button>
+        </div>
+
+      </div>
+    {{/if}}
+
     <div id="rpg-view">
       <div id="character"></div>
       {{#each otherCharacters}}
           {{> rpgGameCharacter}}
       {{/each}}
 
+      <div id="t1" class="trees"></div>
+      <div id="t2" class="trees"></div>
+      <div id="t3" class="trees"></div>
+      <div id="t4" class="trees"></div>
+
+      <div class="monster-boundary">
+          <div id="f1" class="flowers"></div>
+          <div id="f2" class="flowers"></div>
+          <div id="f3" class="flowers"></div>
+          <div id="f4" class="flowers"></div>
+      </div>
+
+      <div id="house1" class="house"></div>
+      <div class="doorHole" id="doorHole1"></div>
     </div>
 
-    <div id="t1" class="trees"></div>
-    <div id="t2" class="trees"></div>
-    <div id="t3" class="trees"></div>
-    <div id="t4" class="trees"></div>
-
-    <div class="monster-boundary">
-        <div id="f1" class="flowers"></div>
-        <div id="f2" class="flowers"></div>
-        <div id="f3" class="flowers"></div>
-        <div id="f4" class="flowers"></div>
-    </div>
-
-    <div id="house1" class="house"></div>
-    <div class="doorHole" id="doorHole1"></div>
 
   </div>
 </template>

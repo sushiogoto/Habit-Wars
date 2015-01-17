@@ -24,6 +24,10 @@
   z-index: 50;
 }
 
+#rpg-view {
+  z-index: 20;
+}
+
 .front-right { background-position: 0px 0px !important; }
 .front-stand { background-position: -32px 0px !important; }
 .front-left { background-position: -64px 0px !important; }

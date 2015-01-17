@@ -61,4 +61,44 @@
   </div>
 </div>
 <!-- End of group quest -->
+
+<!-- Solo Quest -->
+<div class="col-md-4 solo-quest">
+  <div class="inner-tile">
+    <h2 class="quest-type-header">Solo Quest</h2>
+
+    {{#if currentSoloMonster}}
+      <div class="solo-quest-timer-container">
+        <h3 class="reward-title"><strong>Time remaining</strong></h3>
+        <h4 class="reward-amount">{{soloQuestTimeRemaining}}</h4>
+      </div>
+
+      <div class="solo-rewards-container">
+        <h3 class="reward-title">Rewards</h3>
+        <h4 class="reward-amount">+ {{currentSoloMonster.XP}} XP</h4>
+        <h4 class="reward-amount">+ {{currentSoloMonster.gold}} Gold</h4>
+        <h4 class="reward-amount">Random Gear x 1</h4>
+      </div>
+
+      <div class="solo-enemy-avatar">
+        <img src="http://cdn.wikimg.net/strategywiki/images/1/1c/SMB2_boss_Wart.gif" class="solo-enemy-image" alt="">
+      </div>
+      <h2 class="solo-enemy-health">
+        Enemy Health <span class="pull-right">{{ currentSoloMonster.health }} <span class="specialChar">/</span> {{ currentSoloMonster.fullHealth }} </span>
+      </h2>
+      <div class="progress">
+        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{currentSoloMonster.health}}" aria-valuemin="0" aria-valuemax="{{currentSoloMonster.fullHealth}}" style="width: {{currentSoloMonsterHealthPercentage}}%">
+          <span class="sr-only">{{currentSoloMonsterHealthPercentage}}%</span>
+        </div>
+      </div>
+
+      <button class="soloQuestAttack btn btn-block btn-success">Attack</button>
+    {{ else }}
+      <h2>You are not on any solo quests</h2>
+      <button class="btn btn-primary easy-quest">Easy</button>
+      <button class="btn btn-primary medium-quest">Medium</button>
+      <button class="btn btn-primary hard-quest">Hard</button>
+    {{/if}}
+  </div>
+</div>
 </template>
