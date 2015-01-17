@@ -24,21 +24,21 @@
   z-index: 50;
 }
 
-#character.front-right { background-position: 0px 0px; }
-#character.front-stand { background-position: -32px 0px; }
-#character.front-left { background-position: -64px 0px; }
+.front-right { background-position: 0px 0px !important; }
+.front-stand { background-position: -32px 0px !important; }
+.front-left { background-position: -64px 0px !important; }
 
-#character.left-right { background-position: 0px -32px; }
-#character.left-stand { background-position: -32px -32px; }
-#character.left-left { background-position: -64px -32px; }
+.left-right { background-position: 0px -32px !important; }
+.left-stand { background-position: -32px -32px !important; }
+.left-left { background-position: -64px -32px !important; }
 
-#character.right-right { background-position: -64px -64px; }
-#character.right-stand { background-position: -32px -64px; }
-#character.right-left { background-position: -0px -64px; }
+.right-right { background-position: -64px -64px !important; }
+.right-stand { background-position: -32px -64px !important; }
+.right-left { background-position: -0px -64px !important; }
 
-#character.back-right { background-position: 0px -96px; }
-#character.back-stand { background-position: -32px -96px; }
-#character.back-left { background-position: -64px -96px; }
+.back-right { background-position: 0px -96px !important; }
+.back-stand { background-position: -32px -96px !important; }
+.back-left { background-position: -64px -96px !important; }
 
 #rpg-boundary {
   position: relative;

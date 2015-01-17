@@ -1,26 +1,4 @@
-Meteor.startup(function () {
-  $(document).on('keydown', function (e) {
-    var character = util.currentCharacter();
-    var characterPosition = Positions.findOne({characterId: character._id});
-    var monsterRadius = 16;
-    var me = $('#character');
-    var monstersWithinRange = _.find(Enemies.find().fetch(), function(enemy) {
-      return enemy.enemyX > me.position().left - monsterRadius  && enemy.enemyX < me.position().left + monsterRadius && enemy.enemyY > me.position().top - monsterRadius && enemy.enemyY < me.position().top + monsterRadius;
-    });
 
-    if(monstersWithinRange && !util.questForCurrentCharacter('solo')) {
-      Enemies.remove(monstersWithinRange);
-      Meteor.call('randomEnemy', function (error, result) {});
-    }
-    Positions.update(characterPosition._id, {$set: {posX: me.position().left, posY: me.position().top}});
-
-    // dumb code
-    // var otherUser = $('#character1');
-    // var otherUserPosition = Positions.findOne({characterId: "JAeRHgFXNrEFPK7Bm"});
-    // otherUser.css({'top': otherUserPosition.posY, 'left': otherUserPosition.posX});
-
-  });
-});
 
 Template.rpgGamePane.helpers({
   otherCharacters: function() {
@@ -101,6 +79,19 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
         }
       }
 
+      var monsterRadius = 16;
+
+      var monstersWithinRange = _.find(Enemies.find().fetch(), function(enemy) {
+        return enemy.enemyX > me.position().left - monsterRadius  && enemy.enemyX < me.position().left + monsterRadius && enemy.enemyY > me.position().top - monsterRadius && enemy.enemyY < me.position().top + monsterRadius;
+      });
+
+      if(monstersWithinRange && !util.questForCurrentCharacter('solo')) {
+        Enemies.remove(monstersWithinRange);
+        Meteor.call('randomEnemy', function (error, result) {});
+      }
+
+      Positions.update(characterPosition._id, {$set: {posX: me.position().left, posY: me.position().top}});
+
     });
 
     //KeyUp Function
@@ -120,6 +111,8 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
         me.stop(true, true);
 
       }
+
+      Positions.update(characterPosition._id, {$set: {posX: me.position().left, posY: me.position().top}});
 
     });
 
@@ -153,18 +146,25 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     //add the new class
     switch(charStep) {
       case 1:
-        me.addClass(dir+'-stand');
+        stepType = dir+'-stand';
+        me.addClass(stepType);
         break;
       case 2:
-        me.addClass(dir+'-right');
+        stepType = dir+'-right';
+        me.addClass(stepType);
         break;
       case 3:
-        me.addClass(dir+'-stand');
+        stepType = dir+'-stand';
+        me.addClass(stepType);
         break;
       case 4:
-        me.addClass(dir+'-left');
+        stepType = dir+'-left';
+        me.addClass(stepType);
         break;
     }
+
+    Positions.update(characterPosition._id, {$set: {stepType: stepType}});
+
 
     //move the char
     switch(dir) {
