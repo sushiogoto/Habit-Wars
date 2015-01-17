@@ -98,6 +98,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     {id:'#t2'},
     {id:'#t3'},
     {id:'#t4'},
+    {id: '.character1'}
 
   ];
 
