@@ -38,6 +38,10 @@ Meteor.publish('notifications', function() {
   return Notifications.find();
 });
 
+Meteor.publish('positions', function() {
+  return Positions.find();
+});
+
 Meteor.publish('userData', function() {
   if(!this.userId) return null;
   return Meteor.users.find(this.userId, {fields: {

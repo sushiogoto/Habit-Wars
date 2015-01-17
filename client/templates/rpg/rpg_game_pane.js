@@ -1,29 +1,53 @@
 Meteor.startup(function () {
   $(document).on('keydown', function (e) {
-    e.preventDefault();
+    var character = util.currentCharacter();
+    var characterPosition = Positions.findOne({characterId: character._id});
     var monsterRadius = 16;
     var me = $('#character');
     var monstersWithinRange = _.find(Enemies.find().fetch(), function(enemy) {
       return enemy.enemyX > me.position().left - monsterRadius  && enemy.enemyX < me.position().left + monsterRadius && enemy.enemyY > me.position().top - monsterRadius && enemy.enemyY < me.position().top + monsterRadius;
     });
 
-    if(monstersWithinRange) {
+    if(monstersWithinRange && !util.questForCurrentCharacter('solo')) {
       Enemies.remove(monstersWithinRange);
       Meteor.call('randomEnemy', function (error, result) {});
     }
+    Positions.update(characterPosition._id, {$set: {posX: me.position().left, posY: me.position().top}});
+
+    // dumb code
+    // var otherUser = $('#character1');
+    // var otherUserPosition = Positions.findOne({characterId: "JAeRHgFXNrEFPK7Bm"});
+    // otherUser.css({'top': otherUserPosition.posY, 'left': otherUserPosition.posX});
 
   });
 });
 
+Template.rpgGamePane.helpers({
+  otherCharacters: function() {
+    var allCharacters = _.pluck(Characters.find().fetch(), "_id");
+    return _.without(allCharacters, util.currentCharacter()._id);
+  }
+});
+
 Template.rpgGamePane.rendered = function() {//Global variables that will be accessed in the functions below.
+
 
   var TimerWalk;      // timer handle for walking
   var charStep = 2;   // current step, 1=1st foot, 2=stand, 3=2nd foot, 4=stand
   var currentKey = false; // records the current key pressed
   var lockUp = false;   // when lock up, character won't be able to move
-  var me;         // character object
+  var me = $('#character');         // character object
   var boundary = $('#rpg-boundary');
   var monsterBoundary = $('.flowers');
+  var character = util.currentCharacter();
+  var characterPosition = Positions.findOne({characterId: character._id});
+  if(!characterPosition) {
+    me.css({'top': 70, 'left': 70});
+    Positions.insert({characterId: character._id, posX: 70, posY: 70});
+  } else {
+    me.css({'top': characterPosition.posY, 'left': characterPosition.posX});
+  }
+  // move positions creation to character creation page
   // enemy locations client-side only saved
   Enemies = new Mongo.Collection(null);
 
@@ -44,9 +68,6 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
 
   monsterAreas = ['#f1', '#f2', '#f3', '#f4'];
 
-  $(document).ready(function() {
-
-    me = $('#character');
     //add character state class
     me.addClass('front-stand');
 
@@ -101,8 +122,6 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
       }
 
     });
-
-  });
 
   //Character Walk Function
   function walk(dir) {
@@ -222,6 +241,6 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
   }
 
   monsterAreas.forEach(function(area) {
-    enemyLocationGeneration(20, $(area).position().left, $(area).position().top);
+    enemyLocationGeneration(1, $(area).position().left, $(area).position().top);
   });
 };

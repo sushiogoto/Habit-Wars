@@ -1,6 +1,13 @@
 <template name="rpgGamePane">
   <div id="rpg-boundary" class="col-md-6 col-md-offset-3">
-    <div id="character"></div>
+    <div id="rpg-view">
+      <div id="character"></div>
+      {{#each otherCharacters}}
+          {{> rpgGameCharacter}}
+      {{/each}}
+
+    </div>
+
     <div id="t1" class="trees"></div>
     <div id="t2" class="trees"></div>
     <div id="t3" class="trees"></div>
