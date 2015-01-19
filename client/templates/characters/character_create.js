@@ -33,6 +33,7 @@ Template.characterCreatePage1.events({
     $('.tiny-circle > li').css({'transform': ''});
 
     Session.set('currentCharacter', 'megaman');
+    Session.set('currentCharacterClass', 'warrior');
     Session.set('currentCharacterAvatar', "http://www.gearfuse.com/wp-content/uploads/2010/06/retro-gaming-3d-3.gif");
     // change this when have time
   },
@@ -41,6 +42,7 @@ Template.characterCreatePage1.events({
     $('.circle').css({'transform': ''});
     $('.tiny-circle > li').css({'transform': ''});
     Session.set('currentCharacter', 'aero');
+    Session.set('currentCharacterClass', 'ranger');
     Session.set('currentCharacterAvatar', "http://ranger.gamebanana.com/img/ico/sprays/zero_run_ekah_render.gif");
   },
   'mouseleave .two': function(event) {
@@ -52,6 +54,7 @@ Template.characterCreatePage1.events({
     $('.circle').css({'transform': ''});
     $('.tiny-circle > li').css({'transform': ''});
     Session.set('currentCharacter', 'mage');
+    Session.set('currentCharacterClass', 'mage');
     Session.set('currentCharacterAvatar', "images/prince_mage.gif");
   },
   'mouseleave .three': function(event) {
@@ -64,9 +67,11 @@ Template.characterCreatePage2.events({
   'submit form': function(event) {
     event.preventDefault();
     var avatarUrl = Session.get('currentCharacterAvatar');
+    var characterClass = Session.get('currentCharacterClass');
     var characterProperties = {
       name: $(event.target).find('[name=characterName]').val(),
       avatarUrl: avatarUrl,
+      characterClass: characterClass,
     };
     var habitProperties = {
       targets: {git_commit_target: $(event.target).find('[name=commitTarget]').val()}

@@ -6,7 +6,6 @@
   position: absolute;
   margin: -16px 0 0 -16px;
 
-  background: url('/images/megaman.png') no-repeat;
   background-position: -32px 0px;
   z-index: 50;
 }
@@ -19,9 +18,20 @@
   position: absolute;
   margin: -16px 0 0 -16px;
 
-  background: url('/images/male_oscar.png') no-repeat;
   background-position: -32px 0px;
   z-index: 50;
+}
+
+.warrior {
+  background: url('/images/megaman_sprite.png') no-repeat;
+}
+
+.ranger {
+  background: url('/images/zero_sprite.png') no-repeat;
+}
+
+.mage {
+  background: url('/images/mage_sprite.png') no-repeat;
 }
 
 #rpg-view {

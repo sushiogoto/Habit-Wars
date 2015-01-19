@@ -27,6 +27,9 @@ Template.rpgGamePane.events({
 });
 
 Template.rpgGamePane.helpers({
+  currentCharacterClass: function() {
+    return "background: url(" + config.characterSprite[util.currentCharacter().characterClass] + ") no-repeat";
+  },
   otherCharacters: function() {
     var group = Groups.findOne({members: util.currentCharacter()._id});
     return _.without(group.members, util.currentCharacter()._id);
@@ -158,13 +161,15 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
   ];
 
   monsterAreas = ['#f1', '#f2', '#f3', '#f4'];
+  boundary.focus();
 
     //add character state class
     me.addClass('front-stand');
 
     //KeyDown Function
     //if there is key down, execute charWalk
-    $(document).keydown(function(e) {
+    boundary.keydown(function(e) {
+      e.preventDefault();
 
       if (!lockUp && (currentKey === false)) {
 
@@ -211,7 +216,8 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     });
 
     //KeyUp Function
-    $(document).keyup(function(e) {
+    boundary.keyup(function(e) {
+      e.preventDefault();
 
       //don't stop the walk if the player is pushing other buttons
       //only stop the walk if the key that started the walk is released

@@ -7,5 +7,9 @@ Template.rpgGameCharacter.helpers({
   stepType: function() {
     var position = Positions.findOne({characterId: this.toString()});
     return position.stepType;
+  },
+  characterClass: function() {
+    var character = Characters.findOne({_id: this.toString()});
+    return character.characterClass;
   }
 });
