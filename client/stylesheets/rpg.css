@@ -7,7 +7,7 @@
   margin: -16px 0 0 -16px;
 
   background-position: -32px 0px;
-  z-index: 50;
+  z-index: 70;
 }
 
 .character1 {
@@ -19,7 +19,7 @@
   margin: -16px 0 0 -16px;
 
   background-position: -32px 0px;
-  z-index: 50;
+  z-index: 70;
 }
 
 .warrior {
@@ -94,21 +94,52 @@
   margin: 120px 0 0 40px;
 }
 
+/* Door Hole */
+
 .doorHole {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 1.0);
   z-index: 47;
   position: absolute;
   top: 0px;
-  left: 00px;
+  left: 0px;
 }
 
 #doorHole1 {
-  background: url('images/house1_door.png');
   width: 40px;
   height: 70px;
   margin: 185px 0 0 80px;
 }
 
+/* Doors */
+
+.door {
+  position: absolute;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+#house1 .door {
+  background: url('/images/house1_door.png') no-repeat;
+  width: 36px;
+  height: 39px;
+  bottom: 2px;
+  left: 41px;
+}
+
+#house1 .door.open {
+  left: 77px;
+  width: 0;
+}
+
+.doorHole {
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 50;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+}
 
 .flowers {
   position: absolute;

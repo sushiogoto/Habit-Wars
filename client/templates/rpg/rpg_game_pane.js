@@ -177,8 +177,11 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
   var walkSpeed = 70;   //ms, animation speed
   var walkLength = 8;   //px, move how much px per "walk"
 
+  houses = [
+    {house_id:'#house1', doorHole_id:'#doorHole1'},
+  ];
+
   obstacles = [
-    {id:'#house1'},
     {id:'#t1'},
     {id:'#t2'},
     {id:'#t3'},
@@ -342,6 +345,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     // Animate moving character (it will also update your character position)
     if(canIwalk(newX, newY)){
       me.animate({left:newX, top: newY}, walkSpeed/2);
+      doorControl(newX, newY);
 
     }
 
@@ -369,6 +373,32 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
       return false;
     }
 
+  // Houses
+
+  // Cannot walk onto EXCEPT door area
+
+    for (var index in houses) {
+
+      house_obj = $(houses[index].house_id);
+      doorHole_obj = $(houses[index].doorHole_id);
+
+      house_left = house_obj.position().left + parseInt(house_obj.css("margin-left"));
+      house_top = house_obj.position().top + parseInt(house_obj.css("margin-top"));
+
+      doorHole_left = doorHole_obj.position().left + parseInt(doorHole_obj.css("margin-left"));
+      doorHole_top = doorHole_obj.top + parseInt(doorHole_obj.css("margin-top"));
+
+      if((((posX > ( house_left - me.width()/4 )) && (posX < ( doorHole_left + me.width()/4 ))) ||
+        ((posX > (doorHole_left + doorHole_obj.width() - me.width()/4)) && (posX < (house_left + house_obj.width() + me.width()/4))) ) &&
+        (posY < (house_top + house_obj.height() + me.height()/4))){
+
+        // Cannot walk here
+        return false;
+
+      }
+
+    }
+
     // regular obstacles (square size)
     for (var index in obstacles) {
 
@@ -387,6 +417,31 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
 
     // Okay to walk
     return true;
+  }
+
+  function doorControl(posX, posY) {
+
+    for (index in houses) {
+
+      doorHole_obj = $(houses[index].doorHole_id);
+
+      doorHole_left = doorHole_obj.position().left + parseInt(doorHole_obj.css("margin-left"));
+      doorHole_top = doorHole_obj.position().top + parseInt(doorHole_obj.css("margin-top"));
+
+      if((posX > (doorHole_left - 3*me.width())) && (posX < (doorHole_left + doorHole_obj.width() + 3*me.width())) &&
+      (posY < (doorHole_top + doorHole_obj.height() + 2*me.height()))){
+
+        $(houses[index].house_id).find(".door").addClass('open');
+
+      }
+      else{
+
+        $(houses[index].house_id).find(".door").removeClass('open');
+
+      }
+
+    }
+
   }
 
   monsterAreas.forEach(function(area) {
