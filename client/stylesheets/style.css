@@ -319,14 +319,24 @@ div.inner-tile {
   /*background-color: #F2F5F6;*/
   /*border: 1px solid #E2E2E2;*/
   background-color: #B6B6B6;
-  height: 400px;
+  height: 500px;
   text-align: center;
-  padding: 40px;
+  padding: 10px;
+}
+
+div.group-quest-timer-container {
+  width: 50%;
+  float: left;
 }
 
 div.group-quest-timer-container,
 div.solo-quest-timer-container {
   padding: 8px 0;
+}
+
+div.group-rewards-container {
+  width: 50%;
+  float: left;
 }
 
 div.group-rewards-container,

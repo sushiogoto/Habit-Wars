@@ -22,7 +22,34 @@ Template.rpgGamePane.events({
   },
   'click .joinGroup': function() {
     Meteor.call('joinGroup', "git_commit_target", function (error, result) {});
-  }
+  },
+  'click .attack': function() {
+    Meteor.call('questAttack', 'group', function (error, result) {});
+  },
+  'click .groupQuestAttack': function() {
+    Meteor.call('questAttack', 'group', function (error, result) {
+      var image = result.gold + ' x <img src="images/coin.png" height="20" width="20">';
+      $('.gold').data({"content": result.gold});
+      $('.gold').popover({'placement': 'bottom', content: image, html: true});
+      $('.gold').popover('show');
+
+      setTimeout(function(){
+        $('.gold').popover('hide');
+      }, 4000);
+    });
+  },
+
+  'click .easy-group-quest-init': function() {
+    Meteor.call('groupQuestVoteInit', 'easy', function (error, result) {});
+  },
+
+  'click .medium-group-quest-init': function() {
+    Meteor.call('groupQuestVoteInit', 'medium', function (error, result) {});
+  },
+
+  'click .hard-group-quest-init': function() {
+    Meteor.call('groupQuestVoteInit', 'hard', function (error, result) {});
+  },
 
 });
 
