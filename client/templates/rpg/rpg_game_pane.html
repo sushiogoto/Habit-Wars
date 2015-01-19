@@ -62,4 +62,67 @@
 
 
   </div>
+
+  <!-- Group Quest -->
+  <div class="col-md-7 group-quest">
+    <div class="inner-tile row">
+      <h2 class="quest-type-header">Group Quest</h2>
+      {{#if userIsInGroup}}
+      <div class="col-md-6">
+        <div class="group-enemy-health">
+          <!-- <span><img src="{{this.avatarUrl}}" class="group-member-thumbnail" alt=""></span> -->
+          <table class="table">
+            <tbody>
+              {{#each currentGroupMembers}}
+                <tr>
+                  <td class="team-mate-container">
+                    <div>
+                      <span>{{ this.name }}</span>
+                      <span class="pull-right">Health: {{ this.current_health  }} <span class="specialChar">/</span> {{ this.computedHealth }} </span>
+                    </div>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        {{> groupChat}}
+      </div>
+
+      <div class="col-md-6">
+        {{#if currentGroupQuest}}
+          <div class="group-quest-timer-container">
+            <h3 class="reward-title"><strong>Time remaining</strong></h3>
+            <h4 class="reward-amount">{{groupQuestTimeRemaining}}</h4>
+          </div>
+          <div class="group-rewards-container">
+            <h3 class="reward-title">Rewards</h3>
+            <h4 class="reward-amount">+ {{currentGroupXPReward}} XP</h4>
+            <h4 class="reward-amount">+ {{currentGroupGoldReward}} Gold</h4>
+            <h4 class="reward-amount">Random Gear x 1</h4>
+          </div>
+          <div class="group-enemy-avatar">
+            <img src="http://media.giphy.com/media/hAv3AZwiHIFUY/giphy.gif" class="group-enemy-image" alt="">
+          </div>
+          <h2 class="group-enemy-health">
+            Enemy Health <span class="pull-right">{{ currentGroupMonsterHealth }} <span class="specialChar">/</span> {{ currentGroupMonsterFullHealth }} </span>
+          </h2>
+          <div class="progress">
+            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{currentGroupMonster.health}}" aria-valuemin="0" aria-valuemax="{{currentGroupMonsterFullHealth}}" style="width: {{currentGroupMonsterHealthPercentage}}%">
+              <span class="sr-only">{{currentGroupMonsterHealthPercentage}}%</span>
+            </div>
+          </div>
+          <button class="groupQuestAttack btn btn-block btn-success">Attack</button>
+        {{else}}
+          <h2>You are not on any group quests</h2>
+          {{> questsVotes}}
+          {{> groupQuests}}
+        {{/if}}
+      </div>
+      {{else}}
+        {{> groupsIndex}}
+      {{/if}}
+    </div>
+  </div>
+  <!-- End of group quest -->
 </template>

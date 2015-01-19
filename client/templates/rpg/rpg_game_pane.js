@@ -15,13 +15,21 @@ Template.rpgGamePane.events({
       // $('.gold').popover('hide');
 
     });
+  },
+
+  'click .createGroup': function() {
+    Meteor.call('createGroup', "git_commit_target", function (error, result) {});
+  },
+  'click .joinGroup': function() {
+    Meteor.call('joinGroup', "git_commit_target", function (error, result) {});
   }
+
 });
 
 Template.rpgGamePane.helpers({
   otherCharacters: function() {
-    var allCharacters = _.pluck(Characters.find().fetch(), "_id");
-    return _.without(allCharacters, util.currentCharacter()._id);
+    var group = Groups.findOne({members: util.currentCharacter()._id});
+    return _.without(group.members, util.currentCharacter()._id);
   },
   alertMessage: function(field) {
     return Session.get('attackAlert')[field];
@@ -61,7 +69,54 @@ Template.rpgGamePane.helpers({
 
   soloQuestTimeRemaining: function() {
     return Session.get('soloQuestRemainingTimePretty');
-  }
+  },
+
+  currentGroupQuest: function() {
+    return util.questForCurrentCharacter('group');
+  },
+
+  userIsInGroup: function() {
+    return !!Groups.findOne({members: util.currentCharacter()._id});
+  },
+
+  currentGroupMembers: function(){
+    var group = Groups.findOne({members: util.currentCharacter()._id});
+    var chars = Characters.find({_id: {$in: group.members}}).fetch();
+    chars.forEach(function(char) {
+      char.current_health = util.getTotalStatsOfEquippedItems(char._id).health + char.current_health;
+      char.computedHealth = util.getTotalStatsOfEquippedItems(char._id).health + char.max_health;
+    });
+    return chars;
+  },
+
+  currentGroupMonster: function(){
+    return util.monsterForCurrentCharacter('group');
+  },
+
+  currentGroupMonsterHealth: function() {
+    return util.sumPropertyOfSubmonsters(util.monsterForCurrentCharacter('group'), 'health');
+  },
+
+  currentGroupMonsterFullHealth: function() {
+    return util.sumPropertyOfSubmonsters(util.monsterForCurrentCharacter('group'), 'fullHealth');
+  },
+
+  currentGroupXPReward: function() {
+    return util.shareOfGroupReward(util.monsterForCurrentCharacter('group'), 'XP');
+  },
+
+  currentGroupGoldReward: function() {
+    return util.shareOfGroupReward(util.monsterForCurrentCharacter('group'), 'gold');
+  },
+
+  currentGroupMonsterHealthPercentage: function() {
+    var monster = util.monsterForCurrentCharacter('group');
+    return Math.floor(util.sumPropertyOfSubmonsters(monster, 'health') / util.sumPropertyOfSubmonsters(monster, 'fullHealth') * 100);
+  },
+
+  groupQuestTimeRemaining: function() {
+    return Session.get('groupQuestRemainingTimePretty');
+  },
 });
 
 Template.rpgGamePane.rendered = function() {//Global variables that will be accessed in the functions below.
@@ -98,10 +153,10 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     {id:'#t2'},
     {id:'#t3'},
     {id:'#t4'},
-    {id: '.character1'}
+    // {id: '.character1'}
 
   ];
-  boundary.focus();
+
   monsterAreas = ['#f1', '#f2', '#f3', '#f4'];
 
     //add character state class
@@ -109,8 +164,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
 
     //KeyDown Function
     //if there is key down, execute charWalk
-    boundary.keydown(function(e) {
-
+    $(document).keydown(function(e) {
 
       if (!lockUp && (currentKey === false)) {
 
@@ -148,12 +202,16 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
         Meteor.call('randomEnemy', function (error, result) {});
       }
 
+      console.log("In keydown");
+      console.log(me.position().top);
+      console.log(me.position().left);
+
       Positions.update(characterPosition._id, {$set: {posX: me.position().left, posY: me.position().top}});
 
     });
 
     //KeyUp Function
-    boundary.keyup(function(e) {
+    $(document).keyup(function(e) {
 
       //don't stop the walk if the player is pushing other buttons
       //only stop the walk if the key that started the walk is released
