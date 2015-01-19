@@ -6,7 +6,7 @@
   position: absolute;
   margin: -16px 0 0 -16px;
 
-  background: url('/images/male_oscar.png') no-repeat;
+  background: url('/images/megaman.png') no-repeat;
   background-position: -32px 0px;
   z-index: 50;
 }
@@ -115,22 +115,22 @@
 }
 
 .flowers#f2 {
-  top: 40px;
-  left: 550px;
-  width: 128px;
-  height: 112px;
-}
-
-.flowers#f3 {
   top: 175px;
   left: 400px;
   width: 128px;
   height: 112px;
 }
 
+.flowers#f3 {
+  top: 175px;
+  left: 700px;
+  width: 128px;
+  height: 112px;
+}
+
 .flowers#f4 {
-  top: 0px;
-  left: 100px;
+  top: 40px;
+  left: 700px;
   width: 128px;
   height: 112px;
 }

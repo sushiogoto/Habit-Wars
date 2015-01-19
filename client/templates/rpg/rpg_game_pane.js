@@ -101,7 +101,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     {id: '.character1'}
 
   ];
-
+  boundary.focus();
   monsterAreas = ['#f1', '#f2', '#f3', '#f4'];
 
     //add character state class
@@ -109,7 +109,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
 
     //KeyDown Function
     //if there is key down, execute charWalk
-    $(document).keydown(function(e) {
+    boundary.keydown(function(e) {
 
 
       if (!lockUp && (currentKey === false)) {
@@ -153,7 +153,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     });
 
     //KeyUp Function
-    $(document).keyup(function(e) {
+    boundary.keyup(function(e) {
 
       //don't stop the walk if the player is pushing other buttons
       //only stop the walk if the key that started the walk is released

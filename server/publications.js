@@ -42,8 +42,9 @@ Meteor.publish('positions', function() {
   return Positions.find();
 });
 
+// double check this, the null return is a bit too hacky
 Meteor.publish('userData', function() {
-  if(!this.userId) return null;
+  if(this.userId === null) return [];
   return Meteor.users.find(this.userId, {fields: {
     services: 1,
   }});
