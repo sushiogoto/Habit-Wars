@@ -187,6 +187,8 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
 
   ];
 
+  walkable = ['#doorHole1'];
+
   monsterAreas = ['#f1', '#f2', '#f3', '#f4'];
   boundary.focus();
 
@@ -373,12 +375,19 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     for (var index in obstacles) {
 
       object = $(obstacles[index].id);
+      walkable = $('#doorHole1');
+      walk_left = walkable.position().left + parseInt(walkable.css("margin-left"));
+      walk_top = walkable.position().top + parseInt(walkable.css("margin-top"));
 
       obj_left = object.position().left + parseInt(object.css("margin-left"));
       obj_top = object.position().top + parseInt(object.css("margin-top"));
 
       if((((posX > ( obj_left - me.width()/2 )) &&  (posX < (obj_left + object.width() + me.width()/2))) ) &&
         (posY > (obj_top - me.height()/2)) && (posY < (obj_top + object.height() + me.height()/2))){
+        if((((posX > ( walk_left - me.width()/2 )) &&  (posX < (walk_left + walkable.width() + me.width()/2))) ) &&
+        (posY > (walk_top - me.height()/2)) && (posY < (walk_top + walkable.height() + me.height()/2))){
+          return true;
+        }
 
         // Cannot walk here
         return false;
