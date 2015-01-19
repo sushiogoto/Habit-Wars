@@ -7,7 +7,7 @@
   margin: -16px 0 0 -16px;
 
   background-position: -32px 0px;
-  z-index: 70;
+  z-index: 53;
 }
 
 .character1 {
@@ -19,7 +19,7 @@
   margin: -16px 0 0 -16px;
 
   background-position: -32px 0px;
-  z-index: 70;
+  z-index: 53;
 }
 
 .warrior {
@@ -98,7 +98,7 @@
 
 .doorHole {
   background: rgba(0, 0, 0, 1.0);
-  z-index: 47;
+  z-index: 50;
   position: absolute;
   top: 0px;
   left: 0px;
