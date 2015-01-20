@@ -70,13 +70,7 @@
                 </tr>
               </thead>
               <tbody>
-                {{#each shopItems}}
-                  <tr>
-                    <td>{{this.name}}</td>
-                    <td>{{this.price}}</td>
-                    <td><button class="buyItem btn btn-primary">Buy</button></td>
-                  </tr>
-                {{/each}}
+                {{> rpgGameShopItem}}
               </tbody>
             </table>
           </div>

@@ -1,0 +1,9 @@
+<template name="rpgGameShopItem">
+  {{#each shopItems}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.price}}</td>
+      <td><button class="buyItem btn btn-primary" id="{{this._id}}" data-itemId="{{this._id}}">Buy</button></td>
+    </tr>
+  {{/each}}
+</template>

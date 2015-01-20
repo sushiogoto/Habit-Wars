@@ -51,10 +51,6 @@ Template.rpgGamePane.events({
     Meteor.call('groupQuestVoteInit', 'hard', function (error, result) {});
   },
 
-  'click .buyItem': function () {
-    Meteor.call('purchaseItem', this._id, function (error, result) {});
-  }
-
 });
 
 Template.rpgGamePane.helpers({
@@ -150,10 +146,6 @@ Template.rpgGamePane.helpers({
 
   groupQuestTimeRemaining: function() {
     return Session.get('groupQuestRemainingTimePretty');
-  },
-
-  shopItems: function () {
-    return Items.find({random: false});
   },
 
 });
@@ -488,6 +480,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
       // debugger;
       // Get the relevant content
       var content = elm.find('.lightbox').html();
+      console.log(content);
 
       // Creates the lightbox
       $('<div id="shop"></div>').appendTo('#rpg-view').fadeIn();
