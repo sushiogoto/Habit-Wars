@@ -59,7 +59,7 @@ Template.rpgGamePane.helpers({
   },
   otherCharacters: function() {
     var group = Groups.findOne({members: util.currentCharacter()._id});
-    return _.without(group.members, util.currentCharacter()._id);
+    return group === undefined ? [] : _.without(group.members, util.currentCharacter()._id);
   },
   alertMessage: function(field) {
     return Session.get('attackAlert')[field];
@@ -237,10 +237,6 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
         Meteor.call('randomEnemy', function (error, result) {});
       }
 
-      console.log("In keydown");
-      console.log(me.position().top);
-      console.log(me.position().left);
-
       Positions.update(characterPosition._id, {$set: {posX: me.position().left, posY: me.position().top}});
 
     });
@@ -388,9 +384,10 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
       doorHole_left = doorHole_obj.position().left + parseInt(doorHole_obj.css("margin-left"));
       doorHole_top = doorHole_obj.top + parseInt(doorHole_obj.css("margin-top"));
 
-      if((((posX > ( house_left - me.width()/4 )) && (posX < ( doorHole_left + me.width()/4 ))) ||
-        ((posX > (doorHole_left + doorHole_obj.width() - me.width()/4)) && (posX < (house_left + house_obj.width() + me.width()/4))) ) &&
-        (posY < (house_top + house_obj.height() + me.height()/4))){
+      if(
+        (( (posX > ( house_left - me.width()/2 )) && (posX < ( doorHole_left + me.width()/2 )) ) ||
+        ((posX > (doorHole_left + doorHole_obj.width() - me.width()/2)) && (posX < (house_left + house_obj.width() + me.width()/2))) ) &&
+        ( posY < (house_top + house_obj.height() + me.height()/2)) && ( posY > (house_top - me.height()/2)) ) {
 
         // Cannot walk here
         return false;
