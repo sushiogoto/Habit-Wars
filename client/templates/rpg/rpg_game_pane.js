@@ -147,6 +147,7 @@ Template.rpgGamePane.helpers({
   groupQuestTimeRemaining: function() {
     return Session.get('groupQuestRemainingTimePretty');
   },
+
 });
 
 Template.rpgGamePane.rendered = function() {//Global variables that will be accessed in the functions below.
@@ -341,6 +342,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     // Animate moving character (it will also update your character position)
     if(canIwalk(newX, newY)){
       me.animate({left:newX, top: newY}, walkSpeed/2);
+      inHouse(newX, newY);
       doorControl(newX, newY);
 
     }
@@ -440,6 +442,33 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     }
 
   }
+
+  function inHouse(posX, posY) {
+
+  // Door Holes
+
+  // If me is steping on Door hole, return true
+
+  for (index in houses) {
+
+    doorHole_obj = $(houses[index].doorHole_id);
+
+    doorHole_left = doorHole_obj.position().left + parseInt(doorHole_obj.css("margin-left"));
+    doorHole_top = doorHole_obj.position().top + parseInt(doorHole_obj.css("margin-top"));
+
+    if((posX > doorHole_left) && (posX < (doorHole_left + doorHole_obj.width())) &&
+    (posY > (doorHole_top)) && (posY < (doorHole_top + doorHole_obj.height() - me.height()))){
+
+      // Inside the house, lock up character
+      lockUp = true;
+      console.log("LOCK");
+
+      return true;
+    }
+  }
+  return false;
+
+}
 
   monsterAreas.forEach(function(area) {
     enemyLocationGeneration(1, $(area).position().left, $(area).position().top);
