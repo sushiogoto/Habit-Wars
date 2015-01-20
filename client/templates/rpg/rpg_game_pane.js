@@ -51,6 +51,10 @@ Template.rpgGamePane.events({
     Meteor.call('groupQuestVoteInit', 'hard', function (error, result) {});
   },
 
+  'click .buyItem': function () {
+    Meteor.call('purchaseItem', this._id, function (error, result) {});
+  }
+
 });
 
 Template.rpgGamePane.helpers({
@@ -146,6 +150,10 @@ Template.rpgGamePane.helpers({
 
   groupQuestTimeRemaining: function() {
     return Session.get('groupQuestRemainingTimePretty');
+  },
+
+  shopItems: function () {
+    return Items.find({random: false});
   },
 
 });
@@ -399,7 +407,7 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
     }
 
     // regular obstacles (square size)
-    for (var index in obstacles) {
+    for (index in obstacles) {
 
       object = $(obstacles[index].id);
 
@@ -444,31 +452,79 @@ Template.rpgGamePane.rendered = function() {//Global variables that will be acce
   }
 
   function inHouse(posX, posY) {
+    // Door Holes
+    // If me is steping on Door hole, return true
 
-  // Door Holes
+    for (index in houses) {
 
-  // If me is steping on Door hole, return true
+      doorHole_obj = $(houses[index].doorHole_id);
 
-  for (index in houses) {
+      doorHole_left = doorHole_obj.position().left + parseInt(doorHole_obj.css("margin-left"));
+      doorHole_top = doorHole_obj.position().top + parseInt(doorHole_obj.css("margin-top"));
 
-    doorHole_obj = $(houses[index].doorHole_id);
+      if((posX > doorHole_left) && (posX < (doorHole_left + doorHole_obj.width())) &&
+      (posY > (doorHole_top)) && (posY < (doorHole_top + doorHole_obj.height() - me.height()))){
 
-    doorHole_left = doorHole_obj.position().left + parseInt(doorHole_obj.css("margin-left"));
-    doorHole_top = doorHole_obj.position().top + parseInt(doorHole_obj.css("margin-top"));
+        // Inside the house, lock up character
+        lockUp = true;
+        console.log("lockUp");
 
-    if((posX > doorHole_left) && (posX < (doorHole_left + doorHole_obj.width())) &&
-    (posY > (doorHole_top)) && (posY < (doorHole_top + doorHole_obj.height() - me.height()))){
+        // Display lightbox
+        lightboxInit($(houses[index].house_id));
 
-      // Inside the house, lock up character
-      lockUp = true;
-      console.log("LOCK");
+        return true;
+      }
+    }
+    return false;
 
-      return true;
+  }
+
+  function lightboxInit(elm) {
+
+    // if content is already displayed, skip it, if not, create it
+
+    if($("#shop").length < 1) {
+      console.log("LIGHTBOX");
+      // debugger;
+      // Get the relevant content
+      var content = elm.find('.lightbox').html();
+
+      // Creates the lightbox
+      $('<div id="shop"></div>').appendTo('#rpg-view').fadeIn();
+      $('<div id="lightbox">' + content + '<span id="closeLB">x</span></div>').insertAfter("#shop").delay(200).fadeIn(500,
+        function(){
+          $("#shop, #closeLB").bind('click', function(){
+            closeLightbox();
+          });
+        }
+      );
     }
   }
-  return false;
 
-}
+  function closeLightbox() {
+    $('#shop,#lightbox').fadeOut(200, function(){
+
+      // remove info content
+      $('#shop, #lightbox').remove();
+
+      // move me out side the house
+      newX = me.position().left;
+      newY = me.position().top + 100;
+
+      if(canIwalk(newX, newY)){
+
+        me.removeAttr('class');
+        me.addClass('front-stand');
+
+        me.animate({top: newY}, 1000,
+          function(){
+            doorControl(newX, newY);
+            setTimeout(function() { lockUp = false;}, 500);
+          });
+
+      }
+    });
+  }
 
   monsterAreas.forEach(function(area) {
     enemyLocationGeneration(1, $(area).position().left, $(area).position().top);

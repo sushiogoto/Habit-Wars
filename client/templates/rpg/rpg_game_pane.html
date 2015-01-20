@@ -42,7 +42,7 @@
     <div id="rpg-view">
       <div id="character" style="{{currentCharacterClass}}"></div>
       {{#each otherCharacters}}
-          {{> rpgGameCharacter}}
+        {{> rpgGameCharacter}}
       {{/each}}
 
       <div id="t1" class="trees"></div>
@@ -59,7 +59,30 @@
 
       <div id="house1" class="house">
         <div class="door"></div>
+        <div class="lightbox">
+          <div class="inner shop">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each shopItems}}
+                  <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.price}}</td>
+                    <td><button class="buyItem btn btn-primary">Buy</button></td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+
       <div id="doorHole1" class="doorHole"></div>
     </div>
 
